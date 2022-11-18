@@ -28,11 +28,11 @@
                   <label class="col-xs-12 col-sm-6 control-label no-padding-right" ng-class="{'has-error':prop.name==''}">
                     <b ng-if="state.mode=='view'">{{prop.name}}</b>
                     <input ng-model="prop.name" placeholder="key" ng-change="refreshProperty(convertedProperties,$index,prop)" class="form-control" ng-if="state.mode=='edit'"/>
-                    <small style="font-weight: normal !important;" class="help-block" ng-show="prop.name==''">Property name is required.</small>
+                    <small style="font-weight: normal !important;" class="help-block" ng-show="prop.name==''">属性名称必填.</small>
                   </label>
                   <div class="col-xs-12 col-sm-5" ng-class="{'has-error':prop.value==''}">
                     <input ng-model="prop.value" placeholder="value" ng-change="refreshProperty(convertedProperties,$index,prop)" class="form-control" ng-if="state.mode=='edit'"/>
-                    <small class="help-block" ng-show="prop.value==''">Property value is required.</small>
+                    <small class="help-block" ng-show="prop.value==''">属性值必填.</small>
                     <span ng-if="state.mode=='view'">{{prop.value}}</span>
                   </div>
                   <div class="col-sm-1" ng-if="state.mode=='edit'">

@@ -34,7 +34,7 @@ KylinApp.controller('BalanceReplicaSetCtrl', function ($scope, $modal, AdminStre
 
   $scope.rebalance = function() {
     AdminStreamingService.reBalance({}, {reBalancePlan: $scope.replicaSets}, function(data) {
-      SweetAlert.swal('Success!', 'Rebalance Success', 'success');
+      SweetAlert.swal('成功!', 'Rebalance Success', 'success');
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;

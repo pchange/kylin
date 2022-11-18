@@ -229,7 +229,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
             }, function(data) {
               scope.listReplicaSet();
               $modalInstance.close();
-              SweetAlert.swal('Success!', 'Node add success', 'success');
+              SweetAlert.swal('成功!', 'Node add success', 'success');
             }, function(e) {
               if (e.data && e.data.exception) {
                 var message = e.data.exception;
@@ -279,7 +279,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
       if(isConfirm){
         AdminStreamingService.removeReplicaSet({replicaSetId: replicaSet.rs_id}, {}, function (result) {
           $scope.listReplicaSet();
-          SweetAlert.swal('Success!', 'Replica set remove success', 'success');
+          SweetAlert.swal('成功!', 'Replica set remove success', 'success');
         }, function(e){
           if (e.data && e.data.exception) {
             var message = e.data.exception;
@@ -306,7 +306,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
     }, function(isConfirm) {
       if(isConfirm){
         AdminStreamingService.removeReceiver({receiverID: receiverID}, {}, function (result) {
-          SweetAlert.swal({title: 'Success!', text:'Receiver remove success'}, function (isConfirm) {
+          SweetAlert.swal({title: '成功!', text:'Receiver remove success'}, function (isConfirm) {
             if (isConfirm) {
               $timeout(function() {}, 2000);
               $scope.listReplicaSet();

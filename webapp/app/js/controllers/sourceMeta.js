@@ -200,10 +200,10 @@ KylinApp
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
+          var msg = !!(message) ? message : '操作失败.';
           SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('提示...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
         loadingRequest.hide();
       })
@@ -253,10 +253,10 @@ KylinApp
           }, function (e) {
             if (e.data && e.data.exception) {
               var message = e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               SweetAlert.swal('提示...', msg, 'error');
             } else {
-              SweetAlert.swal('提示...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
             loadingRequest.hide();
           })
@@ -309,10 +309,10 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "操作失败.", 'error');
           }
           $scope.hiveLoaded = true;
         });
@@ -614,7 +614,7 @@ KylinApp
             $scope.cancel();
           } else {
             var message = request.message;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -625,7 +625,7 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -972,7 +972,7 @@ KylinApp
                   $location.path("/models");
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -983,7 +983,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -1013,7 +1013,7 @@ KylinApp
                   scope.aceSrcTbLoaded(true);
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -1024,7 +1024,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
 
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,

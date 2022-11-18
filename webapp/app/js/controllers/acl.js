@@ -76,10 +76,10 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
         },function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "操作失败.", 'error');
           }
           loadingRequest.hide();
         })
@@ -142,10 +142,10 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
       },function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
+          var msg = !!(message) ? message : '操作失败.';
           SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('提示...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
         loadingRequest.hide();
       })

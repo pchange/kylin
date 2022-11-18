@@ -64,11 +64,12 @@ KylinApp
         $scope.delete = function(project) {
             SweetAlert.swal({
                 title: '',
-                text: 'Are you sure to delete ?',
+                text: '确定删除该项目 ?',
                 type: '',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: "Yes",
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
                 closeOnConfirm: true
             }, function(isConfirm) {
                 if(isConfirm){
@@ -78,14 +79,14 @@ KylinApp
                             $scope.projects.splice(pIndex, 1);
                         }
                         ProjectModel.removeProject(project.name);
-                        MessageBox.successNotify("Project [" + project.name + "] has been deleted successfully!");
+                        MessageBox.successNotify("项目 [" + project.name + "] 已成功删除!");
                     },function(e){
                         if(e.data&& e.data.exception){
                             var message =e.data.exception;
-                            var msg = !!(message) ? message : 'Failed to take action.';
+                            var msg = !!(message) ? message : '操作失败.';
                             SweetAlert.swal('提示...', msg, 'error');
                         }else{
-                            SweetAlert.swal('提示...', "Failed to take action.", 'error');
+                            SweetAlert.swal('提示...', "操作失败.", 'error');
                         }
                     });
                 }
@@ -103,14 +104,14 @@ KylinApp
         $scope.updateOwner = function (project) {
             ProjectService.updateOwner({projecId: project.name}, project.newOwner, function () {
                 project.owner = project.newOwner;
-                MessageBox.successNotify('Owner updated successfully!');
+                MessageBox.successNotify('创建人更新成功!');
             },function(e){
                 if(e.data&& e.data.exception){
                     var message =e.data.exception;
-                    var msg = !!(message) ? message : 'Failed to take action.';
+                    var msg = !!(message) ? message : '操作失败.';
                     SweetAlert.swal('提示...', msg, 'error');
                 } else{
-                    SweetAlert.swal('提示...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "操作失败.", 'error');
                 }
             });
         };

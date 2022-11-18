@@ -96,15 +96,15 @@
                         class="query-content">
                         <td>
                             <div>
-                                <label>SQL Name:</label>&nbsp;&nbsp;&nbsp;<b style="font-size: 14px">{{query.name}}</b>
+                                <label>SQL 名称:</label>&nbsp;&nbsp;&nbsp;<b style="font-size: 14px">{{query.name}}</b>
                                 <!--<span style="color: #808080;line-height: 25px" class="pull-right">Saved At: {{query.createdDate}}</span>-->
                             </div>
                             <div ng-if="query.project">
-                                <label>Project: </label>
+                                <label>项目: </label>
                                 <span style="color: gray">{{query.project}}</span>
                             </div>
                             <div ng-if="query.description">
-                                <label>Description</label>
+                                <label>描述</label>
                                 <blockquote style="font-size: 12px;margin-bottom: 0px;padding: 6px 10px;">
                                     {{query.description}}
                                 </blockquote>
@@ -112,11 +112,11 @@
 
                             <div class="pull-right">
                                 <button class="btn btn-default btn-xs" ng-click="submitQuery(query.sql, query.project)"><i class="fa fa-refresh"></i>
-                                    Resubmit
+                                    重新请求
                                 </button>
                                 <button class="btn btn-default btn-xs" ng-click="removeSavedQuery(query.id)"><i
                                         class="fa fa-times">
-                                    Remove</i>
+                                    删除</i>
                                 </button>
                             </div>
                             <div class="form-group" style="margin: 0px">
@@ -143,7 +143,7 @@
                 </table>
                 <pagination total-items="savedQueries.length" page="savedQueries.curPage"
                     items-per-page="savedQueries.perPage"
-                    max-size="5" class="pull-right" first-text="First" last-text="Last" boundary-links="true" rotate="false"></pagination>
+                    max-size="5" class="pull-right" first-text="第一页" last-text="最后一页" previous-text="上一页" next-text="下一页" boundary-links="true" rotate="false"></pagination>
             </div>
 
             <div ng-show="mainPanel=='cached'">
@@ -154,14 +154,14 @@
                     <tr ng-repeat="query in cachedFilterQueries | reverse track by $index"
                         ng-if="$index >= (cachedFilterQueries.curPage-1)*cachedFilterQueries.perPage && $index < cachedFilterQueries.curPage*cachedFilterQueries.perPage">
                         <td>
-                            <span style="color: #808080;line-height: 25px">Queried At: {{query.savedAt | utcToConfigTimeZone}} </span><span ng-if="query.project">in Project: {{query.project}}</span>
+                            <span style="color: #808080;line-height: 25px">查询时间: {{query.savedAt | utcToConfigTimeZone}} </span><span ng-if="query.project"> 项目: {{query.project}}</span>
 
                             <div class="pull-right">
                                 <button class="btn btn-default btn-xs" ng-click="submitQuery(query.sql, query.project)"><i class="fa fa-refresh"></i>
-                                    Resubmit
+                                    重新请求
                                 </button>
                                 <button class="btn btn-default btn-xs" ng-click="removeQuery()"><i class="fa fa-times">
-                                    Remove</i>
+                                    删除</i>
                                 </button>
                             </div>
                             <div class="form-group" style="margin: 0px">
@@ -187,7 +187,7 @@
                     </tr>
                 </table>
                 <pagination total-items="cachedFilterQueries.length" items-per-page="cachedFilterQueries.perPage" max-size="5"
-                    page="cachedFilterQueries.curPage" class="pull-right" first-text="First" last-text="Last" boundary-links="true" rotate="false"></pagination>
+                    page="cachedFilterQueries.curPage" class="pull-right" first-text="第一页" last-text="最后一页" previous-text="上一页" next-text="下一页" boundary-links="true" rotate="false"></pagination>
             </div>
         </div>
 

@@ -412,7 +412,7 @@ KylinApp
 
             $scope.saveQuery = function (query) {
                 QueryService.save({}, {name: query.name, project: query.project, sql: query.sql, description: query.description}, function () {
-                    SweetAlert.swal('Success!', 'New query saved..', 'success');
+                    SweetAlert.swal('成功!', '新的查询已经保存..', 'success');
                     $modalInstance.dismiss('cancel');
                 });
             }

@@ -462,10 +462,10 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
 
       for(var key in $scope.cubeMetaFrame.override_kylin_properties){
         if(key==''){
-          errors.push("Property name is required.");
+          errors.push("属性名称必填.");
         }
         if($scope.cubeMetaFrame.override_kylin_properties[key] == ''){
-          errors.push("Property value is required.");
+          errors.push("属性值必填.");
         }
       }
 

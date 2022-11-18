@@ -201,7 +201,7 @@ KylinApp.controller('HybridInstanceSchema', function (
     function successHandler(request) {
       if(request.successful === false) {
         var message = request.message;
-        var msg = !!message ? message : 'Failed to take action.';
+        var msg = !!message ? message : '操作失败.';
         var template = hybridInstanceResultTmpl({ text: msg, schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       } else {
@@ -219,11 +219,11 @@ KylinApp.controller('HybridInstanceSchema', function (
     function failedHandler(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to take action.';
+        var msg = !!(message) ? message : '操作失败.';
         var template = hybridInstanceResultTmpl({ text: msg, schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       } else {
-        var template = hybridInstanceResultTmpl({ text: 'Failed to take action.', schema: schema });
+        var template = hybridInstanceResultTmpl({ text: '操作失败.', schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       }
       // hide global loading

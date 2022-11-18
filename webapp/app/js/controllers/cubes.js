@@ -129,10 +129,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "操作失败.", 'error');
           }
         });
       }
@@ -243,10 +243,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               SweetAlert.swal('提示...', msg, 'error');
             }else{
-              SweetAlert.swal('提示...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
           });
         }
@@ -279,10 +279,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               SweetAlert.swal('提示...', msg, 'error');
             }else{
-              SweetAlert.swal('提示...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
           });
         }
@@ -316,10 +316,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               SweetAlert.swal('提示...', msg, 'error');
             }else{
-              SweetAlert.swal('提示...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
           });
         }
@@ -350,10 +350,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             loadingRequest.hide();
             if(e.data&& e.data.exception){
               var message =e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               SweetAlert.swal('提示...', msg, 'error');
             }else{
-              SweetAlert.swal('提示...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
           });
         }
@@ -424,10 +424,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 loadingRequest.hide();
                 if(e.data&& e.data.exception){
                   var message =e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   SweetAlert.swal('提示...', msg, 'error');
                 }else{
-                  SweetAlert.swal('提示...', "Failed to take action.", 'error');
+                  SweetAlert.swal('提示...', "操作失败.", 'error');
                 }
               });
           }
@@ -491,10 +491,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                   loadingRequest.hide();
                   if(e.data&& e.data.exception){
                     var message =e.data.exception;
-                    var msg = !!(message) ? message : 'Failed to take action.';
+                    var msg = !!(message) ? message : '操作失败.';
                     SweetAlert.swal('提示...', msg, 'error');
                   }else{
-                    SweetAlert.swal('提示...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "操作失败.", 'error');
                   }
                 });
             }
@@ -625,7 +625,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.startCube = function(cube) {
       AdminStreamingService.assignCube({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
-          title: 'Success!',
+          title: '成功!',
           text: 'Cube start successful',
           type: 'success',
           confirmButtonText: 'OK',
@@ -648,7 +648,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.pauseCube = function(cube) {
       AdminStreamingService.suspendCubeConsume({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
-          title: 'Success!',
+          title: '成功!',
           text: 'Cube pause successful',
           type: 'success',
           confirmButtonText: 'OK',
@@ -671,7 +671,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.resumeCube = function(cube) {
       AdminStreamingService.resumeCubeConsume({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
-          title: 'Success!',
+          title: '成功!',
           text: 'Cube resume successful',
           type: 'success',
           confirmButtonText: 'OK',
@@ -825,10 +825,10 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           loadingRequest.hide();
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "操作失败.", 'error');
           }
         });
       }
@@ -907,10 +907,10 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           });
           return;
         }
-        var msg = !!(message) ? message : 'Failed to take action.';
+        var msg = !!(message) ? message : '操作失败.';
         SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('提示...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "操作失败.", 'error');
       }
     });
   };
@@ -1148,10 +1148,10 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
       if (e.data && e.data.exception) {
         var message = e.data.exception;
 
-        var msg = !!(message) ? message : 'Failed to take action.';
+        var msg = !!(message) ? message : '操作失败.';
         SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('提示...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "操作失败.", 'error');
       }
     });
   };

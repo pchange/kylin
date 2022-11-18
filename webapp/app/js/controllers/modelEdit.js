@@ -167,7 +167,7 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
                         } else {
                                $scope.saveModelRollBack();
                                 var message =request.message;
-                                var msg = !!(message) ? message : 'Failed to take action.';
+                                var msg = !!(message) ? message : '操作失败.';
                                 MessageService.sendMsg($scope.modelResultTmpl({'text':msg,'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         }
                         //end loading
@@ -177,11 +177,11 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
 
                         if(e.data&& e.data.exception){
                             var message =e.data.exception;
-                            var msg = !!(message) ? message : 'Failed to take action.';
+                            var msg = !!(message) ? message : '操作失败.';
                             $log.log($scope.modelResultTmpl({'text':msg,'schema':$scope.state.modelSchema}));
                             MessageService.sendMsg($scope.modelResultTmpl({'text':msg,'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         } else {
-                            MessageService.sendMsg($scope.modelResultTmpl({'text':'Failed to take action.','schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
+                            MessageService.sendMsg($scope.modelResultTmpl({'text':'操作失败.','schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         }
                         loadingRequest.hide();
                     });
@@ -199,7 +199,7 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
                         } else {
                             $scope.saveModelRollBack();
                             var message =request.message;
-                            var msg = !!(message) ? message : 'Failed to take action.';
+                            var msg = !!(message) ? message : '操作失败.';
                             MessageService.sendMsg($scope.modelResultTmpl({'text':msg,'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         }
 
@@ -210,10 +210,10 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
 
                         if (e.data && e.data.exception) {
                             var message =e.data.exception;
-                            var msg = !!(message) ? message : 'Failed to take action.';
+                            var msg = !!(message) ? message : '操作失败.';
                             MessageService.sendMsg($scope.modelResultTmpl({'text':msg,'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         } else {
-                            MessageService.sendMsg($scope.modelResultTmpl({'text':"Failed to take action.",'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
+                            MessageService.sendMsg($scope.modelResultTmpl({'text':"操作失败.",'schema':$scope.state.modelSchema}), 'error', {}, true, 'top_center');
                         }
                         //end loading
                         loadingRequest.hide();

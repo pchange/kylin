@@ -23,7 +23,7 @@ KylinApp.service('MessageBox', function (SweetAlert, MessageService) {
 
   this.successAlert = function(message, callback) {
     SweetAlert.swal({
-      title: "Success!",
+      title: "成功!",
       text: message,
       confirmButtonClass: 'btn-primary',
       type: "success"

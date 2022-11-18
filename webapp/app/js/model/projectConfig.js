@@ -18,11 +18,11 @@
 
 KylinApp.constant('projectConfig', {
   theaditems: [
-    {attr: 'name', name: 'Name'},
-    {attr: 'owner', name: 'Owner'},
-    {attr: 'description', name: 'Description'},
+    {attr: 'name', name: '名称'},
+    {attr: 'owner', name: '创建人'},
+    {attr: 'description', name: '描述'},
     {attr: 'realizations.length', name: 'Cubes'},
-    {attr: 'create_time_utc', name: 'Create Time'}
+    {attr: 'create_time_utc', name: '创建时间'}
   ]
 
 });
