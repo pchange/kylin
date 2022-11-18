@@ -25,7 +25,7 @@ KylinApp.controller('HybridInstanceSchema', function (
 
   // check for empty project of header, break the operation.
   if (!$scope.isEdit && ProjectModel.selectedProject === null) {
-    SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+    SweetAlert.swal('提示...', '请先选择项目.', 'warning');
     $location.path("/models");
     return;
   }

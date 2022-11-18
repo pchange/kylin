@@ -118,7 +118,7 @@ KylinApp.service('kylinConfig', function (AdminService, $log) {
       // 1. apache kylin version info
       Config.documents.push({
         name: 'aboutKylin',
-        displayName: 'About Kylin'
+        displayName: '关于麒麟'
       });
     } catch (e) {
       $log.error("failed to load kylin web info");

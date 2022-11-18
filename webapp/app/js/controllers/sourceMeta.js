@@ -63,7 +63,7 @@ KylinApp
 //         will load table when enter this page,null or not
       $scope.aceSrcTbLoaded();
     }, function (resp) {
-      SweetAlert.swal('Oops...', resp, 'error');
+      SweetAlert.swal('提示...', resp, 'error');
     });
 
 
@@ -84,7 +84,7 @@ KylinApp
 
     $scope.openModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "Please select a project.", 'info');
         return;
       }
       $modal.open({
@@ -138,7 +138,7 @@ KylinApp
 
     $scope.openTreeModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "Please select a project.", 'info');
         return;
       }
 
@@ -201,9 +201,9 @@ KylinApp
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
         loadingRequest.hide();
       })
@@ -254,9 +254,9 @@ KylinApp
             if (e.data && e.data.exception) {
               var message = e.data.exception;
               var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              SweetAlert.swal('提示...', msg, 'error');
             } else {
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "Failed to take action.", 'error');
             }
             loadingRequest.hide();
           })
@@ -310,9 +310,9 @@ KylinApp
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
           $scope.hiveLoaded = true;
         });
@@ -546,7 +546,7 @@ KylinApp
     //streaming model
     $scope.openStreamingSourceModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "Please select a project.", 'info');
         return;
       }
       $modal.open({
@@ -1052,7 +1052,7 @@ KylinApp
     //streaming resource onboard v2
     $scope.openStreamingSourceModalV2 = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "Please select a project.", 'info');
         return;
       }
       $modal.open({
@@ -1161,9 +1161,9 @@ KylinApp
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to get template.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to get template.", 'error');
+            SweetAlert.swal('提示...', "Failed to get template.", 'error');
           }
         });
       };

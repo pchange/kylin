@@ -26,9 +26,9 @@ KylinApp.controller('BalanceReplicaSetCtrl', function ($scope, $modal, AdminStre
     if (e.data && e.data.exception) {
       var message = e.data.exception;
       var msg = !!(message) ? message : 'Failed get balance plan';
-      SweetAlert.swal('Oops...', msg, 'error');
+      SweetAlert.swal('提示...', msg, 'error');
     } else {
-      SweetAlert.swal('Oops...', 'Failed get balance plan', 'error');
+      SweetAlert.swal('提示...', 'Failed get balance plan', 'error');
     }
   });
 
@@ -39,9 +39,9 @@ KylinApp.controller('BalanceReplicaSetCtrl', function ($scope, $modal, AdminStre
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to rebalance';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed to rebalance', 'error');
+        SweetAlert.swal('提示...', 'Failed to rebalance', 'error');
       }
     });
   };

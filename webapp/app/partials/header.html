@@ -37,21 +37,21 @@
                     data-placeholder="select a project"
                     class="chosen-select">
               <option ng-if="userService.hasRole('ROLE_ADMIN')" ng-selected="projectModel.selectedProject==null"
-                      value=""> -- Choose Project --
+                      value=""> -- 选择项目 --
               </option>
             </select>
           </li>
           <li class="{{activeTab=='query'?'purple':'green'}}" ng-if="userService.isAuthorized()">
-            <a href="query">Insight</a>
+            <a href="query">处理数据</a>
           </li>
           <li class="{{activeTab=='models'?'purple':'green'}}" ng-if="userService.isAuthorized()">
-            <a href="models">Model</a>
+            <a href="models">数据</a>
           </li>
           <li class="{{activeTab=='jobs'?'purple':'green'}}" ng-if="userService.isAuthorized()">
-            <a href="jobs">Monitor</a>
+            <a href="jobs">监控</a>
           </li>
           <li class="{{activeTab=='admin'?'purple':'green'}}" ng-if="userService.hasRole('ROLE_ADMIN')">
-            <a href="admin">System</a>
+            <a href="admin">系统设置</a>
           </li>
           <li class="{{activeTab=='dashboard'?'purple':'green'}}" ng-if="userService.isAuthorized() && isShowDashboard">
             <a href="dashboard">Dashboard</a>
@@ -59,7 +59,7 @@
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <li class="dropdown light-blue" ng-if="config.documents.length > 0">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> Help <i
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-book"></i> 帮助 <i
               class="ace-icon fa fa-caret-down"></i></a>
             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close">
               <li ng-repeat="document in config.documents" >
@@ -68,16 +68,16 @@
               </li>
             </ul>
           </li>
-          <li class="purple" ng-if="!userService.isAuthorized()"><a href="login">Login</a></li>
+          <li class="purple" ng-if="!userService.isAuthorized()"><a href="login">登录</a></li>
           <li class="dropdown light-blue" ng-if="userService.isAuthorized()">
             <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <span class="user-info"><small>Welcome,</small> {{userService.getCurUser().userDetails.username}}</span>
+              <span class="user-info"><small>欢迎,</small> {{userService.getCurUser().userDetails.username}}</span>
               <i class="ace-icon fa fa-caret-down"></i>
             </a>
             <ul class="user-menu dropdown-menu-right dropdown-menu dropdown-yellow dropdown-caret dropdown-close"
                 role="menu">
-              <li><a href="user/profile"><i class="ace-icon fa fa-user"></i> Profile</a></li>
-              <li><a ng-click="logout()"><i class="ace-icon fa fa-power-off"></i> Logout</a></li>
+              <li><a href="user/profile"><i class="ace-icon fa fa-user"></i> 个人资料</a></li>
+              <li><a ng-click="logout()"><i class="ace-icon fa fa-power-off"></i> 退出登录</a></li>
             </ul>
           </li>
         </ul>

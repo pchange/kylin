@@ -19,7 +19,7 @@
 <div class="container" style="padding-top: 80px">
   <div class="col-md-5">
     <div>
-      <h3>Server Config <button class="btn btn-xs btn-success" ng-click="getConfig()"><i class="fa fa-refresh"></i></button></h3>
+      <h3>系统设置 <button class="btn btn-xs btn-success" ng-click="getConfig()"><i class="fa fa-refresh"></i></button></h3>
     </div>
     <div style="padding-top: 10px">
       <pre>{{configStr}}</pre>
@@ -28,7 +28,7 @@
 
   <div class="col-md-5">
     <div>
-      <h3>Server Environment <button class="btn btn-xs btn-success" ng-click="getEnv()"><i class="fa fa-refresh"></i></button></h3>
+      <h3>系统变量 <button class="btn btn-xs btn-success" ng-click="getEnv()"><i class="fa fa-refresh"></i></button></h3>
     </div>
     <div style="padding-top: 10px">
       <pre>{{envStr}}</pre>
@@ -37,10 +37,10 @@
 
   <div class="col-md-2">
     <div>
-      <h3>Actions</h3>
+      <h3>操作</h3>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a  class="btn btn-primary btn-lg btn-block" tooltip="Reload all metadata and clear cache" ng-click="reloadMeta()">Reload Metadata</a>
+      <a  class="btn btn-primary btn-lg btn-block" tooltip="Reload all metadata and clear cache" ng-click="reloadMeta()">重载元数据</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
       <a ng-click="calCardinality();" tooltip="Calculate cardinality of tables" class="btn btn-primary btn-lg btn-block">Calculate Cardinality</a>
@@ -52,16 +52,16 @@
       <a ng-click="openSparderUrl();" tooltip="Click to visit Sparder URL." class="btn btn-primary btn-lg btn-block"><i class="fa fa-server"></i>Sparder</a>
     </div>
     <div style="padding-top: 10px;width: 260px;" ng-if="isCacheEnabled()">
-      <a class="btn btn-primary btn-lg btn-block" ng-click="disableCache()">Disable Cache</a>
+      <a class="btn btn-primary btn-lg btn-block" ng-click="disableCache()">关闭缓存</a>
     </div>
     <div style="padding-top: 10px;width: 260px;" ng-if="!isCacheEnabled()">
-      <a  class="btn btn-primary btn-lg btn-block" tooltip="Enable Query Cache" ng-click="enableCache()">Enable Cache</a>
+      <a  class="btn btn-primary btn-lg btn-block" tooltip="启用查询缓存" ng-click="enableCache()">开启缓存</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a class="btn btn-primary btn-lg btn-block" tooltip="Update Server Config"  class="btn btn-primary btn-lg"  ng-click="toSetConfig()">Set Config</a>
+      <a class="btn btn-primary btn-lg btn-block" tooltip="更新系统设置"  class="btn btn-primary btn-lg"  ng-click="toSetConfig()">保存设置</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a class="btn btn-primary btn-lg btn-block" tooltip="Reload Server Config"  class="btn btn-primary btn-lg"  ng-click="reloadConfig()">Reload Config</a>
+      <a class="btn btn-primary btn-lg btn-block" tooltip="重载系统设置"  class="btn btn-primary btn-lg"  ng-click="reloadConfig()">重载设置</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
       <a ng-click="downloadBadQueryFiles();" tooltip="Download Diagnosis Info For Current Project" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ambulance"></i> Diagnosis</a>

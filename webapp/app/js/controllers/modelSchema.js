@@ -219,7 +219,7 @@ KylinApp.controller('ModelSchemaCtrl', function ($scope, QueryService, UserServi
       errorInfo += "\n" + item;
     });
     if (errors.length) {
-      SweetAlert.swal('Oops...', errorInfo, 'warning');
+      SweetAlert.swal('提示...', errorInfo, 'warning');
       return false;
     } else {
       return true;

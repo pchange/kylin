@@ -284,9 +284,9 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
       });
     }
@@ -305,9 +305,9 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
       });
     }

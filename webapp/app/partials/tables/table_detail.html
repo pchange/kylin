@@ -171,7 +171,7 @@
             <div ng-if="(tableModel.selectedSrcTable.columns | filter: columnName).length == 0" no-result
                  text="No Matched Table Column."></div>
             <div ng-if="!!!tableModel.selectedSrcTable.uuid">
-              <div no-result text="No Table Selected."></div>
+              <div no-result text="未选择数据表."></div>
             </div>
           </div>
         </div>
@@ -204,7 +204,7 @@
             <div ng-if="!tableModel.selectedSrcTable.sample_rows || tableModel.selectedSrcTable.sample_rows.length == 0" no-result
                  text="The table hasn't been sampled yet. Statistical information (cardinality, sample data, etc.) gathered by sampling could help design the model."></div>
             <div ng-if="!!!tableModel.selectedSrcTable.uuid">
-              <div no-result text="No Table Selected."></div>
+              <div no-result text="未选择数据表."></div>
             </div>
           </div>
         </div>
@@ -354,7 +354,7 @@
       <div class="box-body">
         <div class="callout callout-danger">
           <p class="text-danger">
-            Please select your project first
+            请先选择项目
           </p>
         </div>
       </div>
@@ -368,10 +368,10 @@
       <div class="box-header with-border">
         <i class="fa fa-bullhorn"></i>
 
-        <h3 class="box-title">No table selected</h3>
+        <h3 class="box-title">未选择数据表</h3>
       </div>
       <div class="box-body">
-        Select your table
+        请选择数据表
       </div>
       <!-- /.box-body -->
     </div>

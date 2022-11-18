@@ -79,7 +79,7 @@ KylinApp.controller('HybridInstanceCtrl', function (
   $scope.editHybridInstance = function(hybridInstance){
     // check for empty project of header, break the operation.
     if (ProjectModel.selectedProject === null) {
-      SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+      SweetAlert.swal('提示...', '请先选择项目.', 'warning');
       $location.path("/models");
       return;
     }
@@ -91,7 +91,7 @@ KylinApp.controller('HybridInstanceCtrl', function (
 
     // check for empty project of header, break the operation.
     if (ProjectModel.selectedProject === null) {
-      SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+      SweetAlert.swal('提示...', '请先选择项目.', 'warning');
       $location.path("/models");
       return;
     }
@@ -122,9 +122,9 @@ KylinApp.controller('HybridInstanceCtrl', function (
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }

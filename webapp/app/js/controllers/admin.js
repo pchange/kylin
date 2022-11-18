@@ -40,15 +40,15 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.getEnv = function () {
     AdminService.env({}, function (env) {
       $scope.envStr = env.env;
-      MessageBox.successNotify('Server environment get successfully', "server-env");
+      MessageBox.successNotify('获取系统变量成功', "server-env");
 //            SweetAlert.swal('Success!', 'Server environment get successfully', 'success');
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "Failed to take action.", 'error');
       }
     });
   }
@@ -56,14 +56,14 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.getConfig = function () {
     AdminService.config({}, function (config) {
       $scope.configStr = config.config;
-      MessageBox.successNotify('Server config get successfully', "server-config");
+      MessageBox.successNotify('获取系统设置成功', "server-config");
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "Failed to take action.", 'error');
       }
     });
   }
@@ -86,9 +86,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -115,9 +115,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -162,9 +162,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -189,9 +189,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -218,9 +218,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -264,9 +264,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
       });
     }
@@ -289,9 +289,9 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
       });
     }
@@ -312,15 +312,15 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
       if (urlString.url != "") {
         $window.open(urlString.url);
       } else {
-        SweetAlert.swal('Oops...', 'There is no sparder tracking url.', 'warning');
+        SweetAlert.swal('提示...', 'There is no sparder tracking url.', 'warning');
       }
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "Failed to take action.", 'error');
       }
     });
   }

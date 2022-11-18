@@ -43,7 +43,7 @@ KylinApp
           $scope.activeJobNodes = state.data.activeJobNodes;
         } else {
           var msg = !!(state.msg) ? state.msg : 'Failed to load instances.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         }
       });
     }

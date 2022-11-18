@@ -37,9 +37,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             if(e.data&& e.data.exception){
                 var message =e.data.exception;
                 var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
             }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "Failed to take action.", 'error');
             }
         });
     };
@@ -81,9 +81,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             if(e.data&& e.data.exception){
                 var message =e.data.exception;
                 var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
             }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "Failed to take action.", 'error');
             }
         });
     };
@@ -100,9 +100,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
         if(e.data&& e.data.exception){
           var message =e.data.exception;
           var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          SweetAlert.swal('提示...', msg, 'error');
         }else{
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "Failed to take action.", 'error');
         }
       });
     };
@@ -126,9 +126,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 if(e.data&& e.data.exception){
                     var message =e.data.exception;
                     var msg = !!(message) ? message : 'Failed to take action.';
-                    SweetAlert.swal('Oops...', msg, 'error');
+                    SweetAlert.swal('提示...', msg, 'error');
                 }else{
-                    SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "Failed to take action.", 'error');
                 }
             });
         }
@@ -150,7 +150,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                     $scope.currentData = [];
                 }
             }, function(e) {
-                SweetAlert.swal('Oops...', 'Failed to get current cuboid.', 'error');
+                SweetAlert.swal('提示...', 'Failed to get current cuboid.', 'error');
                 console.error('current cuboid error', e.data);
             });
         } else {
@@ -187,7 +187,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 }
             }, function(e) {
                 loadingRequest.hide();
-                SweetAlert.swal('Oops...', 'Failed to get recommend Cuboid; Check whether you have enabled System Cube.', 'error');
+                SweetAlert.swal('提示...', 'Failed to get recommend Cuboid; Check whether you have enabled System Cube.', 'error');
                 console.error('recommend cuboid error', e.data);
             });
         } else {
@@ -226,9 +226,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                     }, function(e) {
                         loadingRequest.hide();
                         if (e.status === 400) {
-                            SweetAlert.swal('Oops...', e.data.exception, 'error');
+                            SweetAlert.swal('提示...', e.data.exception, 'error');
                         } else {
-                            SweetAlert.swal('Oops...', "Failed to create optimize cube job.", 'error');
+                            SweetAlert.swal('提示...', "Failed to create optimize cube job.", 'error');
                             console.error('optimize cube error', e.data);
                         }
                 });

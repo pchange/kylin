@@ -107,7 +107,7 @@ KylinApp
             },function(resp){
               $scope.state.loading = false;
               defer.resolve([]);
-              SweetAlert.swal('Oops...', resp, 'error');
+              SweetAlert.swal('提示...', resp, 'error');
               return defer.promise;
             });
         };
@@ -130,7 +130,7 @@ KylinApp
             return defer.promise;
           },function(resp){
             defer.resolve([]);
-            SweetAlert.swal('Oops...', resp, 'error');
+            SweetAlert.swal('提示...', resp, 'error');
             return defer.promise;
           });
         };
@@ -184,9 +184,9 @@ KylinApp
                   if (e.data && e.data.exception) {
                     var message = e.data.exception;
                     var msg = !!(message) ? message : 'Failed to take action.';
-                    SweetAlert.swal('Oops...', msg, 'error');
+                    SweetAlert.swal('提示...', msg, 'error');
                   } else {
-                    SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "Failed to take action.", 'error');
                   }
                 });
               }
@@ -231,9 +231,9 @@ KylinApp
                     if(e.data&& e.data.exception){
                         var message =e.data.exception;
                         var msg = !!(message) ? message : 'Failed to take action.';
-                        SweetAlert.swal('Oops...', msg, 'error');
+                        SweetAlert.swal('提示...', msg, 'error');
                     }else{
-                        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                        SweetAlert.swal('提示...', "Failed to take action.", 'error');
                     }
                 });
               }
@@ -277,9 +277,9 @@ KylinApp
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
                 var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "Failed to take action.", 'error');
               }
             });
           }
@@ -314,9 +314,9 @@ KylinApp
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
                 var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "Failed to take action.", 'error');
               }
             });
           }
@@ -343,9 +343,9 @@ KylinApp
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
                 var msg = !!(message) ? message : 'Failed to re-submit the job.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to re-submit the job.", 'error');
+                SweetAlert.swal('提示...', "Failed to re-submit the job.", 'error');
               }
             });
           }
@@ -374,7 +374,7 @@ KylinApp
                             tjob.steps[stepId].loadingOp = false;
                         }
                     },function(e){
-                      SweetAlert.swal('Oops...',"Failed to load job info, please check system log for details.", 'error');
+                      SweetAlert.swal('提示...',"Failed to load job info, please check system log for details.", 'error');
                     });
                 } else {
                     internalOpenModal();

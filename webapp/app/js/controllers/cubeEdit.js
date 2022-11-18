@@ -29,7 +29,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
   $scope.cubeMode = absUrl.indexOf("/cubes/add") != -1 ? 'addNewCube' : absUrl.indexOf("/cubes/edit") != -1 ? 'editExistCube' : 'default';
 
   if ($scope.cubeMode == "addNewCube" &&ProjectModel.selectedProject==null) {
-    SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+    SweetAlert.swal('提示', '请先选择项目.', 'warning');
     $location.path("/models");
     return;
   }
@@ -248,16 +248,16 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
         $scope.state.cubeInstance =angular.toJson($scope.instance,true);
 
       } else {
-        SweetAlert.swal('Oops...', "No cube detail info loaded.", 'error');
+        SweetAlert.swal('提示...', "No cube detail info loaded.", 'error');
       }
 
     },function(e){
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "Failed to take action.", 'error');
       }
     });
 
@@ -312,7 +312,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
     try {
       angular.fromJson($scope.state.cubeSchema);
     } catch (e) {
-      SweetAlert.swal('Oops...', 'Invalid cube json format..', 'error');
+      SweetAlert.swal('提示...', 'Invalid cube json format..', 'error');
       return;
     }
 

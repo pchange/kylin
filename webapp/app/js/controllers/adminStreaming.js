@@ -85,9 +85,9 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed get replica set';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed get replica set', 'error');
+        SweetAlert.swal('提示...', 'Failed get replica set', 'error');
       }
       callback && callback();
     });
@@ -192,9 +192,9 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : errMsg;
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', errMsg, 'error');
+            SweetAlert.swal('提示...', errMsg, 'error');
           }
         };
       },
@@ -234,14 +234,14 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
               if (e.data && e.data.exception) {
                 var message = e.data.exception;
                 var msg = !!(message) ? message : 'Failed to add node';
-                SweetAlert.swal('Oops...', msg, 'error');
+                SweetAlert.swal('提示...', msg, 'error');
               } else {
-                SweetAlert.swal('Oops...', 'Failed to add node', 'error');
+                SweetAlert.swal('提示...', 'Failed to add node', 'error');
               }
               scope.listReplicaSet();
             });
           } else {
-            SweetAlert.swal('Oops...', "Please select node", 'info');
+            SweetAlert.swal('提示...', "Please select node", 'info');
           }
         };
 
@@ -284,9 +284,9 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to remove replica set';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', 'Failed to remove replica set', 'error');
+            SweetAlert.swal('提示...', 'Failed to remove replica set', 'error');
           }
           $scope.listReplicaSet();
         });
@@ -316,9 +316,9 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to remove receiver';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', 'Failed to remove receiver', 'error');
+            SweetAlert.swal('提示...', 'Failed to remove receiver', 'error');
           }
         });
       }
@@ -343,9 +343,9 @@ KylinApp.controller('StreamingReceiverCtrl', function($scope, $routeParams, $mod
       if (e.data && e.data.exception) {
         var message = e.data.exception;
         var msg = !!(message) ? message : 'Failed to get receiver stats';
-        SweetAlert.swal('Oops...', msg, 'error');
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed to get receiver stats', 'error');
+        SweetAlert.swal('提示...', 'Failed to get receiver stats', 'error');
       }
     });
   }

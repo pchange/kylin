@@ -49,6 +49,7 @@
     "grunt-contrib-uglify": "^1.0.0",
     "grunt-contrib-yuidoc": "^1.0.0",
     "grunt-karma": "^4.0.2",
+    "karma": "^6.4.1",
     "phantomjs-prebuilt": "^2.1.16"
   }
 }

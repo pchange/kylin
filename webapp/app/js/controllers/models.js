@@ -117,9 +117,9 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }
@@ -171,7 +171,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
     var defer = $q.defer();
     var queryParam = {modelName: model.name};
     if (!$scope.projectModel.isSelectedProjectValid() || !$scope.projectModel.projects.length) {
-      SweetAlert.swal('Oops...', "Please select target project.", 'info');
+      SweetAlert.swal('提示...', "Please select target project.", 'info');
       defer.resolve([]);
       return defer.promise;
     }
@@ -191,7 +191,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
     }, function(resp) {
       $scope.loading = false;
       defer.resolve([]);
-      SweetAlert.swal('Oops...', resp, 'error');
+      SweetAlert.swal('提示...', resp, 'error');
       return defer.promise;
     });
   }
@@ -286,7 +286,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
   $scope.cloneModel = function(){
 
     if(!$scope.targetObj.targetProject){
-      SweetAlert.swal('Oops...', "Please select target project.", 'info');
+      SweetAlert.swal('提示...', "Please select target project.", 'info');
       return;
     }
 
@@ -316,9 +316,9 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "Failed to take action.", 'error');
           }
         });
       }

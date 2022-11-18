@@ -20,8 +20,8 @@
     <!--Project-->
     <form class="navbar-form navbar-left" style="margin-top: 0px !important;" ng-if="userService.isAuthorized()">
         <div class="form-group" >
-            <a class="btn btn-xs btn-info" href="projects" tooltip="Manage Project"><i class="fa fa-gears"></i></a>
-          <a class="btn btn-xs btn-primary" ng-if="userService.hasRole('ROLE_ADMIN')" style="width: 29px" tooltip="Add Project" ng-click="toCreateProj()">
+            <a class="btn btn-xs btn-info" href="projects" tooltip="管理项目"><i class="fa fa-gears"></i></a>
+          <a class="btn btn-xs btn-primary" ng-if="userService.hasRole('ROLE_ADMIN')" style="width: 29px" tooltip="新增项目" ng-click="toCreateProj()">
                 <i class="fa fa-plus"></i>
             </a>
         </div>
@@ -35,13 +35,13 @@
         <div class="nav-tabs-custom">
             <ul class="nav nav-tabs">
                 <li class="{{mainPanel=='query'?'active':''}}">
-                    <a ng-click="mainPanel='query'" style="cursor: pointer">New Query</a>
+                    <a ng-click="mainPanel='query'" style="cursor: pointer">新建查询</a>
                 </li>
                 <li class="{{mainPanel=='saved'?'active':''}}">
-                    <a ng-click="mainPanel='saved';listSavedQueries()" style="cursor: pointer">Saved Queries</a>
+                    <a ng-click="mainPanel='saved';listSavedQueries()" style="cursor: pointer">已保存查询</a>
                 </li>
                 <li class="{{mainPanel=='cached'?'active':''}}">
-                    <a ng-click="mainPanel='cached';listCachedQueries()" style="cursor: pointer">Query History</a>
+                    <a ng-click="mainPanel='cached';listCachedQueries()" style="cursor: pointer">查询历史</a>
                 </li>
             </ul>
 
@@ -59,25 +59,25 @@
                     </section>
 
                     <p class="blue">
-                        Tips: Ctrl+Shift+Space or Alt+Space(Windows), Command+Option+Space(Mac) to list keywords in query box.
+                        提示: Ctrl+Shift+Space or Alt+Space(Windows), Command+Option+Space(Mac) 来展示查询框的关键字.
                     </p>
                     <div class="pull-left">
                         <h4>
-                            Project: <span class="label label-info">{{projectModel.getSelectedProject()}}</span>
+                            项目: <span class="label label-info">{{projectModel.getSelectedProject()}}</span>
                             &nbsp&nbsp Cube:
                             <select chosen ng-model="specifyCube"
                                     ng-options="cube for cube in cubeItems"
                                     style="display: inline-flex; width: 250px"
                                     data-placeholder="Filter ..."
                                     class="chosen-select">
-                              <option value=""> -- Choose Cube -- </option>
+                              <option value=""> -- 选择Cube -- </option>
                             </select>
                             <i class="fa fa-info-circle" title="Specify cube to query"  kylinpopover template="specifyCubeTip.html" placement="right"></i>
                         </h4>
                     </div>
                     <div class="pull-right">
                         <input type="checkbox" ng-model="hasLimit" ng-change="changeLimit()">
-                        <label>LIMIT</label>
+                        <label>限制(行)</label>
                         <input type="text" style="width:100px;" class="inline form-control" ng-model="rowsPerPage" ng-pattern="/^\d+$/" ng-blur="checkLimit()" ng-disabled="!hasLimit" />
                         <button class="btn btn-sm btn-primary" ng-click="submitQuery()" ng-disabled="query_panel.$invalid">
                             Submit
@@ -195,7 +195,7 @@
         <div class="hr hr24 hr-dotted"></div>
 
         <h3 class="kylin_title">
-            Results
+            查询结果
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs" style="font-size: 13px;padding: 5px 0px 5px 0px"
                     ng-if="queries.length > 0">
@@ -230,7 +230,7 @@
         </h3>
 
         <div ng-if="!curQuery">
-            <div no-result text="No Query Result."></div>
+            <div no-result text="无查询结果."></div>
         </div>
 
         <div ng-include="'partials/query/query_detail.html'"></div>

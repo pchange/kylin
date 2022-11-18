@@ -49,9 +49,9 @@ KylinApp
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : 'Failed to load query.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to load query.", 'error');
+            SweetAlert.swal('提示...', "Failed to load query.", 'error');
           }
         });
       }

@@ -30,7 +30,7 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
     $scope.modelMode = absUrl.indexOf("/models/add")!=-1?'addNewModel':absUrl.indexOf("/models/edit")!=-1?'editExistModel':'default';
 
     if($scope.modelMode=="addNewModel"&&ProjectModel.selectedProject==null){
-        SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+        SweetAlert.swal('提示...', '请先选择项目.', 'warning');
         $location.path("/models");
     }
 
@@ -137,7 +137,7 @@ KylinApp.controller('ModelEditCtrl', function ($scope, $q, $routeParams, $locati
         try {
             angular.fromJson($scope.state.modelSchema);
         } catch (e) {
-            SweetAlert.swal('Oops...', 'Invalid model json format..', 'error');
+            SweetAlert.swal('提示...', 'Invalid model json format..', 'error');
             return;
         }
 

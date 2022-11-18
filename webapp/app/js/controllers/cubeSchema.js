@@ -319,7 +319,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
       var cubeName = $scope.cubeMetaFrame.name;
       CubeService.checkDuplicateCubeName({cubeId: cubeName}, {}, function (res) {
         if (!res.data) {
-          SweetAlert.swal('Oops...', "The cube named [" + cubeName.toUpperCase() + "] already exists", 'warning');
+          SweetAlert.swal('提示...', "The cube named [" + cubeName.toUpperCase() + "] already exists", 'warning');
         }
         return defer.resolve(res.data);
       })

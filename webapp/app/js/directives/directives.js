@@ -114,7 +114,7 @@ KylinApp.directive('kylinPagination', function ($parse, $q) {
       scope: {},
       templateUrl: 'partials/directives/noResult.html',
       link: function (scope, element, attrs) {
-        scope.text = (!!!attrs.text) ? 'No Result.' : attrs.text;
+        scope.text = (!!!attrs.text) ? '无数据.' : attrs.text;
       }
     };
   }).directive('showonhoverparent',
