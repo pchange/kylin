@@ -80,7 +80,7 @@
                         <label>限制(行)</label>
                         <input type="text" style="width:100px;" class="inline form-control" ng-model="rowsPerPage" ng-pattern="/^\d+$/" ng-blur="checkLimit()" ng-disabled="!hasLimit" />
                         <button class="btn btn-sm btn-primary" ng-click="submitQuery()" ng-disabled="query_panel.$invalid">
-                            Submit
+                            提交
                         </button>
                     </div>
                 </form>
@@ -88,7 +88,7 @@
 
             <div ng-show="mainPanel=='saved'">
                 <div ng-if="savedQueries.length==0">
-                    <div no-result text="No Saved Query."></div>
+                    <div no-result text="无已保存查询"></div>
                 </div>
                 <table class="table table-hover table-striped list">
                     <tr ng-repeat="query in savedQueries | reverse track by $index"
@@ -148,7 +148,7 @@
 
             <div ng-show="mainPanel=='cached'">
                 <div ng-if="cachedFilterQueries.length==0">
-                    <div no-result text="No Query History."></div>
+                    <div no-result text="无查询历史"></div>
                 </div>
                 <table class="table table-hover table-striped list">
                     <tr ng-repeat="query in cachedFilterQueries | reverse track by $index"

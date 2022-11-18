@@ -21,6 +21,10 @@
 KylinApp.controller('LoginCtrl', function ($scope, $rootScope, $location, $base64, $window, $log, AuthenticationService, UserService, ProjectService, ProjectModel, kylinConfig) {
   $scope.username = null;
   $scope.password = null;
+
+  $scope.username = "ADMIN";
+  $scope.password = "KYLIN";
+
   $scope.loading = false;
 
   $scope.authn = null;
@@ -93,6 +97,10 @@ KylinApp.controller('LoginCtrl', function ($scope, $rootScope, $location, $base6
         : "System error, please contact your administrator.";
     });
   };
+
+  setTimeout(() => {
+    $scope.login();
+  }, 100);
 
   AuthenticationService.ping(function () {
     $location.path(UserService.getHomePage());
