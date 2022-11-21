@@ -30,8 +30,8 @@
               <div class="form-group">
                 <div class="row middle-popover">
                   <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                    <b>Auto Merge Thresholds</b>
-                    <i class="fa fa-info-circle" kylinpopover title="Auto Merge Thresholds" template="autoMergeThresholdsTip.html" placement="right"></i>
+                    <b>自动合并阈值</b>
+                    <i class="fa fa-info-circle" kylinpopover title="自动合并阈值" template="autoMergeThresholdsTip.html" placement="right"></i>
                   </label>
 
                   <div class="col-xs-12 col-sm-6">
@@ -74,7 +74,7 @@
                       </table>
                       <button class="btn btn-xs btn-info" ng-show="state.mode=='edit'"
                               ng-click="addNewMergeTimeRange()">
-                        New Thresholds <i class="fa fa-plus"></i>
+                        新建阈值 <i class="fa fa-plus"></i>
                       </button>
                     </div>
                     <div class="row" ng-if="state.mode=='view'">
@@ -101,7 +101,7 @@
               <div class="form-group">
                 <div class="row middle-popover">
                   <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                    <b>Volatile Range</b> <i class="fa fa-info-circle" title="Volatile Range" kylinpopover template="volatileRangeTip.html" placement="right"></i>
+                    <b>波动范围</b> <i class="fa fa-info-circle" title="波动范围" kylinpopover template="volatileRangeTip.html" placement="right"></i>
                   </label>
 
                   <div class="col-xs-12 col-sm-6">
@@ -122,7 +122,7 @@
               <div class="form-group">
                 <div class="row middle-popover">
                   <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                    <b>Retention Threshold</b> <i class="fa fa-info-circle" title="Retention Threshold" kylinpopover template="retentionTip.html" placement="right"></i>
+                    <b>保持阈值</b> <i class="fa fa-info-circle" title="保持阈值" kylinpopover template="retentionTip.html" placement="right"></i>
                   </label>
 
                   <div class="col-xs-12 col-sm-6">
@@ -140,7 +140,7 @@
             <td>
               <div class="form-group">
                 <div class="row">
-                  <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>Partition Start Date</b></label>
+                  <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>分区开始日期</b></label>
 
                   <div class="col-xs-12 col-sm-6"
                        ng-class="metaModel.model.partition_desc.partition_date_column!=null&& cubeMetaFrame.partition_date_start==null?'has-error':''">
@@ -162,7 +162,7 @@
 
                     <small class="help-block"
                            ng-show="metaModel.model.partition_desc.partition_date_column!=null&& cubeMetaFrame.partition_date_start==null">
-                      Please input start date when partition date column is defined in model.
+                      当模型中定义了分区日期列时，请输入开始日期.
                     </small>
                     <!--view model will convert use filter-->
                     <span ng-if="state.mode=='view' && metaModel.model.partition_desc.partition_date_column">{{(cubeMetaFrame.partition_date_start)|reverseToGMT0 }}</span>
@@ -180,13 +180,13 @@
 </div>
 
 <script type="text/ng-template" id="autoMergeThresholdsTip.html">
-    <p>The thresholds will be checked to see if any consecutive segments' time range has reached a threshold. For example the [7 days, 30 days] will result in daily incremental segments being merged every 7 days, and five 7-days segments will get merged as they exceed 30 days.</p>
+    <p>将检查阈值以查看是否有任何连续片段的时间范围已经达到阈值。例如，[7天，30天]将导致每7天合并一次每日增量段，五个7天段将在超过30天时合并.</p>
 </script>
 
 <script type="text/ng-template" id="volatileRangeTip.html">
-  <p>By default it is '0', which will auto merge all possible cube segments, or 'Auto Merge' will not merge latest [Volatile Range] days cube segments.</p>
+  <p>默认情况下，它为“0”，这将自动合并所有可能的cube段，或者“自动合并”将不合并最近[可变范围]天的cube段.</p>
 </script>
 
 <script type="text/ng-template" id="retentionTip.html">
-<p>By default it is '0', which will keep all segments, or will keep latest [Retention Threshold] days cube segments.</p>
+<p>默认情况下，该值为“0”，这将保留所有段，或者将保留最近[保留阈值]天的cube段.</p>
 </script>

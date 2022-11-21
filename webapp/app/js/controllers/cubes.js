@@ -237,7 +237,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
               }
             });
-            MessageBox.successNotify('Enable job was submitted successfully');
+            MessageBox.successNotify('启用任务已成功提交');
           },function(e){
 
             loadingRequest.hide();
@@ -274,7 +274,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
              }
             });
-            MessageBox.successNotify('Purge job was submitted successfully');
+            MessageBox.successNotify('清除任务已成功提交');
           },function(e){
             loadingRequest.hide();
             if(e.data&& e.data.exception){
@@ -293,11 +293,12 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to disable the cube? ',
+        text: '您确定要禁用该cube吗? ',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -310,7 +311,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
               }
             });
-            MessageBox.successNotify('Disable job was submitted successfully');
+            MessageBox.successNotify('禁用任务已成功提交');
           },function(e){
 
             loadingRequest.hide();
@@ -418,7 +419,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 buildType:'BUILD'
               }, function (job) {
                 loadingRequest.hide();
-                MessageBox.successNotify('Rebuild job was submitted successfully');
+                MessageBox.successNotify('重建任务已成功提交');
               },function(e){
 
                 loadingRequest.hide();
@@ -464,11 +465,12 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
         else {
           SweetAlert.swal({
             title: '',
-            text: "Are you sure to start the build ?",
+            text: "您确定要开始构建吗?",
             type: '',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes",
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
             closeOnConfirm: true
           }, function(isConfirm) {
             if(isConfirm){
@@ -485,7 +487,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
                 }, function (job) {
 
                   loadingRequest.hide();
-                  MessageBox.successNotify('Rebuild job was submitted successfully');
+                  MessageBox.successNotify('重建任务已成功提交');
                 },function(e){
 
                   loadingRequest.hide();
@@ -867,7 +869,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
     CubeService.rebuildCube({cubeId: cube.name}, $scope.jobBuildRequest, function (job) {
       loadingRequest.hide();
       $modalInstance.dismiss('cancel');
-      MessageBox.successNotify('Rebuild job was submitted successfully');
+      MessageBox.successNotify('重建任务已成功提交');
       scope.refreshCube(cube).then(function(_cube){
           $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
         });
@@ -1139,7 +1141,7 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
     CubeService.lookupRefresh({cubeId: cube.name}, lookupSnapshotBuildRequest, function (job) {
       loadingRequest.hide();
       $modalInstance.dismiss('cancel');
-      MessageBox.successNotify('Lookup refresh job was submitted successfully');
+      MessageBox.successNotify('查找刷新任务已成功提交');
       scope.refreshCube(cube).then(function(_cube){
           $scope.cubeList.cubes[$scope.cubeList.cubes.indexOf(cube)] = _cube;
         });

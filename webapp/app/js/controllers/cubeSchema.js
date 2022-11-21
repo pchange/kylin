@@ -26,13 +26,13 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
     $scope.newMeasure = null;
     $scope.forms={};
     $scope.wizardSteps = [
-        {title: 'Cube Info', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
-        {title: 'Dimensions', src: 'partials/cubeDesigner/dimensions.html', isComplete: false,form:'cube_dimension_form'},
-        {title: 'Measures', src: 'partials/cubeDesigner/measures.html', isComplete: false,form:'cube_measure_form'},
-        {title: 'Refresh Setting', src: 'partials/cubeDesigner/refresh_settings.html', isComplete: false,form:'refresh_setting_form'},
-        {title: 'Advanced Setting', src: 'partials/cubeDesigner/advanced_settings.html', isComplete: false,form:'cube_setting_form'},
-        {title: 'Configuration Overwrites ', src: 'partials/cubeDesigner/cubeOverwriteProp.html', isComplete: false,form:'cube_overwrite_prop_form'},
-        {title: 'Overview', src: 'partials/cubeDesigner/overview.html', isComplete: false,form:null}
+        {title: 'Cube信息', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
+        {title: '规模', src: 'partials/cubeDesigner/dimensions.html', isComplete: false,form:'cube_dimension_form'},
+        {title: 'Measure', src: 'partials/cubeDesigner/measures.html', isComplete: false,form:'cube_measure_form'},
+        {title: '刷新设置', src: 'partials/cubeDesigner/refresh_settings.html', isComplete: false,form:'refresh_setting_form'},
+        {title: '高级设置', src: 'partials/cubeDesigner/advanced_settings.html', isComplete: false,form:'cube_setting_form'},
+        {title: '配置覆盖', src: 'partials/cubeDesigner/cubeOverwriteProp.html', isComplete: false,form:'cube_overwrite_prop_form'},
+        {title: '概况', src: 'partials/cubeDesigner/overview.html', isComplete: false,form:null}
     ];
 
     $scope.curStep = $scope.wizardSteps[0];

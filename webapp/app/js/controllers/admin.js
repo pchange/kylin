@@ -174,11 +174,12 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.disableCache = function () {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to disable query cache?',
+      text: '您确定要禁用查询缓存吗？',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
       closeOnConfirm: true
     }, function (isConfirm) {
       if (isConfirm) {

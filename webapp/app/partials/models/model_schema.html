@@ -45,11 +45,11 @@
                     <div class="col-xs-4 pull-right">
                         <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='Model Info'">
                             <i class="ace-icon fa fa-arrow-left"></i>
-                            Prev
+                            上一步
                         </button>
                         <button id="nextButton" class="btn btn-success btn-next" ng-disabled="forms[curStep.form].$invalid" ng-click="checkForm($index)?nextView():''"
                                 ng-show="curStep.title!='Settings'">
-                            Next
+                            下一步
                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                         </button>
                         <button class="btn btn-primary"  ng-click="prepareModel();saveModel()"

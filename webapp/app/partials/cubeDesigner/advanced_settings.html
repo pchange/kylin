@@ -20,11 +20,11 @@
     <ng-form name="forms.cube_setting_form">
       <div>
         <div class="form-group">
-          <h3 style="margin-left:42px;">Aggregation Groups </h3>
+          <h3 style="margin-left:42px;">聚合组 </h3>
           <div style="margin-left:22px;">
             <div class="box-body">
               <div class="col-xs-12">
-                Visit <a href="http://kylin.apache.org/blog/2016/02/18/new-aggregation-group" target="_blank">aggregation group</a> for more about aggregation group.
+                Visit <a href="http://kylin.apache.org/blog/2016/02/18/new-aggregation-group" target="_blank">聚合组</a> 了解有关聚合组的更多信息.
               </div>
             </div>
           </div>
@@ -34,10 +34,10 @@
             <tr class="row">
               <th class="col-xs-1">ID</th>
               <th class="col-xs-3">
-                <span>Aggregation Groups</span>
+                <span>聚合组</span>
                 <span style="margin-left:42px">
                   <i kylinpopover placement="left" title="Max Dimension Combination" template="dimCapTip.html" class="fa fa-info-circle"></i>
-                  Max Dimension Combination:
+                  最大维度组合:
                   <input onInput="this.value=this.value.replace(/[^0-9]/g, '')" type="text" ng-model="dim_cap" ng-change="changeDimCap(dim_cap)" ng-disabled="state.mode !== 'edit'" style="margin-left:5px; width:20px;">
                 </span>
               </th>
@@ -54,7 +54,7 @@
                 <table class="table">
                   <tr class="row">
                     <td class="col-xs-3" style="min-width:130px;">
-                      Includes
+                      包含
                     </td>
                     <td class="col-xs-8">
                       <!-- Dimensions -->
@@ -79,7 +79,7 @@
                   </tr>
                   <tr class="row">
                     <td class="col-xs-3">
-                      Mandatory Dimensions
+                      必要维度
                     </td>
                     <td class="col-xs-8">
                       <ui-select
@@ -88,7 +88,7 @@
                         on-select="refreshAggregationGroup(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group)"
                         on-remove="refreshAggregationGroup(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group)"
                         ng-if="state.mode=='edit'" style="width: 100%" multiple ng-model="aggregation_group.select_rule.mandatory_dims">
-                        <ui-select-match placeholder="Select Column...">{{$item}}</ui-select-match>
+                        <ui-select-match placeholder="选择 Column...">{{$item}}</ui-select-match>
                         <ui-select-choices
                           repeat="column in aggregation_group.includes | filter:$select.search">
                           {{column}}
@@ -103,7 +103,7 @@
                   </tr>
                   <tr class="row">
                     <td class="col-xs-3">
-                      Hierarchy Dimensions
+                      层次维度
                     </td>
                     <td class="col-xs-9">
                       <table class="table">
@@ -115,7 +115,7 @@
                               on-select="refreshAggregationHierarchy(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group,$index,hierarchyDims)"
                               on-remove="refreshAggregationHierarchy(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group,$index,hierarchyDims)"
                               ng-if="state.mode=='edit'" style="width: 100%" multiple ng-model="hierarchyDims">
-                              <ui-select-match placeholder="Select Column...">{{$item}}</ui-select-match>
+                              <ui-select-match placeholder="选择 Column...">{{$item}}</ui-select-match>
                               <ui-select-choices
                                 repeat="column in aggregation_group.includes | filter:$select.search">
                                 {{column}}
@@ -143,7 +143,7 @@
                   </tr>
                   <tr class="row">
                     <td class="col-xs-3">
-                      Joint Dimensions
+                      联合维度
                     </td>
                     <td class="col-xs-9">
                       <table class="table">
@@ -156,7 +156,7 @@
                               on-select="refreshAggregationJoint(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group,$index,jointDims)"
                               on-remove="refreshAggregationJoint(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group,$index,jointDims)"
                               ng-if="state.mode=='edit'" style="width: 100%" multiple ng-model="jointDims">
-                              <ui-select-match placeholder="Select Column...">{{$item}}</ui-select-match>
+                              <ui-select-match placeholder="选择 Column...">{{$item}}</ui-select-match>
                               <ui-select-choices
                                 repeat="column in aggregation_group.includes | filter:$select.search">
                                 {{column}}
@@ -193,13 +193,13 @@
             </tr>
           </table>
           <button class="btn btn-sm btn-info" style="margin-left:42px" ng-click="addNewAggregationGroup()"  ng-disabled="instance.status=='READY'"
-                  ng-show="state.mode=='edit'">New Aggregation Group<i class="fa fa-plus"></i>
+                  ng-show="state.mode=='edit'">新建聚合组<i class="fa fa-plus"></i>
           </button>
         </div>
         <div class="form-group large-popover" >
           <h3 style="margin-left:42px">Rowkeys  <i kylinpopover placement="right" title="Rowkey" template="rowkeyTip.html" class="fa fa-info-circle"></i></h3>
           <div style="padding: 0 42px; word-break: normal;">
-            <b>Important: </b>Dimension's position(Rowkey) has impact on query performance. You can drag and drop to adjust the sequence. In short, put filtering dimension before non-filtering dimension, and put high cardinality dimension before low cardinality dimension.
+            <b>重要: </b>维度的位置(行键)对查询性能有影响。您可以通过拖放来调整顺序。简而言之，将过滤维度放在非过滤维度之前，将高基数维度放在低基数维度之前.
           </div>
           <div style="margin-left:42px">
               <div class="box-body">
@@ -351,15 +351,15 @@
         </div>
         <!--Cube Engine-->
         <div class="form-group large-popover" style="margin-bottom:30px;">
-          <h3 style="margin-left:42px;margin-bottom:30px;">Cube Engine  <i kylinpopover placement="right" title="Cube Engine" template="CubeEngineTip.html" class="fa fa-info-circle"></i></h3>
+          <h3 style="margin-left:42px;margin-bottom:30px;">Cube 引擎  <i kylinpopover placement="right" title="Cube Engine" template="CubeEngineTip.html" class="fa fa-info-circle"></i></h3>
           <div class="row" style="margin-left:42px">
-            <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>Engine Type :</b></label>
+            <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>引擎类型 :</b></label>
             <div class="col-xs-12 col-sm-6">
               <select style="width: 100%" chosen
                       ng-model="cubeMetaFrame.engine_type"
                       ng-if="state.mode=='edit'"
                       ng-options="et.value as et.name for et in cubeConfig.engineType | filter: isAvailableEngine">
-                <option value="">--Select Engine Type--</option>
+                <option value="">--选择引擎类型--</option>
               </select>
               <span ng-if="state.mode=='view'&&cubeMetaFrame.engine_type==2">MapReduce</span>
               <span ng-if="state.mode=='view'&&cubeMetaFrame.engine_type==4">Spark</span>
@@ -742,7 +742,7 @@
 <script type="text/ng-template" id="CubeEngineTip.html" >
   <div>
     <h4>
-       Select cube engine for building cube. In Kylin 4.X, Spark is the only build engine.
+       选择用于构建多维数据集的多维数据集引擎。在麒麟4.x，Spark是唯一的构建引擎.
     </h4>
   </div>
 </script>

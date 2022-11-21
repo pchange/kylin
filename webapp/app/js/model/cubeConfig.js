@@ -80,14 +80,14 @@ KylinApp.constant('cubeConfig', {
     intEncodingOptions: [1,2,3,4,5,6,7,8],
 //    cubes config
   theaditems: [
-    {attr: 'name', name: 'Name'},
-    {attr: 'status', name: 'Status'},
-    {attr: 'project', name: 'Project'},
+    {attr: 'name', name: '名称'},
+    {attr: 'status', name: '状态'},
+    {attr: 'project', name: '项目'},
     {attr: 'size_kb', name: 'Cube Size'},
-    {attr: 'input_records_count', name: 'Source Records'},
-    {attr: 'last_build_time', name: 'Last Build Time'},
-    {attr: 'owner', name: 'Owner'},
-    {attr: 'create_time_utc', name: 'Create Time'}
+    {attr: 'input_records_count', name: '源记录'},
+    {attr: 'last_build_time', name: '最后构建时间'},
+    {attr: 'owner', name: '创建人'},
+    {attr: 'create_time_utc', name: '创建时间'}
   ],
   streamingAutoGenerateMeasure:[
     {name:"year_start",type:"date"},
@@ -121,8 +121,8 @@ KylinApp.constant('cubeConfig', {
   ],
   statusNeedNofity:['ERROR', 'DISCARDED', 'SUCCEED'],
   buildDictionaries:[
-    {name:"Global Dictionary", value:"org.apache.kylin.dict.GlobalDictionaryBuilder"},
-    {name:"Segment Dictionary", value:"org.apache.kylin.dict.global.SegmentAppendTrieDictBuilder"}
+    {name:"全局词典", value:"org.apache.kylin.dict.GlobalDictionaryBuilder"},
+    {name:"分段词典", value:"org.apache.kylin.dict.global.SegmentAppendTrieDictBuilder"}
   ],
   needSetLengthEncodingList:['fixed_length','fixed_length_hex','int','integer'],
   snapshotStorageTypes: [
@@ -139,17 +139,17 @@ KylinApp.constant('cubeConfig', {
         contentGenerator: function(obj) {
           var preCalculatedStr = '';
           if (typeof obj.data.existed !== 'undefined' && obj.data.existed !== null) {
-            preCalculatedStr = '<tr><td align="right"><b>Existed:</b></td><td>' + obj.data.existed + '</td></tr>';
+            preCalculatedStr = '<tr><td align="right"><b>存在:</b></td><td>' + obj.data.existed + '</td></tr>';
           }
           var rowCountRateStr = '';
           if (obj.data.row_count) {
-            rowCountRateStr = '<tr><td align="right"><b>Row Count:</b></td><td>' + obj.data.row_count + '</td></tr><tr><td align="right"><b>Rollup Rate:</b></td><td>' + (obj.data.row_count * 100 / obj.data.parent_row_count).toFixed(2) + '%</td></tr>';
+            rowCountRateStr = '<tr><td align="right"><b>行数:</b></td><td>' + obj.data.row_count + '</td></tr><tr><td align="right"><b>Rollup Rate:</b></td><td>' + (obj.data.row_count * 100 / obj.data.parent_row_count).toFixed(2) + '%</td></tr>';
           }
           return '<table><tbody>'
-          + '<tr><td align="right"><i class="fa fa-square" style="color: ' + obj.color + '; margin-right: 15px;" aria-hidden="true"></i><b>Name:</b></td><td class="key"><b>' + obj.data.name +'</b></td></tr>'
+          + '<tr><td align="right"><i class="fa fa-square" style="color: ' + obj.color + '; margin-right: 15px;" aria-hidden="true"></i><b>名称:</b></td><td class="key"><b>' + obj.data.name +'</b></td></tr>'
           + '<tr><td align="right"><b>ID:</b></td><td>' + obj.data.cuboid_id + '</td></tr>'
-          + '<tr><td align="right"><b>Query Count:</b></td><td>' + obj.data.query_count + '  [' + (obj.data.query_rate * 100).toFixed(2) + '%]</td></tr>'
-          + '<tr><td align="right"><b>Exactly Match Count:</b></td><td>' + obj.data.exactly_match_count + '</td></tr>'
+          + '<tr><td align="right"><b>查询数:</b></td><td>' + obj.data.query_count + '  [' + (obj.data.query_rate * 100).toFixed(2) + '%]</td></tr>'
+          + '<tr><td align="right"><b>完全匹配数:</b></td><td>' + obj.data.exactly_match_count + '</td></tr>'
           + rowCountRateStr
           + preCalculatedStr
           + '</tbody></table>';
@@ -177,10 +177,10 @@ KylinApp.constant('cubeConfig', {
   },
   currentCaption: {
     enable: true,
-    html: '<div>Existed: <i class="fa fa-square" style="color:#38c;"></i> Hottest '
-          + '<i class="fa fa-square" style="color:#7bd;"></i> Hot '
-          + '<i class="fa fa-square" style="color:#ade;"></i> Warm '
-          + '<i class="fa fa-square" style="color:#cef;"></i> Cold '
+    html: '<div>Existed: <i class="fa fa-square" style="color:#38c;"></i> 最热的 '
+          + '<i class="fa fa-square" style="color:#7bd;"></i> 热 '
+          + '<i class="fa fa-square" style="color:#ade;"></i> 暖 '
+          + '<i class="fa fa-square" style="color:#cef;"></i> 寒冷 '
           + '<i class="fa fa-square" style="color:#999;"></i> Retire</div>',
     css: {
       position: 'relative',
@@ -190,11 +190,11 @@ KylinApp.constant('cubeConfig', {
   },
   recommendCaption: {
     enable: true,
-    html: '<div>New: <i class="fa fa-square" style="color:#3a5;"></i> Hottest '
-      + '<i class="fa fa-square" style="color:#7c7;"></i> Hot '
-      + '<i class="fa fa-square" style="color:#aea;"></i> Warm '
-      + '<i class="fa fa-square" style="color:#cfc;"></i> Cold '
-      + '<i class="fa fa-square" style="color:#f94;"></i> Mandatory</div>',
+    html: '<div>New: <i class="fa fa-square" style="color:#3a5;"></i> 最热的 '
+      + '<i class="fa fa-square" style="color:#7c7;"></i> 热 '
+      + '<i class="fa fa-square" style="color:#aea;"></i> 暖 '
+      + '<i class="fa fa-square" style="color:#cfc;"></i> 寒冷 '
+      + '<i class="fa fa-square" style="color:#f94;"></i> 强制性的</div>',
     css: {
       position: 'relative',
       top: '-35px',

@@ -38,10 +38,10 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
-                    <th>Table Alias</th>
-                    <th>Type</th>
-                    <th>Column</th>
+                    <th>表名</th>
+                    <th>表别名</th>
+                    <th>类型</th>
+                    <th>列</th>
                     <th ng-if="state.mode=='edit'">Actions</th>
                 </tr>
             </thead>
@@ -93,7 +93,7 @@
 
     <div class="space-16"></div>
     <div class="callout callout-warning dimensions-conflict-area" ng-if="dimConflicts.length">
-        <h4>There are following columns defined in multiple dimensions. <small>This is not recommended!</small></h4>
+        <h4>在多个维度中定义了以下列. <small>不建议这样做!</small></h4>
         <div class="row" ng-repeat="c in dimConflicts">
             <div class="col-xs-3">
                 <code>{{c.table}}.{{c.column}}</code>
@@ -109,7 +109,7 @@
     <!-- Edit Dimension Form -->
     <script type="text/ng-template" id="addEditDimension.html">
         <div class="modal-header">
-            <h4 class="box-title lighter">Edit Dimension
+            <h4 class="box-title lighter">编辑维度
                 <span class="label label-primary" ng-repeat="t in dimType">{{t}}</span>
             </h4>
         </div>
@@ -120,15 +120,15 @@
                     <!--Name-->
                     <div class="form-group">
                         <div class="row">
-                            <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default"><b>Name</b></label>
+                            <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default"><b>名称</b></label>
                             <div class="col-xs-12 col-sm-6">
-                                <input type="text" placeholder="Name.." class="form-control" name="dim_name"
-                                       tooltip="dimension name.." tooltip-trigger="focus"
+                                <input type="text" placeholder="名称.." class="form-control" name="dim_name"
+                                       tooltip="维度名称.." tooltip-trigger="focus"
                                        ng-model="newDimension.name" required />
                             </div>
                             <div class="col-xs-12 col-sm-3">
                                 <div class="text-warning" ng-if="edit_dim_form.dim_name.$error.required  && edit_dim_form.dim_name.$dirty">
-                                    The Dimension Name is required.
+                                    维度名称是必需的.
                                 </div>
                             </div>
                         </div>
@@ -137,13 +137,13 @@
                     <!--Table Name: derived dimension only allows lookup tables-->
                     <div class="form-group">
                         <div class="row">
-                            <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>Table Name</b></label>
+                            <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>表名</b></label>
                             <div class="col-xs-12 col-sm-6" >
                               <span>{{newDimension.table}}</span>
                             </div>
                             <div class="col-xs-12 col-sm-3">
                                 <div class="text-info" ng-if="dimType.indexOf('derived') >= 0">
-                                    Derived dimension only comes from lookup table.
+                                    派生维度仅来自查找表.
                                 </div>
                             </div>
                         </div>
@@ -153,7 +153,7 @@
                     <div class="form-group" ng-if="dimType.indexOf('normal') >= 0">
                         <div class="row">
                             <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                              <b>Column Name</b>
+                              <b>列名</b>
                             </label>
                             <div class="col-xs-12 col-sm-6">
                               <span>{{newDimension.column}}</span>
@@ -165,7 +165,7 @@
                         <div class="form-group">
                             <div class="row">
                                 <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                                    <b>Column Name</b>
+                                    <b>列名</b>
                                 </label>
                                 <div class="col-sm-6 ">
                                     <div ng-repeat="derived in newDimension.derived track by $index">
@@ -180,7 +180,7 @@
                     <div  ng-if="modelsManager.availableLookupTables.indexOf(newDimension.table)!=-1">
                         <div  class="row">
                             <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default">
-                                <b>Type</b>
+                                <b>类型</b>
                             </label>
                             <div class="col-xs-12 col-sm-6">
                                 <label>
