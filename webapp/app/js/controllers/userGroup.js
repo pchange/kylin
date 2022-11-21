@@ -144,7 +144,7 @@ KylinApp
         text: "Are you sure to delete the user " + userName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -181,7 +181,7 @@ KylinApp
         text: "Are you sure to delete the goup " + groupName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){

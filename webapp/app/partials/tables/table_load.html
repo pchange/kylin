@@ -18,19 +18,19 @@
 
   <script type="text/ng-template" id="addHiveTable.html">
     <div class="modal-header">
-      <h4>Load Table Metadata</h4>
+      <h4>加载表元数据</h4>
     </div>
     <div class="modal-body">
-      <span><strong>Project: </strong>{{ $parent.projectName!=null?$parent.projectName:'NULL'}}</span>
-      <label for="tables"> Table Names:(Separate with comma)</label>
+      <span><strong>项目: </strong>{{ $parent.projectName!=null?$parent.projectName:'NULL'}}</span>
+      <label for="tables"> 表名:（以逗号分隔）</label>
             <textarea ng-model="$parent.tableNames" class="form-control" id="tables"
-                      placeholder="table1,table2  By default,system will choose 'Default' as database,you can specify database like this 'database.table'"></textarea>
-      <label ng-if="sourceType === '0'"> <input type="checkbox" ng-model="isCalculate.val" > Calculate column cardinality</label>
-      <p>Rows: <input ng-if="sourceType === '0' && isCalculate.val" class="form-control width-20" type="text" ng-model="syncRows.rows" /></p>
+                      placeholder="table1，table2默认情况下，系统将选择“默认”作为数据库，您可以像这样指定数据库' database.table '"></textarea>
+      <label ng-if="sourceType === '0'"> <input type="checkbox" ng-model="isCalculate.val" > 计算列基数</label>
+      <p>行: <input ng-if="sourceType === '0' && isCalculate.val" class="form-control width-20" type="text" ng-model="syncRows.rows" /></p>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" ng-click="add()">Sync</button>
-      <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-primary" ng-click="add()">同步</button>
+      <button class="btn btn-primary" ng-click="cancel()">取消</button>
     </div>
   </script>
 
@@ -38,7 +38,7 @@
 
     <div class="modal-header">
       <div class="box-header">
-        <h3 class="box-title">Streaming Table And Cluster Info</h3>
+        <h3 class="box-title">流表和集群信息</h3>
 
         <div class="box-tools pull-right">
           <button type="button" class="btn btn-box-tool" ng-click="cancel()" data-widget="remove"><i class="fa fa-times"></i></button>
@@ -86,7 +86,7 @@
 
   <div class="modal-header">
     <div class="box-header">
-      <h3 class="box-title">Streaming Table And Cluster Info</h3>
+      <h3 class="box-title">流表和集群信息</h3>
 
       <div class="box-tools pull-right">
         <button type="button" class="btn btn-box-tool" ng-click="cancel()" data-widget="remove"><i class="fa fa-times"></i></button>

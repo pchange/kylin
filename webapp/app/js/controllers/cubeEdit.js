@@ -322,7 +322,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",cancelButtonText: "取消",
       closeOnConfirm: true
     }, function (isConfirm) {
       if (isConfirm) {

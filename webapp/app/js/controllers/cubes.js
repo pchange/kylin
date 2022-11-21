@@ -260,7 +260,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -336,7 +336,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -375,7 +375,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -404,7 +404,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           type: '',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",cancelButtonText: "取消",
           closeOnConfirm: true
         }, function(isConfirm) {
           if(isConfirm){
@@ -813,7 +813,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",cancelButtonText: "取消",
       closeOnConfirm: true
     }, function (isConfirm) {
       if (isConfirm) {
@@ -1025,7 +1025,7 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",cancelButtonText: "取消",
       closeOnConfirm: true
     }, function(isConfirm) {
       if(isConfirm){

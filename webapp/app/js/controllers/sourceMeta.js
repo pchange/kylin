@@ -217,7 +217,7 @@ KylinApp
         text: "Are you sure to unload this table?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",cancelButtonText: "取消",
         cancelButtonText: "No",
         closeOnConfirm: true
       }, function (isConfirm) {
@@ -470,12 +470,12 @@ KylinApp
         }
 
         if ($scope.tableNames.trim() === "") {
-          SweetAlert.swal('', 'Please input table(s) you want to load.', 'info');
+          SweetAlert.swal('', '请输入您要加载的表.', 'info');
           return;
         }
 
         if (!$scope.projectName) {
-          SweetAlert.swal('', 'Please choose your project first!.', 'info');
+          SweetAlert.swal('', '请先选择您的项目!.', 'info');
           return;
         }
 
@@ -546,7 +546,7 @@ KylinApp
     //streaming model
     $scope.openStreamingSourceModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('提示...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择一个项目.", 'info');
         return;
       }
       $modal.open({
@@ -610,7 +610,7 @@ KylinApp
           kafkaConfig: angular.toJson($scope.kafkaMeta)
         }, function (request) {
           if (request.successful) {
-            MessageBox.successNotify('Updated the streaming successfully.');
+            MessageBox.successNotify('已成功更新流.');
             $scope.cancel();
           } else {
             var message = request.message;
@@ -686,7 +686,7 @@ KylinApp
         }
         StreamingServiceV2.update({}, updateConfig, function (request) {
           if (request.successful) {
-            MessageBox.successNotify('Updated the streaming successfully.');
+            MessageBox.successNotify('已成功更新流.');
             $scope.cancel();
           } else {
             ResponseUtil.handleError({
@@ -951,10 +951,11 @@ KylinApp
 
         SweetAlert.swal({
           title: "",
-          text: 'Are you sure to save the streaming table and cluster info ?',
+          text: '您确定要保存流表和集群信息吗 ?',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function (isConfirm) {
           if (isConfirm) {
@@ -1419,7 +1420,7 @@ KylinApp
           text: 'Are you sure to save the streaming table?',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",cancelButtonText: "取消",
           closeOnConfirm: true
         }, function (isConfirm) {
           if (isConfirm) {
