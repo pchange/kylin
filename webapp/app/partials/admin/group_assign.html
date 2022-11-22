@@ -31,7 +31,7 @@
             </div>
             <!--Loading Instances-->
             <div ng-if="loading">
-              <loading text="Loading user group ..."></loading>
+              <loading text="用户组加载中 ..."></loading>
             </div>
             <div class="row">
               <div class="col-xs-9">
@@ -53,7 +53,7 @@
                   <input type="checkbox" onchange="angular.element(this).scope().selectAllGroups(this)" ng-checked="isAllchecked(selectGroups,groups)" >
                 </th>
                 <th >
-                  Group Name
+                  用户组名称
                 </th>
               </tr>
               </thead>
@@ -70,7 +70,7 @@
             </table>
             <div class="row" v-if="">
               <div class="col-xs-12">
-                  <pagination total-items="groupsTotal" boundary-link-numbers="true" rotate="false" boundary-links="true" force-ellipses="true" page="editPage.curpage" max-size="10" items-per-page="editPage.limit" on-select-page="listEditGroups(page)"  class="pagination-sm"></pagination>
+                  <pagination total-items="groupsTotal" boundary-link-numbers="true" rotate="false" boundary-links="true" force-ellipses="true" page="editPage.curpage" max-size="10" items-per-page="editPage.limit" on-select-page="listEditGroups(page)"  class="pagination-sm" first-text="第一页" last-text="最后一页" previous-text="上一页" next-text="下一页"></pagination>
               </div>
             </div>
           </div>

@@ -50,7 +50,7 @@ KylinApp.constant('jobConfig', {
   ],
   queryitems: [
   {attr: 'server', name: 'Server'},
-  {attr: 'user', name: 'User'},
+  {attr: 'user', name: '创建人'},
   {attr: 'cube', name: 'Hit Cube'},
   {attr: 'sql', name: 'Sql'},
   {attr: 'adj', name: '描述'},

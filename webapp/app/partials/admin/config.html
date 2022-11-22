@@ -40,16 +40,16 @@
       <h3>操作</h3>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a  class="btn btn-primary btn-lg btn-block" tooltip="Reload all metadata and clear cache" ng-click="reloadMeta()">重载元数据</a>
+      <a  class="btn btn-primary btn-lg btn-block" tooltip="重新加载所有元数据并清除缓存" ng-click="reloadMeta()">重载元数据</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
       <a ng-click="calCardinality();" tooltip="Calculate cardinality of tables" class="btn btn-primary btn-lg btn-block">Calculate Cardinality</a>
     </div>
     <div style="padding-top: 10px;width: 260px;" ng-if="false">
-      <a class="btn btn-success btn-lg btn-block" tooltip="Clean unused HDFS and HBASE space" ng-click="cleanStorage()">Clean Up Storage</a>
+      <a class="btn btn-success btn-lg btn-block" tooltip="清理未使用的HDFS和HBASE空间" ng-click="cleanStorage()">清理存储</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a ng-click="openSparderUrl();" tooltip="Click to visit Sparder URL." class="btn btn-primary btn-lg btn-block"><i class="fa fa-server"></i>Sparder</a>
+      <a ng-click="openSparderUrl();" tooltip="单击以访问Sparder URL." class="btn btn-primary btn-lg btn-block"><i class="fa fa-server"></i>Sparder</a>
     </div>
     <div style="padding-top: 10px;width: 260px;" ng-if="isCacheEnabled()">
       <a class="btn btn-primary btn-lg btn-block" ng-click="disableCache()">关闭缓存</a>
@@ -64,7 +64,7 @@
       <a class="btn btn-primary btn-lg btn-block" tooltip="重载系统设置"  class="btn btn-primary btn-lg"  ng-click="reloadConfig()">重载设置</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a ng-click="downloadBadQueryFiles();" tooltip="Download Diagnosis Info For Current Project" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ambulance"></i> Diagnosis</a>
+      <a ng-click="downloadBadQueryFiles();" tooltip="下载当前项目的分析信息" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ambulance"></i> 分析信息</a>
     </div>
 
     <!--<div>-->
@@ -80,15 +80,15 @@
 
 <script type="text/ng-template" id="calCardinality.html">
   <div class="modal-header">
-    <h4>Load Hive Table Metadata</h4>
+    <h4>加载配置单元表元数据</h4>
   </div>
   <div class="modal-body load-hive-metawrapper">
-    <label for="table">Table Names: (Separate with comma)</label>
-    <input ng-model="$parent.tableName" class="form-control" id="table" placeholder="table1,table2  By default, system will choose 'Default' as the database, you can specify database like 'database.table'"/>
+    <label for="table">表名称: (Separate with comma)</label>
+    <input ng-model="$parent.tableName" class="form-control" id="table" placeholder="table1，table2默认情况下，系统会选择“默认”作为数据库，您可以像“database.table”一样指定数据库"/>
   </div>
   <div class="modal-footer">
-    <button class="btn btn-primary" ng-click="calculate()">Sync</button>
-    <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+    <button class="btn btn-primary" ng-click="calculate()">同步</button>
+    <button class="btn btn-primary" ng-click="cancel()">取消</button>
   </div>
 </script>
 
@@ -127,7 +127,7 @@
     </div>
     <div class="modal-footer">
       <button class="btn btn-primary" ng-click="update()" ng-disabled="config_update_form.key_input.$invalid || config_update_form.value_input.$invalid">Update</button>
-      <button class="btn btn-primary" ng-click="cancel()">Cancel</button>
+      <button class="btn btn-primary" ng-click="cancel()">取消</button>
     </div>
   </ng-form>
 </script>

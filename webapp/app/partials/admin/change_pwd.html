@@ -28,7 +28,7 @@
         <label><b>用户名</b></label>
         <div class="clearfix">
           <input name="name_input" type="text" class="form-control" readonly ng-model="changePwdUser.username" required
-                 placeholder="You can use letters, numbers, and underscore characters '_'"
+                 placeholder="使用字母、数字和下划线字符'_'"
                  ng-maxlength=100 ng-pattern="userPattern"/>
                     <span class="text-warning"
                           ng-if="change_pwd_form.name_input.$error.required  && change_pwd_form.name_input.$dirty"
@@ -42,7 +42,7 @@
         <label><b>当前密码</b></label>
         <div class="clearfix">
           <input required name="curr_pwd_input" type="password" class="form-control" ng-model="changePwdUser.password"
-                 placeholder="Your current password"/>
+                 placeholder="您当前的密码"/>
           <span class="text-warning"
                 ng-if="change_pwd_form.curr_pwd_input.$error.required && change_pwd_form.curr_pwd_input.$dirty"
           >&nbsp;密码必填</span>
@@ -52,7 +52,7 @@
         <label><b>新密码</b></label>
         <div class="clearfix">
           <input required ng-pattern="pwdPattern" name="pwd_input" type="password" class="form-control"
-                 placeholder="The password should have at least 8 characters, and contain at least one number, letter and special character（~!@#$%^&*(){}|:&quot;\<\>?[];\',./`)."
+                 placeholder="密码应该至少有8个字符，并且至少包含一个数字、字母和特殊字符（~!@#$%^&*(){}|:&quot;\<\>?[];\',./`)."
                  ng-model="changePwdUser.newPassword"/>
           <span class="text-warning"
                           ng-if="change_pwd_form.pwd_input.$error.required  && change_pwd_form.pwd_input.$dirty"
@@ -66,7 +66,7 @@
         <label><b>确认密码</b></label>
         <div class="clearfix">
           <input required name="pwd_new_input" type="password" class="form-control"
-                 placeholder="The password should have at least 8 characters, and contain at least one number, letter and special character（~!@#$%^&*(){}|:&quot;\<\>?[];\',./`)."
+                 placeholder="密码应该至少有8个字符，并且至少包含一个数字、字母和特殊字符（~!@#$%^&*(){}|:&quot;\<\>?[];\',./`)."
                  ng-model="changePwdUser.repeatPassword"/>
             <span class="text-warning"
                  ng-if="user_create_form.pwd_new_input.$error.required  && user_create_form.pwd_new_input.$dirty"
