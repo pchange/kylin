@@ -21,7 +21,7 @@
 
 <div class="pull-right">
                         <span style="color: #808080">
-                            <span>Start Time: {{curQuery.startTime | utcToConfigTimeZone}}</span>&nbsp;&nbsp;
+                            <span>开始时间: {{curQuery.startTime | utcToConfigTimeZone}}</span>&nbsp;&nbsp;
                             <span ng-if="curQuery.result.results">Duration: {{curQuery.result.duration/1000 | number: 2}}s</span>&nbsp;&nbsp;
                         </span>
     <button class="btn btn-success btn-xs" ng-click="rerun()">
