@@ -32,7 +32,7 @@ KylinApp.constant('jobConfig', {
     {name: '上周', value: 2},
     {name: '上个月', value: 3},
     {name: '上一年', value: 4},
-    {name: '所有', value: 5},
+    {name: '全部', value: 5},
   ],
   theaditems: [
     {attr: 'name', name: '任务名称'},
