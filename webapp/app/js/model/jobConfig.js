@@ -24,7 +24,7 @@ KylinApp.constant('jobConfig', {
     {name: '已停止', value: 32, count: ''},
     {name: '已完成', value: 4, count: ''},
     {name: '错误', value: 8, count: ''},
-    {name: '已丢弃', value: 16, count: ''}
+    {name: '已取消', value: 16, count: ''}
   ],
   timeFilter: [
     {name: '今天', value: 0},

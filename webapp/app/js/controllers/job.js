@@ -197,7 +197,7 @@ KylinApp
         $scope.cancel = function (job) {
             SweetAlert.swal({
                 title: '',
-                text: '确定放弃该任务吗?',
+                text: '确定取消该任务吗?',
                 type: '',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
@@ -225,7 +225,7 @@ KylinApp
                         }
                       });
                     });
-                    MessageBox.successNotify('任务已成功丢弃!');
+                    MessageBox.successNotify('任务已成功取消!');
                 },function(e){
                     loadingRequest.hide();
                     if(e.data&& e.data.exception){

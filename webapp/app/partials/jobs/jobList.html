@@ -124,7 +124,7 @@
                              type="pending">{{job.progress | number:2}}%
                 </progressbar>
               </div>
-              <div ng-switch-when="DISCARDED" tooltip="已丢弃">
+              <div ng-switch-when="DISCARDED" tooltip="已取消">
                 <progressbar class="progress-striped" value="job.progress" type="inverse">
                   {{job.progress | number:2}}%
                 </progressbar>

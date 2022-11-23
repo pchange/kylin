@@ -92,7 +92,7 @@
                     </button>
                     <ul ng-if="(userService.hasRole('ROLE_ADMIN') || hasPermission('cube',cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask,permissions.OPERATION.mask)) && !cube.streamingV2 && actionLoaded" class="dropdown-menu" role="menu" style="right:0;left:auto;">
                         <li ng-if="cube.status!='READY' && (userService.hasRole('ROLE_ADMIN') || hasPermission('cube',cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask))">
-                            <a ng-click="dropCube(cube)" tooltip="永久删除Cube、相关作业和数据。">丢弃</a></li>
+                            <a ng-click="dropCube(cube)" tooltip="永久删除Cube、相关作业和数据。">删除</a></li>
                         <li ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('cube',cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask)">
                             <a ng-click="cubeEdit(cube);">编辑</a></li>
                         <li ng-if="cube.status!='DESCBROKEN'"><a ng-click="startJobSubmit(cube);">构建</a></li>
@@ -113,7 +113,7 @@
                         <li ng-if="cube.status!='DISABLED'"><a ng-click="disable(cube, $index)">禁用</a></li>
                         <li ng-if="cube.status!='DISABLED' && userService.hasRole('ROLE_ADMIN')"><a ng-click="viewAssignment(cube, $index);">分配</a></li>
                         <li ng-if="cube.status!='DESCBROKEN' && cube.lambda"><a ng-click="startRefresh(cube, $index)">刷新</a></li>
-                        <li ng-if="cube.status=='DISABLED' && (userService.hasRole('ROLE_ADMIN') || hasPermission(cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask)) "><a ng-click="dropCube(cube, $index)" tooltip="Drop the cube, related jobs and data permanently.">丢弃</a></li>
+                        <li ng-if="cube.status=='DISABLED' && (userService.hasRole('ROLE_ADMIN') || hasPermission(cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask)) "><a ng-click="dropCube(cube, $index)" tooltip="永久删除cube、相关作业和数据.">删除</a></li>
                         <li ng-if="cube.status=='DISABLED' && (userService.hasRole('ROLE_ADMIN') || hasPermission(cube, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask))"><a ng-click="cubeEdit(cube);">编辑</a></li>
                         <li><a ng-click="startMerge(cube, $index)">合并</a></li>
                         <li ng-if="cube.status=='DISABLED'"><a ng-click="enable(cube, $index)">启用</a></li>
