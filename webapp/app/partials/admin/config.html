@@ -58,10 +58,10 @@
       <a  class="btn btn-primary btn-lg btn-block" tooltip="启用查询缓存" ng-click="enableCache()">开启缓存</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a class="btn btn-primary btn-lg btn-block" tooltip="更新系统设置"  class="btn btn-primary btn-lg"  ng-click="toSetConfig()">保存设置</a>
+      <a class="btn btn-primary btn-lg btn-block" tooltip="更新系统设置"  class="btn btn-primary btn-lg"  ng-click="toSetConfig()">修改设置</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a class="btn btn-primary btn-lg btn-block" tooltip="重载系统设置"  class="btn btn-primary btn-lg"  ng-click="reloadConfig()">重载设置</a>
+      <a class="btn btn-primary btn-lg btn-block" tooltip="重载系统设置"  class="btn btn-primary btn-lg"  ng-click="reloadConfig()">重置设置</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
       <a ng-click="downloadBadQueryFiles();" tooltip="下载当前项目的分析信息" class="btn btn-primary btn-lg btn-block"><i class="fa fa-ambulance"></i> 分析信息</a>
@@ -95,7 +95,7 @@
 <script type="text/ng-template" id="updateConfig.html">
   <ng-form name="config_update_form">
     <div class="modal-header">
-      <h4>Update Config</h4>
+      <h4>修改设置</h4>
     </div>
     <div class="modal-body">
       <div class="form-group">
@@ -107,8 +107,7 @@
                  required/>
 
           <p class="text-warning"
-             ng-show="config_update_form.key_input.$invalid && !config_update_form.key_input.$pristine">&nbsp;&nbsp;Key
-            is required.</p>
+             ng-show="config_update_form.key_input.$invalid && !config_update_form.key_input.$pristine">&nbsp;&nbsp;Key必填.</p>
         </div>
       </div>
       <div class="form-group">
@@ -120,13 +119,12 @@
                  required/>
 
           <p class="text-warning"
-             ng-show="config_update_form.value_input.$invalid && !config_update_form.value_input.$pristine">&nbsp;&nbsp;Value
-            is required.</p>
+             ng-show="config_update_form.value_input.$invalid && !config_update_form.value_input.$pristine">&nbsp;&nbsp;值必填.</p>
         </div>
       </div>
     </div>
     <div class="modal-footer">
-      <button class="btn btn-primary" ng-click="update()" ng-disabled="config_update_form.key_input.$invalid || config_update_form.value_input.$invalid">Update</button>
+      <button class="btn btn-primary" ng-click="update()" ng-disabled="config_update_form.key_input.$invalid || config_update_form.value_input.$invalid">更新</button>
       <button class="btn btn-primary" ng-click="cancel()">取消</button>
     </div>
   </ng-form>

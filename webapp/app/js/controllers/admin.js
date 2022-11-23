@@ -71,7 +71,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.reloadConfig = function () {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to reload config',
+      text: '确定重置设置？',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -80,7 +80,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         CacheService.reloadConfig({}, function () {
-          MessageBox.successNotify('Config reload successfully');
+          MessageBox.successNotify('设置重置成功');
           $scope.getConfig();
         }, function (e) {
           if (e.data && e.data.exception) {
@@ -98,7 +98,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.reloadMeta = function () {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to reload metadata and clean cache?',
+      text: '确定要重新加载元数据并清理缓存吗?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -107,7 +107,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         CacheService.clean({}, function () {
-          MessageBox.successNotify('Cache reload successfully');
+          MessageBox.successNotify('重新加载缓存成功');
           ProjectService.listReadable({}, function(projects) {
             ProjectModel.setProjects(projects);
           });
@@ -128,7 +128,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.calCardinality = function (tableName) {
     var _project = ProjectModel.selectedProject;
       if (_project == null){
-        SweetAlert.swal('', "No project selected.", 'info');
+        SweetAlert.swal('', "未选择项目.", 'info');
           return;
         }
     $modal.open({
@@ -148,7 +148,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.cleanStorage = function () {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to clean up unused HDFS and HBase space?',
+      text: '确定要清理未使用的HDFS和HBase空间吗?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -157,7 +157,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         AdminService.cleanStorage({}, function () {
-          MessageBox.successNotify('Storage cleaned successfully!');
+          MessageBox.successNotify('存储清理成功!');
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
@@ -184,7 +184,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         AdminService.updateConfig({}, {key: 'kylin.query.cache-enabled', value: false}, function () {
-          MessageBox.successNotify('Cache disabled successfully!');
+          MessageBox.successNotify('禁用成功!');
           location.reload();
         }, function (e) {
           if (e.data && e.data.exception) {
@@ -204,7 +204,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.enableCache = function () {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to enable query cache?',
+      text: '您确定要启用查询缓存吗？?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -213,7 +213,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
     }, function (isConfirm) {
       if (isConfirm) {
         AdminService.updateConfig({}, {key: 'kylin.query.cache-enabled', value: true}, function () {
-          MessageBox.successNotify('Cache enabled successfully!');
+          MessageBox.successNotify('启用成功!');
           location.reload();
         }, function (e) {
           if (e.data && e.data.exception) {
@@ -251,7 +251,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
       loadingRequest.show();
       var _project = ProjectModel.selectedProject;
       if (_project == null){
-        SweetAlert.swal('', "No project selected.", 'info');
+        SweetAlert.swal('', "未选择项目.", 'info');
         return;
       }
       TableService.genCardinality({tableName: $scope.tableName, pro: _project}, {
@@ -301,7 +301,7 @@ KylinApp.controller('AdminCtrl', function ($scope, AdminService, CacheService, T
   $scope.downloadBadQueryFiles = function(){
     var _project = ProjectModel.selectedProject;
     if (_project == null){
-      SweetAlert.swal('', "No project selected.", 'info');
+      SweetAlert.swal('', "未选择项目.", 'info');
       return;
     }
     var downloadUrl = Config.service.url + 'diag/project/'+_project+'/download';
