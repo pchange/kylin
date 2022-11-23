@@ -19,7 +19,7 @@
 <script type="text/ng-template" id="assignUser.html">
   <ng-form name="group_create_form">
     <div class="modal-header">
-      <h4>Select User</h4>
+      <h4>选择用户</h4>
     </div>
     <div class="modal-body" style="background-color: white">
         <div class="container">
@@ -27,7 +27,7 @@
         
             <!--No Instances-->
             <div ng-if="!loading && usersTotal == 0">
-              <div no-result text="No user group"></div>
+              <div no-result text="无用户组"></div>
             </div>
             <!--Loading Instances-->
             <div ng-if="loading">
@@ -40,7 +40,7 @@
               <div class="col-xs-3">
               <form style="float:right;" >
                   <span class="input-icon input-icon-right nav-search">
-                    <input type="text" placeholder="用户名搜索" class="nav-search-input" ng-model="filter.name" />
+                    <input type="text" placeholder="用户名搜索..." class="nav-search-input" ng-model="filter.name" />
                     <i class="ace-icon fa fa-search blue" ng-click="listEditUsers();"></i>
                   </span>
               </form>

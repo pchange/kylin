@@ -272,7 +272,7 @@ KylinApp
         }, users, function () {
           $scope.dialogActionLoading = false;
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('分配成功', null, 'success');
+          SweetAlert.swal('添加成功', null, 'success');
           $scope.listGroups($scope.page.curpage);
         }, function (res){
           $scope.dialogActionLoading = false;
