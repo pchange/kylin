@@ -124,7 +124,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
               defer.resolve(cube);
 
           } else {
-            SweetAlert.swal('提示...', "No cube detail info loaded.", 'error');
+            SweetAlert.swal('提示...', "加载cube详细信息失败.", 'error');
           }
         }, function (e) {
           if (e.data && e.data.exception) {
@@ -220,7 +220,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.enable = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to enable the cube? Please note: if cube schema is changed in the disabled period, all segments of the cube will be discarded due to data and schema mismatch.',
+        text: '确定要启用该cube吗？请注意:如果cube结构在停用期间变更，cube所有区段都会因为数据和结构不符而被舍弃.',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -256,7 +256,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.purge = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: 'Are you sure to purge the cube? ',
+        text: '确定要清除cube吗? ',
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -332,7 +332,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
       SweetAlert.swal({
         title: '',
-        text: " Once it's dropped, your cube’s metadata and data will be cleaned up and can’t be restored back. ",
+        text: " 一旦删除，cube的元数据和数据将被清除，并且无法恢复. ",
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -344,7 +344,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           loadingRequest.show();
           CubeService.drop({cubeId: cube.name}, {}, function (result) {
             loadingRequest.hide();
-            MessageBox.successNotify('Cube drop is done successfully');
+            MessageBox.successNotify('Cube删除成功完成');
             $scope.cubeList.cubes.splice($scope.cubeList.cubes.indexOf(cube),1);
           },function(e){
 
@@ -369,9 +369,9 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
     $scope.migrateCube = function (cube) {
       SweetAlert.swal({
         title: '',
-        text: "The cube will overwrite the same cube in prod env" +
-        "\nMigrating cube will elapse a couple of minutes." +
-        "\nPlease wait.",
+        text: "该cube将覆盖生产环境中的同一cube" +
+        "\n迁移cube需要几分钟时间." +
+        "\n请等待.",
         type: '',
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
@@ -382,10 +382,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
           loadingRequest.show();
           CubeService.autoMigrate({cubeId: cube.name, propName: $scope.projectModel.selectedProject}, {}, function (result) {
             loadingRequest.hide();
-            MessageBox.successNotify(cube.name + ' migrate successfully!');
+            MessageBox.successNotify(cube.name + ' 迁移成功!');
           },function(e){
             loadingRequest.hide();
-            SweetAlert.swal('Migrate failed!', "Please contact your ADMIN.", 'error');
+            SweetAlert.swal('迁移失败!', "请联系管理员.", 'error');
           });
         }
       });
@@ -400,7 +400,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       if(cube.streaming){
         SweetAlert.swal({
           title: '',
-          text: "Are you sure to start the build?",
+          text: "确定要开始构建吗?",
           type: '',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',

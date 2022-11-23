@@ -348,7 +348,7 @@ public class CubeController extends BasicController {
     @ResponseBody
     public CubeInstance rebuildLookupSnapshot(@PathVariable String cubeName, @PathVariable String segmentName,
             @RequestParam(value = "lookupTable") String lookupTable) {
-        throw new UnsupportedOperationException("Unsupported in Kylin 4.0 .");
+        throw new UnsupportedOperationException("Kylin 4.0 不支持.");
     }
 
     /**
@@ -429,7 +429,7 @@ public class CubeController extends BasicController {
     @RequestMapping(value = "/{cubeName}/build2", method = { RequestMethod.PUT }, produces = { "application/json" })
     @ResponseBody
     public JobInstance build2(@PathVariable String cubeName, @RequestBody JobBuildRequest2 req) {
-        throw new UnsupportedOperationException("Unsupported in Kylin 4.0 .");
+        throw new UnsupportedOperationException("Kylin 4.0 不支持.");
     }
 
     /**
@@ -438,7 +438,7 @@ public class CubeController extends BasicController {
     @RequestMapping(value = "/{cubeName}/rebuild2", method = { RequestMethod.PUT }, produces = { "application/json" })
     @ResponseBody
     public JobInstance rebuild2(@PathVariable String cubeName, @RequestBody JobBuildRequest2 req) {
-        throw new UnsupportedOperationException("Unsupported in Kylin 4.0 .");
+        throw new UnsupportedOperationException("Kylin 4.0 不支持.");
     }
 
     private JobInstance buildInternal(String cubeName, TSRange tsRange, SegmentRange segRange, //
@@ -1108,7 +1108,7 @@ public class CubeController extends BasicController {
             "application/json" })
     @ResponseBody
     public GeneralResponse initStartOffsets(@PathVariable String cubeName) {
-        throw new UnsupportedOperationException("Unsupported in Kylin 4.0 .");
+        throw new UnsupportedOperationException("Kylin 4.0 不支持.");
     }
 
     private CubeDesc deserializeCubeDesc(CubeRequest cubeRequest) {

@@ -58,7 +58,7 @@ KylinApp.service('JobList',function(JobService, $q, kylinConfig, jobConfig){
             });
             defer.resolve(jobs.length);
         },function(e){
-          var msg = 'failed to load jobs';
+          var msg = '加载任务失败';
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             msg = !!(message) ? message : msg;
@@ -81,7 +81,7 @@ KylinApp.service('JobList',function(JobService, $q, kylinConfig, jobConfig){
         });
         defer.resolve(jobsOverview);
       },function(e){
-        var msg = 'failed to load job overview';
+        var msg = '加载任务概况失败';
         if (e.data && e.data.exception) {
           var message = e.data.exception;
           msg = !!(message) ? message : msg;
