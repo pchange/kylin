@@ -55,7 +55,7 @@ public class StreamingV2Controller extends BasicController {
 //
 //    /**
 //     *
-//     * create Streaming Schema
+//     * create 流媒体语法
 //     *
 //     * @throws IOException
 //     */

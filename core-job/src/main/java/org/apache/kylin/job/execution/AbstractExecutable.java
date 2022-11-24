@@ -250,7 +250,7 @@ public abstract class AbstractExecutable implements Executable, Idempotent {
         dataMap.put(SUBMITTER, StringUtil.noBlank(getSubmitter(), "missing submitter"));
         dataMap.put("job_engine", MailNotificationUtil.getLocalHostName());
         dataMap.put("error_log",
-                Matcher.quoteReplacement(StringUtil.noBlank(exception.getMessage(), "no error message")));
+                Matcher.quoteReplacement(StringUtil.noBlank(exception.getMessage(), "无错误信息")));
 
         String content = MailNotificationUtil.getMailContent(MailNotificationUtil.METADATA_PERSIST_FAIL, dataMap);
         String title = MailNotificationUtil.getMailTitle("METADATA PERSIST", "FAIL",

@@ -245,7 +245,7 @@ public class CubingJob extends DefaultChainedExecutable {
                 dataMap.put("mr_job_id", MailNotificationUtil.NA);
             }
             dataMap.put("error_log",
-                    Matcher.quoteReplacement(StringUtil.noBlank(output.getVerboseMsg(), "no error message")));
+                    Matcher.quoteReplacement(StringUtil.noBlank(output.getVerboseMsg(), "无错误信息")));
         }
 
         String content = MailNotificationUtil.getMailContent(state, dataMap);

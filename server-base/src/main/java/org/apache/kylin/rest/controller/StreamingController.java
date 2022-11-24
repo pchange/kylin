@@ -75,7 +75,7 @@ public class StreamingController extends BasicController {
 //
 //    /**
 //     *
-//     * create Streaming Schema
+//     * create 流媒体语法
 //     * @throws java.io.IOException
 //     */
 //    @RequestMapping(value = "", method = { RequestMethod.POST }, produces = { "application/json" })
