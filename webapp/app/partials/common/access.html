@@ -35,8 +35,8 @@
             <tr>
                 <td style="width: 20%">
                     <label><b>Type&nbsp;</b> </label>
-                    <input type="radio" ng-model="newAccess.principal" ng-value=true />  <span tooltip="用户名">User</span>
-                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="User Role">Group</span>
+                    <input type="radio" ng-model="newAccess.principal" ng-value=true />  <span tooltip="用户名">用户</span>
+                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="User Role">组</span>
                 </td>
                 <td style="width: 40%" >
                     <label><b>Name&nbsp;</b> </label>
@@ -70,11 +70,11 @@
     <table ng-show="entity.accessEntities" class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Access</th>
-                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">Update</th>
-                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">Revoke</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>权限</th>
+                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">更新</th>
+                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">撤销</th>
             </tr>
         </thead>
         <tbody>
@@ -84,26 +84,25 @@
                     {{accessEntity.sid.grantedAuthority}}
                 </td>
                 <td>
-                    <span ng-if="accessEntity.sid.principal" >User</span>
-                    <span ng-if="accessEntity.sid.grantedAuthority">Group</span>
+                    <span ng-if="accessEntity.sid.principal" >用户</span>
+                    <span ng-if="accessEntity.sid.grantedAuthority">组</span>
                 </td>
                 <td>
-                  <span ng-if="accessEntity.permission.mask == permissions.READ.mask">QUERY</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.OPERATION.mask">OPERATION</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.MANAGEMENT.mask">MANAGEMENT</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.ADMINISTRATION.mask">ADMIN</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.READ.mask">查询</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.OPERATION.mask">操作</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.MANAGEMENT.mask">管理</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.ADMINISTRATION.mask">管理员</span>
                 </td>
                 <td ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">
                     <select ng-model="accessEntity.newPermission"  ng-init="newAccess.permission=permissions.READ.value"
                             ng-options="permission.value as permission.name for (name, permission) in permissionsSorted">
-                        <option value="">-- select access --</option>
+                        <option value="">-- 选择权限 --</option>
                     </select>
                     <button class="btn btn-default btn-xs" ng-disabled="!accessEntity.newPermission"
-                            ng-click="update(type, entity, accessEntity, accessEntity.newPermission)">Update
-                    </button>
+                            ng-click="update(type, entity, accessEntity, accessEntity.newPermission)">更新</button>
                 </td>
                 <td ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">
-                    <button class="btn btn-default btn-xs" ng-click="revoke(type, accessEntity, entity)">Revoke</button>
+                    <button class="btn btn-default btn-xs" ng-click="revoke(type, accessEntity, entity)">撤销</button>
                 </td>
             </tr>
         </tbody>
