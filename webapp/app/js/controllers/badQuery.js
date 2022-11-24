@@ -48,10 +48,10 @@ KylinApp
           $scope.bqstate.loading = false;
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to load query.';
+            var msg = !!(message) ? message : '加载查询失败.';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', "Failed to load query.", 'error');
+            SweetAlert.swal('提示...', "加载查询失败.", 'error');
           }
         });
       }
