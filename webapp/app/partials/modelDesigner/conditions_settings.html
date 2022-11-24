@@ -25,7 +25,7 @@
           <!--Date Format-->
           <div class="form-group middle-popover">
             <div class="row">
-              <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>Has separate columns for "year", "month" and "day" ?</b>  <i kylinpopover placement="right" title="Separate Date Columns" template="separateDateColumnsTip.html" class="fa fa-info-circle"></i></label>
+              <label class="control-label col-xs-12 col-sm-3 no-padding-right font-color-default"><b>是否有“年”、“月”和“日”列 ?</b>  <i kylinpopover placement="right" title="Separate Date Columns" template="separateDateColumnsTip.html" class="fa fa-info-circle"></i></label>
               <div class="col-xs-12 col-sm-6">
                 <toggle-switch on-label="Yes" off-label="No" ng-disabled="state.mode!=='edit'" ng-click="toggleHasSeparateDateColumns()" ng-model="partitionColumn.hasSeparateDateColumns"></toggle-switch>
               </div>
@@ -42,7 +42,7 @@
                         ng-change="tableChange(selectedTables.fact)"
                         data-placement=""
                         ng-options="alias as alias for alias in availableFactTables" >
-                  <option value="">--Select Partition Table--</option>
+                  <option value="">-- 选择分区表 --</option>
                 </select>
 
                 <select width="'49%'" chosen data-placeholder="e.g. DEFAULT.TABLE_FACT.YEAR"
@@ -152,7 +152,7 @@
                         ng-if="state.mode=='edit'"
                         data-placement=""
                         ng-options="alias as alias for alias in availableFactTables" >
-                  <option value="">--Select Partition Table--</option>
+                  <option value="">-- 选择分区表 --</option>
                 </select>
                 <select width="'49%'" chosen
                         ng-model="modelsManager.selectedModel.partition_desc.partition_time_column"
@@ -231,26 +231,26 @@
 </div>
 <script type="text/ng-template" id="partitionTip.html">
     <ol>
-      <li>Partition date column not required,leave as default if cube always need full build</Li>
-      <li>Column should contain date value (type can be Date, Timestamp, String, VARCHAR, Int, Integer, BigInt, etc.)</li>
+      <li>不需要分区日期列，如果cube总是需要完全构建，则保留默认值</Li>
+      <li>列应该包含日期值(类型可以是Date、Timestamp、String、VARCHAR、Int、Integer、BigInt等。)</li>
     </ol>
 </script>
 
 <script type="text/ng-template" id="partitionTimeTip.html">
-  <p>Column should contain time value (type can be Timestamp, String, VARCHAR, etc.)</p>
+  <p>列应该包含时间值(类型可以是Timestamp、String、VARCHAR等。)</p>
 </script>
 
 <script type="text/ng-template" id="filterTip.html">
     <ol>
-      <li>Where clause to filter data from source</li>
-      <li>Do not include date column which will be used for incremental refresh</li>
-      <li>Do not include "Where"</li>
-      <li>Use ${start_date} and ${end_date} as dynamic variables for segment's start time and end time which are determined after a building job triggered</li>
+      <li>用于从源中过滤数据的Where子句</li>
+      <li>不包括将用于增量刷新的日期列</li>
+      <li>不包括 "Where"</li>
+      <li>使用${start_date}和${end_date}作为分段开始时间和结束时间的动态变量，这些时间在触发构建作业后确定</li>
     </ol>
 </script>
 <script type="text/ng-template" id="separateTimeColumnTip.html">
-  <p>For cases where fact table saves date and hour at two columns (KYLIN-1427)</p>
+  <p>对于事实表在两列中保存日期和时间的情况(KYLIN-1427)</p>
 </script>
 <script type="text/ng-template" id="separateDateColumnsTip.html">
-  <p>For cases where fact table saves date (year, month and day) in separate columns (KYLIN-4211)</p>
+  <p>对于事实表将日期(年、月和日)保存在单独的列中的情况(KYLIN-4211)</p>
 </script>

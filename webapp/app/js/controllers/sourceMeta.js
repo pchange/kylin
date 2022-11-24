@@ -84,7 +84,7 @@ KylinApp
 
     $scope.openModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('提示...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
@@ -138,7 +138,7 @@ KylinApp
 
     $scope.openTreeModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('提示...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
 
@@ -1053,7 +1053,7 @@ KylinApp
     //streaming resource onboard v2
     $scope.openStreamingSourceModalV2 = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('提示...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
