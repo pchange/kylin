@@ -43,7 +43,7 @@
               <label class="col-xs-3 control-label no-padding-right font-color-default" for="hybridName">混合名称</label>
               <div class="col-xs-9" ng-class="{ 'has-error': $validator.name.$invalid && $validator.name.$dirty }">
                 <input type="text" name="name" class="form-control" id="hybridName" placeholder="混合名称" ng-disabled="isFormDisabled || isEdit" ng-model="form.name" ng-pattern="/^\w+$/">
-                <small class="help-block" ng-show="!$validator.name.$error.required && $validator.name.$invalid && $validator.name.$dirty">Hybrid name is invalid.</small>
+                <small class="help-block" ng-show="!$validator.name.$error.required && $validator.name.$invalid && $validator.name.$dirty">混合名称不正确</small>
               </div>
             </div>
           </div>
@@ -132,8 +132,8 @@
                         <img ng-if="!isCheckAll(RIGHT)" src="image/checkbox-.svg" ng-click="toggleAll(RIGHT)" />
                         <img ng-if="isCheckAll(RIGHT)" src="image/checkbox+.svg" ng-click="toggleAll(RIGHT)" />
                       </th>
-                      <th>Name</th>
-                      <th class="status-center">Status</th>
+                      <th>名称</th>
+                      <th class="status-center">状态</th>
                     </tr>
                   </thead>
                   <tbody>
