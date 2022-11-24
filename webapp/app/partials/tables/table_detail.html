@@ -18,31 +18,31 @@
 
 <div ng-controller="SourceMetaCtrl" class="nav-tabs-custom">
   <div class="col-xs-12" ng-show="tableModel.selectedSrcDb&&tableModel.selectedSrcTable.name">
-    <h3 class="text-info">Table Schema:{{ tableModel.selectedSrcTable.name}}</h3>
-    <a class="btn btn-primary pull-right" ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',projectModel, permissions.ADMINISTRATION.mask)" ng-click="unloadTable(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)" style="margin-left:10px;" ><span class="fa fa-remove"></span>&nbsp;Unload Table</a>
-    <a class="btn btn-success pull-right" ng-if="tableModel.selectedSrcTable.source_type==0&&(userService.hasRole('ROLE_ADMIN') || hasPermission('project',projectModel, permissions.ADMINISTRATION.mask))"  ng-click="openReloadModal(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)" style="margin-left:10px;" ><span class="fa fa-download"></span>&nbsp;Reload Table</a>
+    <h3 class="text-info">表语法:{{ tableModel.selectedSrcTable.name}}</h3>
+    <a class="btn btn-primary pull-right" ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',projectModel, permissions.ADMINISTRATION.mask)" ng-click="unloadTable(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)" style="margin-left:10px;" ><span class="fa fa-remove"></span>&nbsp;卸载表</a>
+    <a class="btn btn-success pull-right" ng-if="tableModel.selectedSrcTable.source_type==0&&(userService.hasRole('ROLE_ADMIN') || hasPermission('project',projectModel, permissions.ADMINISTRATION.mask))"  ng-click="openReloadModal(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)" style="margin-left:10px;" ><span class="fa fa-download"></span>&nbsp;重载表</a>
     <div class="tabbable nav-tabs-custom">
       <ul class="nav nav-tabs">
         <li class="active">
           <a data-toggle="tab" href="#column">列</a>
         </li>
         <li>
-          <a data-toggle="tab" href="#sampleData">Sample Data</a>
+          <a data-toggle="tab" href="#sampleData">例子数据</a>
         </li>
         <li>
-          <a data-toggle="tab" href="#schema">Extend Information</a>
+          <a data-toggle="tab" href="#schema">扩展信息</a>
         </li>
         <li>
-          <a data-toggle="tab" ng-if="tableModel.selectedSrcTable.source_type==1" href="#streaming">Streaming Cluster</a>
+          <a data-toggle="tab" ng-if="tableModel.selectedSrcTable.source_type==1" href="#streaming">流式集群</a>
         </li>
          <li>
-          <a data-toggle="tab" ng-if="values(tableConfig.streamingSourceType).indexOf(tableModel.selectedSrcTable.source_type) > -1" href="#streamingV2">Streaming Cluster</a>
+          <a data-toggle="tab" ng-if="values(tableConfig.streamingSourceType).indexOf(tableModel.selectedSrcTable.source_type) > -1" href="#streamingV2">流式集群</a>
         </li>
         <li>
-          <a data-toggle="tab"  href="#access">Access</a>
+          <a data-toggle="tab"  href="#access">权限</a>
         </li>
         <li>
-          <a data-toggle="tab" href="#snapshot">Snapshot</a>
+          <a data-toggle="tab" href="#snapshot">快照</a>
         </li>
       </ul>
       <div class="tab-content">
@@ -52,53 +52,53 @@
             <table class="table">
               <tbody>
               <tr>
-                <th style="width:20%">TABLE NAME</th>
+                <th style="width:20%">表名</th>
                 <td>{{ tableModel.selectedSrcTable.name}}</td>
               </tr>
               <tr>
-                <th>DATABASE</th>
+                <th>数据库</th>
                 <td>{{tableModel.selectedSrcTable.database}}</td>
               </tr>
               <tr>
-                <th>TABLE TYPE</th>
+                <th>表类型</th>
                 <td>{{tableModel.selectedSrcTable.table_type}}</td>
               </tr>
               <tr>
-                <th>SNAPSHOT TIME</th>
+                <th>快照时间</th>
                 <td>{{tableModel.selectedSrcTable.exd.lastUpdateTime | utcToConfigTimeZone}}</td>
               </tr>
               <tr>
-                <th>LOCATION</th>
+                <th>位置</th>
                 <td>{{tableModel.selectedSrcTable.exd.location}}</td>
               </tr>
               <tr>
-                <th>INPUT FORMAT</th>
+                <th>输入格式</th>
                 <td>{{tableModel.selectedSrcTable.exd.hive_inputFormat}}</td>
               </tr>
               <tr>
-                <th>OUTPUT FORMAT</th>
+                <th>输出格式</th>
                 <td>{{tableModel.selectedSrcTable.exd.hive_outputFormat}}</td>
               </tr>
               <tr>
-                <th>OWNER</th>
+                <th>拥有者</th>
                 <td><a
                   href="mailto:{{tableModel.selectedSrcTable.exd.owner}}">{{tableModel.selectedSrcTable.exd.owner}}</a>
                 </td>
               </tr>
               <tr>
-                <th>TOTAL FILE NUMBER</th>
+                <th>文件总数</th>
                 <td>{{tableModel.selectedSrcTable.exd.total_file_number}}</td>
               </tr>
               <tr>
-                <th>TOTAL FILE SIZE</th>
+                <th>文件大小</th>
                 <td>{{tableModel.selectedSrcTable.exd.total_file_size}}</td>
               </tr>
               <tr>
-                <th>PARTITIONED</th>
+                <th>分区</th>
                 <td>{{tableModel.selectedSrcTable.exd.partitioned}}</td>
               </tr>
               <tr>
-                <th>PARTITION COLUMNS</th>
+                <th>分区列</th>
                 <td>{{tableModel.selectedSrcTable.exd.partition_column}}</td>
               </tr>
               </tbody>
@@ -179,7 +179,7 @@
         <div id="sampleData" class="tab-pane">
           <div class="profile-user-info">
             <div>
-              <label class="table-header-text">Sample Data</label>
+              <label class="table-header-text">例子数据</label>
             </div>
             <div class="space-6"></div>
             <div ng-if="tableModel.selectedSrcTable.sample_rows && tableModel.selectedSrcTable.sample_rows.length>0" style="overflow-x:auto;">
@@ -212,7 +212,7 @@
         <div id="streaming" ng-show="tableModel.selectedSrcTable.source_type==1" class="tab-pane">
             <div class="col-xs-12 pdb-12 pdt-12" ng-if="userService.hasRole('ROLE_ADMIN')">
               <div class="ofh">
-                <a class="btn btn-info floatR" ng-click="editStreamingConfig(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)"><i class="fa fa-edit"></i>Edit</a>
+                <a class="btn btn-info floatR" ng-click="editStreamingConfig(tableModel.selectedSrcTable.database+'.'+tableModel.selectedSrcTable.name)"><i class="fa fa-edit"></i>编辑</a>
               </div>
             </div>
 
@@ -224,32 +224,32 @@
           <div class="table-responsive">
             <div class="col-xs-12 pdb-12 pdt-12" ng-if="userService.hasRole('ROLE_ADMIN')">
               <div class="ofh">
-                <a class="btn btn-info floatR" ng-click="editStreamingConfigV2(currentStreamingConfig)"><i class="fa fa-edit"></i> Edit</a>
+                <a class="btn btn-info floatR" ng-click="editStreamingConfigV2(currentStreamingConfig)"><i class="fa fa-edit"></i>编辑</a>
               </div>
             </div>
             <table class="table">
               <tbody>
                 <tr>
-                  <th style="width:20%">Type</th>
+                  <th style="width:20%">类型</th>
                   <td ng-if="tableModel.selectedSrcTable.source_type === tableConfig.streamingSourceType.kafka">Kafka</td>
                   <td ng-if="tableModel.selectedSrcTable.source_type === tableConfig.streamingSourceType.kafka_hive">Kafka Hive Lambda</td>
                 </tr>
                 <tr>
-                  <th>Topic</th>
+                  <th>话题</th>
                   <td>{{currentStreamingConfig.properties.topic}}</td>
                 </tr>
                 <tr ng-if="tableModel.selectedSrcTable.source_type === tableConfig.streamingSourceType.kafka || tableModel.selectedSrcTable.source_type === tableConfig.streamingSourceType.kafka_hive">
                   <th>
-                    Bootstrap Servers
+                    引导服务器
                   </th>
                   <td>{{currentStreamingConfig.properties['bootstrap.servers']}}</td>
                 </tr>
                 <tr>
-                  <th>TSParse</th>
+                  <th>解析</th>
                   <td>{{currentStreamingConfig.parser_info.ts_parser}}</td>
                 </tr>
                 <tr>
-                  <th>TSPattern</th>
+                  <th>语法</th>
                   <td>{{currentStreamingConfig.parser_info.ts_pattern}}</td>
                 </tr>
               </tbody>
