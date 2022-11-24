@@ -63,12 +63,12 @@
             <thead>
             <tr>
                 <th>ID</th>
-                <th>Table Alias</th>
-                <th>Table Name</th>
-                <th>Table Kind</th>
-                <th>Join Type</th>
-                <th>Join Condition</th>
-                <th ng-if="state.mode=='edit'" class="col-xs-1">Actions</th>
+                <th>表别名</th>
+                <th>表名</th>
+                <th>表种类</th>
+                <th>连表类型</th>
+                <th>连表条件</th>
+                <th ng-if="state.mode=='edit'" class="col-xs-1">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -86,8 +86,8 @@
                 </td>
                 <!-- Table Kind -->
                 <td>
-                    <span ng-if="lookup.kind=='FACT'">Limited</span>
-                    <span ng-if="lookup.kind=='LOOKUP'">Normal</span>
+                    <span ng-if="lookup.kind=='FACT'">有限制的</span>
+                    <span ng-if="lookup.kind=='LOOKUP'">普通</span>
                 </td>
                 <!-- Join Type -->
                 <td>
@@ -122,7 +122,7 @@
     <!-- Add Lookup Table Form -->
     <script type="text/ng-template" id="dataModelLookupTable.html">
         <div class="modal-header">
-            <h4 class="box-title lighter">{{lookupState.editing ? '编辑' : '新增'}} Lookup 表</h4>
+            <h4 class="box-title lighter">{{lookupState.editing ? '编辑' : '新增'}} 查找表</h4>
         </div>
         <div class="modal-body">
             <div class="row">
@@ -135,7 +135,7 @@
                                       style="width:100%;" ng-options="table as table for table in aliasName"
                                       name="table_name"  ng-disabled="lookupState.editing"
                                       ng-required="true">
-                                <option value=""> &#45;&#45; From Table &#45;&#45; </option>
+                                <option value=""> &#45;&#45; 从表格 &#45;&#45; </option>
                               </select>
                           </div>
                         </div>
@@ -154,7 +154,7 @@
                                       ng-options="table.name as VdmUtil.removeNameSpace(table.name) for table in tableModel.selectProjectTables"
                                       name="table_name"  ng-disabled="lookupState.editing"
                                       ng-required="true"  ng-change="changeJoinTable()">
-                                <option value=""> &#45;&#45; 选择 Lookup 表 &#45;&#45; </option>
+                                <option value=""> &#45;&#45; 选择 查找 表 &#45;&#45; </option>
                               </select>
                           </div>
                           <div class="col-sm-1 form-group" style="text-align:center">
@@ -172,7 +172,7 @@
                         <div class="row">
                           <div class="col-sm-5" >
                             <label>
-                              <input type="checkbox" ng-model="newLookup.kind" ng-true-value="FACT" ng-false-value="LOOKUP" >&nbsp;跳过此查找表的Snapshot.
+                              <input type="checkbox" ng-model="newLookup.kind" ng-true-value="FACT" ng-false-value="LOOKUP" >&nbsp;跳过此查找表的快照.
                             </label>
                             <i class="fa fa-info-circle" kylinpopover="" placement="right" title="" template="isLimited.html"></i>
                           </div>
@@ -247,8 +247,8 @@
     </script>
 </div>
 <script type="text/ng-template" id="tableInUse.html">
-  <p>此表正在Cube使用.</p>
+  <p>此表正在立方体使用.</p>
 </script>
 <script type="text/ng-template" id="isLimited.html">
-  <p>某些查找表对于Snapshot来说太大(例如> 300 MB)，因此必须标记为受限。有限查找表不能直接查询，并且不支持派生维度.</p>
+  <p>某些查找表对于快照来说太大(例如> 300 MB)，因此必须标记为受限。有限查找表不能直接查询，并且不支持派生维度.</p>
 </script>
