@@ -84,10 +84,10 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed get replica set';
+        var msg = !!(message) ? message : '获取副本集失败';
         SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('提示...', 'Failed get replica set', 'error');
+        SweetAlert.swal('提示...', '获取副本集失败', 'error');
       }
       callback && callback();
     });
@@ -144,13 +144,13 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
                   $scope.availableNodes = scope.availableReceiver;
                   loadingRequest.hide();
                 });
-                errorMessage(e, 'Failed get replica set');
+                errorMessage(e, '获取副本集失败');
               });
             }, function(e) {
               scope.listReplicaSet(function() {
                 loadingRequest.hide();
               });
-              errorMessage(e, 'Failed remove receiver');
+              errorMessage(e, 'receiver 删除失败');
             });
           }
         };
@@ -174,16 +174,16 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
                   $scope.availableNodes = scope.availableReceiver;
                   loadingRequest.hide();
                 });
-                errorMessage(e, 'Failed get replica set');
+                errorMessage(e, '获取副本集失败');
               });
             }, function(e) {
               scope.listReplicaSet(function() {
                 loadingRequest.hide();
               });
-              errorMessage(e, 'Failed to add node');
+              errorMessage(e, '添加节点失败');
             });
           } else {
-             errorMessage(e, 'Failed to add node');
+             errorMessage(e, '添加节点失败');
           }
         };
 
@@ -229,19 +229,19 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
             }, function(data) {
               scope.listReplicaSet();
               $modalInstance.close();
-              SweetAlert.swal('成功!', 'Node add success', 'success');
+              SweetAlert.swal('成功!', '添加节点成功', 'success');
             }, function(e) {
               if (e.data && e.data.exception) {
                 var message = e.data.exception;
-                var msg = !!(message) ? message : 'Failed to add node';
+                var msg = !!(message) ? message : '添加节点失败';
                 SweetAlert.swal('提示...', msg, 'error');
               } else {
-                SweetAlert.swal('提示...', 'Failed to add node', 'error');
+                SweetAlert.swal('提示...', '添加节点失败', 'error');
               }
               scope.listReplicaSet();
             });
           } else {
-            SweetAlert.swal('提示...', "Please select node", 'info');
+            SweetAlert.swal('提示...', "请选择节点", 'info');
           }
         };
 
