@@ -21,11 +21,11 @@
 KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageService, AuthenticationService, SweetAlert) {
 
   $scope.accessTooltip = "<div style='text-align: left'>" +
-  "<label>What does access mean to project?</label>" +
-  "<ul><li>QUERY: Access to query cube</li>" +
-  "<li>OPERATION: Access to rebuild, resume and cancel jobs. Also include access of CUBE QUERY.</li>" +
-  "<li>MANAGEMENT: Access to edit/delete cube. Also include access of CUBE OPERATION.</li>" +
-  "<li>ADMIN: Full access to cube and jobs, including access management.</li></ul></div>";
+  "<label>权限对项目意味着什么?</label>" +
+  "<ul><li>QUERY: 有权限查询cube</li>" +
+  "<li>OPERATION: 重建、恢复和取消作业的权限,还包括访问cube查询.</li>" +
+  "<li>MANAGEMENT: 编辑/删除cube的访问权限,还包括访问cube的操作.</li>" +
+  "<li>ADMIN: 对cube和任务的完全访问权限，包括访问管理.</li></ul></div>";
 
   $scope.authorities = null;
   AuthenticationService.authorities({}, function (authorities) {
