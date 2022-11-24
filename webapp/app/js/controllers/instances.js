@@ -42,7 +42,7 @@ KylinApp
           $scope.selectedLeaders = state.data.selectedLeaders;
           $scope.activeJobNodes = state.data.activeJobNodes;
         } else {
-          var msg = !!(state.msg) ? state.msg : 'Failed to load instances.';
+          var msg = !!(state.msg) ? state.msg : '例子加载失败.';
           SweetAlert.swal('提示...', msg, 'error');
         }
       });
