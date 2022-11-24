@@ -120,7 +120,7 @@
   <div class="modal-body">
     <span><strong>项目: {{ $parent.projectName!=null?$parent.projectName:'NULL'}}</strong></span><br/>
     <label for="tables"> 确定重新加载项目 {{selectTable}} ?</label><br/>
-    <label ng-if="sourceType === '0'"><input type="checkbox" ng-model="isCalculate.val" > Calculate column cardinality</label>
+    <label ng-if="sourceType === '0'"><input type="checkbox" ng-model="isCalculate.val" >计算列基数</label>
     <p>行: <input ng-if="sourceType === '0' && isCalculate.val" class="form-control width-20" type="text" ng-model="syncRows.rows" /></p>
   </div>
   <div class="modal-footer">
@@ -142,7 +142,7 @@
           <label class="col-xs-2 control-label" style="text-align: left;">选择csv文件</label><input type="file" class="custom-file-input" file-model="file">
         </form>
         <input type="checkbox" ng-model="tableData.has_header">
-        Is first line of header
+        标题是第一行
         <select id="table_separator" chosen ng-model="tableData.separator" ng-options="separator as separator for separator in separator_list" data-placeholder="select a separator" style="width: 150px !important;" class="chosen-select"></select>
       </div>
       <div class="clearfix">
@@ -159,9 +159,9 @@
 
       <table class="table table-hover table-bordered" ng-show="tableData.loaded">
         <tr>
-          <th>Column</th>
-          <th>Column Type</th>
-          <th>Sample Data</th>
+          <th>列</th>
+          <th>列类型</th>
+          <th>例子数据</th>
         </tr>
         <tr ng-repeat="column in columnList">
           <td><input type="text" ng-model="column.name"></td>
