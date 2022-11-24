@@ -534,7 +534,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
 
     $scope.cloneCube = function(cube){
       if(!$scope.projectModel.selectedProject){
-        SweetAlert.swal('提示...', "Please choose project before clone.", 'info');
+        SweetAlert.swal('提示...', "克隆前请先关闭项目.", 'info');
         return;
       }
 
@@ -628,9 +628,9 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       AdminStreamingService.assignCube({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
           title: '成功!',
-          text: 'Cube start successful',
+          text: 'Cube 开启成功',
           type: 'success',
-          confirmButtonText: 'OK',
+          confirmButtonText: '确定',
           confirmButtonClass: 'btn-primary',
           closeOnConfirm: true
         }, function () {
@@ -639,10 +639,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       }, function(e){
         if(e.data&& e.data.exception){
           var message =e.data.exception;
-          var msg = !!(message) ? message : 'Failed to start cube';
+          var msg = !!(message) ? message : '开启cube成功';
           SweetAlert.swal('提示...', msg, 'error');
         } else{
-          SweetAlert.swal('提示...', 'Failed to start cube', 'error');
+          SweetAlert.swal('提示...', '开启cube失败', 'error');
         }
       });
     };
@@ -651,7 +651,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       AdminStreamingService.suspendCubeConsume({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
           title: '成功!',
-          text: 'Cube pause successful',
+          text: 'Cube 暂停成功',
           type: 'success',
           confirmButtonText: 'OK',
           confirmButtonClass: 'btn-primary',
@@ -662,10 +662,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       }, function(e){
         if(e.data&& e.data.exception){
           var message =e.data.exception;
-          var msg = !!(message) ? message : 'Failed to pause cube';
+          var msg = !!(message) ? message : '暂停 cube 成功';
           SweetAlert.swal('提示...', msg, 'error');
         } else{
-          SweetAlert.swal('提示...', 'Failed to pause cube', 'error');
+          SweetAlert.swal('提示...', '暂停 cube 失败', 'error');
         }
       });
     };
@@ -674,7 +674,7 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       AdminStreamingService.resumeCubeConsume({cubeName:cube.name}, {}, function(data){
         SweetAlert.swal({
           title: '成功!',
-          text: 'Cube resume successful',
+          text: 'Cube 重启成功',
           type: 'success',
           confirmButtonText: 'OK',
           confirmButtonClass: 'btn-primary',
@@ -685,10 +685,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       }, function(e){
         if(e.data&& e.data.exception){
           var message =e.data.exception;
-          var msg = !!(message) ? message : 'Failed to resume cube';
+          var msg = !!(message) ? message : 'cube重启成功';
           SweetAlert.swal('提示...', msg, 'error');
         } else{
-          SweetAlert.swal('提示...', 'Failed to resume cube', 'error');
+          SweetAlert.swal('提示...', 'cube重启失败', 'error');
         }
       });
     };
@@ -703,8 +703,8 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
             $scope.assignmentGridOptions = {
               paginationPageSize: 20,
               columnDefs: [
-                { name: 'Replica Set ID', field: 'rs_id', width:'20%'},
-                { name: 'Partition', field: 'partitions', width:'*', cellTemplate: '<div class="ui-grid-cell-contents"><span class="label label-primary" style="margin-right:5px;" ng-repeat="partition in row.entity.partitions">{{partition.partition_id}}</span></div>' }
+                { name: '副本集ID', field: 'rs_id', width:'20%'},
+                { name: '分区', field: 'partitions', width:'*', cellTemplate: '<div class="ui-grid-cell-contents"><span class="label label-primary" style="margin-right:5px;" ng-repeat="partition in row.entity.partitions">{{partition.partition_id}}</span></div>' }
               ]
             };
             $scope.assignmentGridOptions.data = assignment[cube];
@@ -729,10 +729,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
               },function(e){
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to get replica set info';
+                  var msg = !!(message) ? message : '无法获取副本集信息';
                   SweetAlert.swal('提示...', msg, 'error');
                 } else {
-                  SweetAlert.swal('提示...', 'Failed to get replica set info', 'error');
+                  SweetAlert.swal('提示...', '无法获取副本集信息', 'error');
                 }
               });
             };
@@ -752,10 +752,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
               }, function(e){
                 if(e.data&& e.data.exception){
                   var message =e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to reAssign cube';
+                  var msg = !!(message) ? message : '重新分配cube失败';
                   SweetAlert.swal('提示...', msg, 'error');
                 } else{
-                  SweetAlert.swal('提示...', 'Failed to reAssign cube', 'error');
+                  SweetAlert.swal('提示...', '重新分配cube失败', 'error');
                 }
               });
             };
@@ -772,10 +772,10 @@ KylinApp.controller('CubesCtrl', function ($scope, $q, $routeParams, $location, 
       }, function(e) {
         if(e.data&& e.data.exception){
           var message =e.data.exception;
-          var msg = !!(message) ? message : 'Failed to get cube assignment info';
+          var msg = !!(message) ? message : '获取cube分配信息失败';
           SweetAlert.swal('提示...', msg, 'error');
         } else{
-          SweetAlert.swal('提示...', 'Failed to get cube assignment info', 'error');
+          SweetAlert.swal('提示...', '获取cube分配信息失败', 'error');
         }
       });
     };
@@ -798,7 +798,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
   $scope.cloneCube = function(){
 
     if(!$scope.targetObj.targetProject){
-      SweetAlert.swal('提示...', "Please select target project.", 'info');
+      SweetAlert.swal('提示...', "请选择目标项目.", 'info');
       return;
     }
 
