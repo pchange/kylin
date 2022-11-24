@@ -30,7 +30,7 @@ KylinApp.controller('UserProfileCtrl', function ($scope, $modal, AuthenticationS
       $scope.dialogActionLoading = true;
       UserService.changePwd($scope.changePwdUser, function () {
         $modalInstance.dismiss('cancel');
-        SweetAlert.swal('Change password successfully', null, 'success');
+        SweetAlert.swal('密码更改成功', null, 'success');
         $scope.dialogActionLoading = false;
         $scope.logout();
       }, function (e) {
