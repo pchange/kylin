@@ -18,15 +18,15 @@
 
 <script type="text/ng-template" id="cubeAssignment.html">
   <div class="modal-header">
-    <h4>Cube Assignment</h4>
+    <h4>立方体分配</h4>
   </div>
   <div ng-if="status==='view'" class="modal-body" style="background-color: white">
     <div ui-grid="assignmentGridOptions" ui-grid-pagination class="grid"></div>
   </div>
   <div ng-if="status==='edit'" class="modal-body" style="background-color: white">
     <div class="row">
-      <div class="col-sm-3 font-color-default text-center" style="font-weight:bolder;">Replica Set ID</div>
-      <div class="col-sm-8 font-color-default text-center" style="font-weight:bolder;">Partition</div>
+      <div class="col-sm-3 font-color-default text-center" style="font-weight:bolder;">副本集 ID</div>
+      <div class="col-sm-8 font-color-default text-center" style="font-weight:bolder;">分割</div>
     </div>
     <div ng-repeat="replicaSet in currentAssignment" class="row">
       <div class="col-sm-3 form-group">
@@ -53,7 +53,7 @@
     </div>
   </div>
   <div class="modal-footer">
-    <button ng-if="status==='view'" class="btn btn-primary" ng-click="editAssignment()">Edit</button>
+    <button ng-if="status==='view'" class="btn btn-primary" ng-click="editAssignment()">编辑</button>
     <button ng-if="status==='edit'" class="btn btn-primary" ng-click="reAssignCube()">保存</button>
     <button class="btn btn-warning" ng-click="cancel()">关闭</button>
   </div>
