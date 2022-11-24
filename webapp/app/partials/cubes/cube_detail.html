@@ -19,7 +19,7 @@
 <div ng-controller="CubeCtrl" class="nav-tabs-custom" style="margin-top:40px;">
     <ul class="nav nav-tabs">
         <li class="{{(!cube.visiblePage || cube.visiblePage=='metadata')? 'active':''}}">
-            <a href="" ng-click="cube.visiblePage='metadata'">Grid</a>
+            <a href="" ng-click="cube.visiblePage='metadata'">网格</a>
         </li>
         <!--</li>-->
         <li class="{{cube.visiblePage=='sql'? 'active':''}}">
@@ -27,11 +27,11 @@
         </li>
         <li class="{{cube.visiblePage=='json'? 'active':''}}"
             ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('cube',cube, permissions.ADMINISTRATION.mask) && !newAccess">
-            <a href="" ng-click="cube.visiblePage='json';">JSON(Cube)</a>
+            <a href="" ng-click="cube.visiblePage='json';">JSON(立方体)</a>
         </li>
         <!--<li class="{{cube.visiblePage=='access'? 'active':''}}"-->
             <!--ng-if="!kylinConfig.isExternalAclEnabled()">-->
-            <!--<a href="" ng-click="cube.visiblePage='access';listAccess(cube, 'CubeInstance');">Access</a>-->
+            <!--<a href="" ng-click="cube.visiblePage='access';listAccess(cube, 'CubeInstance');">权限</a>-->
         <!--</li>-->
         <li class="{{cube.visiblePage=='notification'? 'active':''}}"
             ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('cube',cube, permissions.ADMINISTRATION.mask) && !newAccess">
@@ -145,7 +145,7 @@
         <div style="padding: 15px;">
             <div class="row">
                 <div class="col-sm-12">
-                    <h4 style="display: inline;">Cuboid 分布</h4>
+                    <h4 style="display: inline;">长方体 分布</h4>
                     <button ng-if="enableRecommend" class="btn btn-success btn-sm pull-right" ng-click="getRecommendCuboids(cube)" ng-if="currentData">
                         推荐
                     </button>
@@ -219,14 +219,12 @@
                             <div class="col-sm-2 detail-metric">
                                 15'
                             </div>
+                            <div class="col-sm-2 detail-metric">平均</div>
                             <div class="col-sm-2 detail-metric">
-                                avg
+                                消耗
                             </div>
                             <div class="col-sm-2 detail-metric">
-                                consume
-                            </div>
-                            <div class="col-sm-2 detail-metric">
-                                ingest
+                              摄取
                             </div>
                         </div>
                         <div class="row" ng-if="receiverStats.partition_consume_stats">
