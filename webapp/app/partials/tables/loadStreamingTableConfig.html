@@ -33,7 +33,7 @@
     <div class="row">
       <div class="col-xs-5">
         <div class="text-info" ng-if="tableConfig.streamingSourceType.kafka === tableData.source_type">
-          Please input topic record sample, or automatically get it from <i class="fa fa-file-text" style="cursor: pointer;" ng-click="getTemplate()"></i>
+          请输入主题记录样本，或自动获取<i class="fa fa-file-text" style="cursor: pointer;" ng-click="getTemplate()"></i>
         </div>
         <div style="margin-bottom: 10px;">
           <span class="label label-info">JSON</span>
@@ -50,11 +50,11 @@
       <div class="col-xs-6" ng-show="tableData">
 
         <div class="form-group required">
-          <label for="tableName" class="col-sm-3 control-label font-color-default">Table Name</label>
+          <label for="tableName" class="col-sm-3 control-label font-color-default">表名</label>
           <div class="col-sm-6">
             <input type="text" class="form-control" id="tableName" ng-model="tableData.name" name="tableName" placeholder="Input Table Name eg. database.table" required>
             <small class="help-block" ng-show="table_data_from.tableName.$error.required && table_data_from.tableName.$dirty">
-              Table Name is empty.
+              表名为空.
             </small>
           </div>
           <div class="form-group col-sm-3">
@@ -68,19 +68,19 @@
         </div>
 
         <div class="form-group required">
-          <label for="TSColumn" class="col-sm-3 control-label font-color-default">TSColumn</label>
+          <label for="TSColumn" class="col-sm-3 control-label font-color-default">TS列</label>
           <div class="col-sm-6">
             <select id="TSColumn" chosen ng-model="streaming.TSColumnSelected" ng-options="TSColumn as TSColumn for TSColumn in streaming.TSColumnArr" data-placeholder="select a column name" style="width: 120px !important;" class="chosen-select" ng-change="updateTSColumnOption(streaming.TSColumnSelected)"></select>
           </div>
         </div>
         <div class="form-group">
-          <label for="TSParser" class="col-sm-3 control-label font-color-default">TSParser</label>
+          <label for="TSParser" class="col-sm-3 control-label font-color-default">TS解析器</label>
           <div class="col-sm-9">
             <select id="TSParser" chosen ng-model="streaming.TSParser" ng-options="TSParser as TSParser for TSParser in streaming.TSParserArr" data-placeholder="select a time parser" style="width: 360px !important;" class="chosen-select" ng-change="updateDateTimeParserOption(streaming.TSParser)"></select>
           </div>
         </div>
         <div class="form-group">
-          <label for="TSPattern" class="col-sm-3 control-label font-color-default">TSPattern</label>
+          <label for="TSPattern" class="col-sm-3 control-label font-color-default">TS模式</label>
           <div class="col-sm-9">
             <select id="TSPattern" chosen ng-model="selectedTsPattern" ng-options="TSPattern as TSPattern for TSPattern in streaming.TSPatternArr" data-placeholder="select a time pattern" style="width: 360px !important;" class="chosen-select" ng-change="updateTsPatternOption(selectedTsPattern)"></select>
           </div>
@@ -91,10 +91,10 @@
           <table class="table table-hover table-bordered">
             <tr>
               <th></th>
-              <th>Column</th>
-              <th>Type</th>
-              <th>Mapping</th>
-              <th width="15%">Comment</th>
+              <th>列</th>
+              <th>类型</th>
+              <th>映射</th>
+              <th width="15%">注释</th>
             </tr>
             <tr ng-repeat="column in tableData.columns">
               <td>
@@ -110,7 +110,7 @@
               <td>{{column.field_mapping}}</td>
               <td>
                 {{column.comment}}
-                <label ng-if="isDerived(column)" class="badge badge-info">derived time dimension</label>
+                <label ng-if="isDerived(column)" class="badge badge-info">派生时间维度</label>
               </td>
             </tr>
             <tr>
@@ -144,8 +144,7 @@
     <div class="row">
       <div class="col-sm-4 col-sm-offset-8">
         <button class="btn btn-prev" ng-click="previewStep()">
-          <i class="ace-icon fa fa-arrow-left"></i> Prev
-        </button>
+          <i class="ace-icon fa fa-arrow-left"></i>上一个</button>
         <button id="nextButton" class="btn btn-primary"  ng-click="saveStreamingSource()">
           提交
         </button>
