@@ -61,14 +61,14 @@
           }
           expand_level = parseInt(attrs.expandLevel, 10);
           if (!scope.treeData) {
-            alert('no treeData defined for the tree!');
+            alert('没有为树定义树数据!');
             return;
           }
           if (scope.treeData.length == null) {
             if (treeData.label != null) {
               scope.treeData = [treeData];
             } else {
-              alert('treeData should be an array of root branches');
+              alert('treeData应该是根分支的数组');
               return;
             }
           }
