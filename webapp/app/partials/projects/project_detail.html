@@ -19,7 +19,7 @@
 <div class="nav-tabs-custom">
     <ul class="nav nav-tabs">
         <li class="{{project.visiblePage=='cubes'? 'active':''}}">
-            <a href="" ng-click="project.visiblePage='cubes';">立方体</a>
+            <a href="" ng-click="project.visiblePage='cubes';">多维数据</a>
         </li>
         <li class="{{project.visiblePage=='access'? 'active':''}}"
             ng-if="!kylinConfig.isExternalAclEnabled()">
@@ -43,7 +43,7 @@
                 <table ng-if="project.realizations.length > 0" class="table table-striped table-hover" >
                     <thead>
                         <tr>
-                            <th>立方体名称</th>
+                            <th>多维数据名称</th>
                             <th>操作</th>
                         </tr>
                     </thead>
