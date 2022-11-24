@@ -207,7 +207,7 @@
         <div class="modal-header large-popover">
             <h4 class="box-title lighter">自动生成维度 <i kylinpopover placement="right" title="Auto Generate Rules" template="AutoDimensionsTip.html" class="fa fa-info-circle"></i> <small>帮助您批量生成维度.</small></h4>
             <div class="col-xs-12">
-                Visit <a href="http://kylin.apache.org/docs/howto/howto_optimize_cubes.html" target="_blank">derived column</a> for more about derived column.
+                <!-- Visit <a href="http://kylin.apache.org/docs/howto/howto_optimize_cubes.html" target="_blank">derived column</a> for more about derived column. -->
             </div>
         </div>
         <div class="modal-body">
@@ -221,9 +221,9 @@
                                 <h4>{{table}}&nbsp;[FactTable]</h4>
                                 <table class="table table-striped table-hover ng-scope">
                                   <tr >
-                                    <td class="col-xs-2"><label><input type="checkbox" ng-model="selectedColumns[table].all" ng-change="autoChangeAll(table)">&nbsp;Select All</label></td>
-                                    <td class="col-xs-4"><label>Name</label></td>
-                                    <td class="col-xs-3"><label>Columns</label></td>
+                                    <td class="col-xs-2"><label><input type="checkbox" ng-model="selectedColumns[table].all" ng-change="autoChangeAll(table)">&nbsp;全选</label></td>
+                                    <td class="col-xs-4"><label>名称</label></td>
+                                    <td class="col-xs-3"><label>列</label></td>
                                     <td colspan="2" class="col-xs-3"></td>
                                   </tr>
                                   <tr ng-repeat="col in availableColumns[table] track by col.table + '.' + col.name" >
@@ -247,9 +247,9 @@
                                 <h4>{{table}}&nbsp;[LookupTable]</h4>
                                 <table class="table table-striped table-hover ng-scope">
                                   <tr class="row" >
-                                    <td class="col-xs-2"><label><input type="checkbox" ng-model="selectedColumns[table].all" ng-change="autoChangeAll(table)">&nbsp;Select All</label></td>
-                                    <td class="col-xs-4"><label>Name</label></td>
-                                    <td class="col-xs-3"><label>Columns</label></td>
+                                    <td class="col-xs-2"><label><input type="checkbox" ng-model="selectedColumns[table].all" ng-change="autoChangeAll(table)">&nbsp;全选</label></td>
+                                    <td class="col-xs-4"><label>名称</label></td>
+                                    <td class="col-xs-3"><label>列</label></td>
                                     <td colspan="2" class="col-xs-3"></td>
                                   </tr>
                                   <tr ng-repeat="col in availableColumns[table] track by col.table + '.' + col.name" class="row">
@@ -265,10 +265,10 @@
                                       {{col.name}}
                                     </td>
                                     <td  >
-                                      <label> <input type="radio" ng-model="selectedColumns[table][col.name].normal" value="true" ng-disabled="!selectedColumns[table][col.name].selected"> Normal </label>
+                                      <label> <input type="radio" ng-model="selectedColumns[table][col.name].normal" value="true" ng-disabled="!selectedColumns[table][col.name].selected"> 普通 </label>
                                     </td>
                                     <td >
-                                      <label> <input type="radio" ng-model="selectedColumns[table][col.name].normal" value="false" ng-disabled="!selectedColumns[table][col.name].selected"> Derived </label>
+                                      <label> <input type="radio" ng-model="selectedColumns[table][col.name].normal" value="false" ng-disabled="!selectedColumns[table][col.name].selected"> 派生 </label>
                                     </td>
                                   </tr>
                                 </table>
@@ -281,7 +281,7 @@
         </div>
         <div class="modal-footer">
             <button class="btn btn-warning" ng-click="cancel()">取消</button>
-            <button class="btn btn-primary" ng-disabled="" ng-click="checkAutoDimension()?ok():''">OK</button>
+            <button class="btn btn-primary" ng-disabled="" ng-click="checkAutoDimension()?ok():''">确定</button>
         </div>
     </script>
     </ng-form>
@@ -290,8 +290,8 @@
   <div class="row">
     <div class="col-xs-12">
       <ol class="text-info">
-        <li>In fact table: one normal dimension will be auto generated per column.</li>
-        <li>In lookup table: you can choose to generate a derived column or a normal column.</li>
+        <li>事实表：每列将自动生成一个正常维度。</li>
+        <li>在查找表中：您可以选择生成派生列或普通列。</li>
       </ol>
     </div>
   </div>
