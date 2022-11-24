@@ -1441,22 +1441,22 @@ KylinApp
               transformStreamingConfig
               , function (request) {
                 if (request.successful) {
-                  SweetAlert.swal('', 'Created the streaming successfully.', 'success');
+                  SweetAlert.swal('', '新建 streaming 成功.', 'success');
                   $scope.cancel();
                   scope.aceSrcTbLoaded(true);
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to create streaming source.';
+                  var msg = !!(message) ? message : '新建 streaming source 失败.';
                   $scope.streaming.errMsg = msg;
                 }
                 loadingRequest.hide();
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to create streaming source.';
+                  var msg = !!(message) ? message : '新建 streaming source 失败.';
                   $scope.streaming.errMsg = msg;
                 } else {
-                  $scope.streaming.errMsg = 'Failed to create streaming source.';
+                  $scope.streaming.errMsg = '新建 streaming source 失败.';
                 }
                 //end loading
                 loadingRequest.hide();
@@ -1556,7 +1556,7 @@ KylinApp
         CsvUploadService.save(file, $scope.tableData.name, projectName, JSON.stringify(columns), $scope.tableData.has_header, $scope.tableData.separator)
           .then(
             function (response) {
-              SweetAlert.swal('', 'Created table from csv file successfully.', 'success');
+              SweetAlert.swal('', '从csv文件创建表格成功.', 'success');
               $scope.cancel();
               scope.aceSrcTbLoaded(true);
             },
@@ -1586,7 +1586,7 @@ KylinApp
               snapshot.usageInfo += '</br>';
             });
           } else {
-            snapshot.usageInfo = 'No Usage Info';
+            snapshot.usageInfo = '没有使用信息';
           }
         });
         $scope.tableSnapshots = orgData;
