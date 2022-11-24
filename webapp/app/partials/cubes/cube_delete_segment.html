@@ -18,7 +18,7 @@
 
 <script type="text/ng-template" id="deleteSegment.html">
     <div class="modal-header">
-        <h4 tooltip="refresh">立方体段删除确认</h4>
+        <h4 tooltip="refresh">多维数据段删除确认</h4>
     </div>
     <div class="modal-body" style="background-color: white">
         <div ng-if="cube.model.partition_desc.partition_date_column" class="row">
@@ -75,7 +75,7 @@
         <div ng-if="!cube.model.partition_desc.partition_date_column" class="row">
             <div class="col-md-2"></div>
             <div class="col-md-8">
-                <span>未定义分区日期列。 如果你想放下立方体，请点击“删除”</span>
+                <span>未定义分区日期列。 如果你想放下多维数据，请点击“删除”</span>
             </div>
             <div class="col-md-2"></div>
         </div>
