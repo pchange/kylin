@@ -294,7 +294,7 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       ProjectService.save({}, {projectDescData: angular.toJson($scope.proj)}, function (newProj) {
         $modalInstance.dismiss('cancel');
         $cookieStore.put("project", newProj.name);
-        MessageBox.successAlert("New project created successfully!", function(){
+        MessageBox.successAlert("项目创建成功!", function(){
           location.reload();
         });
 

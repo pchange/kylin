@@ -35,22 +35,22 @@ KylinApp.controller('ModelSchemaCtrl', function ($scope, QueryService, UserServi
 
 
   $scope.wizardSteps = [
-    {title: 'Model Info', src: 'partials/modelDesigner/model_info.html', isComplete: false, form: 'model_info_form'},
-    {title: 'Data Model', src: 'partials/modelDesigner/data_model.html', isComplete: false, form: 'data_model_form'},
+    {title: '模型基本信息', src: 'partials/modelDesigner/model_info.html', isComplete: false, form: 'model_info_form'},
+    {title: '数据模型', src: 'partials/modelDesigner/data_model.html', isComplete: false, form: 'data_model_form'},
     {
-      title: 'Dimensions',
+      title: '维度',
       src: 'partials/modelDesigner/model_dimensions.html',
       isComplete: false,
       form: 'model_dimensions_form'
     },
     {
-      title: 'Measures',
+      title: '度量',
       src: 'partials/modelDesigner/model_measures.html',
       isComplete: false,
       form: 'model_measure_form'
     },
     {
-      title: 'Settings',
+      title: '设置',
       src: 'partials/modelDesigner/conditions_settings.html',
       isComplete: false,
       form: 'model_setting_form'
