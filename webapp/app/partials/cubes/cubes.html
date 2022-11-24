@@ -23,7 +23,7 @@
 <div class="dataTables_wrapper no-footer">
     <div class="row">
       <div class="col-xs-9">
-        <label class="table-header-text">Cubes</label>
+        <label class="table-header-text">立方体</label>
       </div>
       <div class="col-xs-3">
       <form style="display: inline;float:right;" >
@@ -131,8 +131,8 @@
                         操作 <span class="ace-icon fa fa-caret-down icon-on-right"></span>
                     </button>
                     <ul class="dropdown-menu" role="menu" style="right:0;left:auto;">
-                        <li ng-if="cube.status!='READY'"><a href="cubes/edit/{{cube.name}}/descriptionjson">编辑Cube描述</a></li>
-                        <li><a href="cubes/view/{{cube.name}}/instancejson">查看Cube</a></li>
+                        <li ng-if="cube.status!='READY'"><a href="cubes/edit/{{cube.name}}/descriptionjson">编辑立方体描述</a></li>
+                        <li><a href="cubes/view/{{cube.name}}/instancejson">查看立方体</a></li>
                     </ul>
                 </div>
             </td>
@@ -152,7 +152,7 @@
     </div>
 </div>
 <div ng-if="cubeList.cubes.length" class="pull-left font-color-default" style="font-size: 15px" >
-    <strong>Storage: {{getTotalSize(cubeList.cubes)}}</strong>
+    <strong>存储: {{getTotalSize(cubeList.cubes)}}</strong>
 </div>
 
 <div ng-include="'partials/jobs/job_submit.html'"></div>
