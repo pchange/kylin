@@ -52,12 +52,12 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
       entity.accessEntities = accessEntities;
       $scope.resetNewAcess();
 //            MessageService.sendMsg('Access granted!', 'success', {});
-      SweetAlert.swal('成功!', 'Access granted!', 'success');
+      SweetAlert.swal('成功!', '授予访问权限!', 'success');
     }, function (e) {
       grantRequst.uuid = uuid;
       if (e.status == 404) {
 //                MessageService.sendMsg('User not found!', 'error', {});
-        SweetAlert.swal('提示...', 'User not found!!', 'error');
+        SweetAlert.swal('提示...', '找不到用户!!', 'error');
       }
       else {
         if (e.data && e.data.exception) {
@@ -80,7 +80,7 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
     AccessService.update({type: type, uuid: entity.uuid}, updateRequst, function (accessEntities) {
       entity.accessEntities = accessEntities;
 //            MessageService.sendMsg('Access granted!', 'success', {});
-      SweetAlert.swal('', 'Access granted!', 'success');
+      SweetAlert.swal('', '授予访问权限!', 'success');
     }, function (e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
@@ -96,7 +96,7 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
   $scope.revoke = function (type, access, entity) {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to revoke the access?',
+      text: '确定要撤销该权限吗?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -113,7 +113,7 @@ KylinApp.controller('AccessCtrl', function ($scope, AccessService, MessageServic
       };
       AccessService.revoke(revokeRequst, function (accessEntities) {
         entity.accessEntities = accessEntities.accessEntryResponseList;
-        SweetAlert.swal('成功!', 'The access has been revoked.', 'success');
+        SweetAlert.swal('成功!', '访问权限已被撤销.', 'success');
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;

@@ -809,7 +809,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to clone the cube? ',
+      text: '确定克隆该cube? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -821,7 +821,7 @@ var cubeCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServic
         loadingRequest.show();
         CubeService.clone({cubeId: cube.name}, $scope.cubeRequest, function (result) {
           loadingRequest.hide();
-          MessageBox.successNotify('Clone cube successfull');
+          MessageBox.successNotify('克隆cube成功');
           location.reload();
         }, function (e) {
           loadingRequest.hide();
@@ -883,7 +883,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           SweetAlert.swal({
             title:'',
             type:'info',
-            text: 'Empty cube segment found'+':'+_segment+', do you want to merge segments forcely ?',
+            text: '找到空的cube段'+':'+_segment+', 强制合并段吗 ?',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             closeOnConfirm: true
@@ -898,7 +898,7 @@ var jobSubmitCtrl = function ($scope, $modalInstance, CubeService, MessageServic
           SweetAlert.swal({
             title:'',
             type:'info',
-            text: 'There ares gaps between segments, do you want to merge segments forcely ?',
+            text: '段之间有间隙，是否要强制合并段 ?',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             closeOnConfirm: true
@@ -1021,7 +1021,7 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
   $scope.deleteSegment = function() {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to delete segment ['+$scope.segment.selected.name+']? ',
+      text: '确定要删除段 ['+$scope.segment.selected.name+']? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -1038,15 +1038,15 @@ var deleteSegmentCtrl = function($scope, $modalInstance, CubeService, SweetAlert
               scope.cubeList.cubes[scope.cubeList.cubes.indexOf(cube)] = _cube;
            }
           });
-          MessageBox.successNotify('Delete segment successfully');
+          MessageBox.successNotify('删除段成功');
         },function(e){
           loadingRequest.hide();
           if(e.data&& e.data.exception){
             var message =e.data.exception;
-            var msg = !!(message) ? message : 'Failed to delete segment.';
+            var msg = !!(message) ? message : '删除段失败.';
             SweetAlert.swal('提示...', msg, 'error');
           }else{
-            SweetAlert.swal('提示...', 'Failed to delete segment.', 'error');
+            SweetAlert.swal('提示...', '删除段失败.', 'error');
           }
         });
       }
@@ -1107,7 +1107,7 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
 
   $scope.refresh = function() {
     if (!$scope.lookup.select.table_name) {
-      SweetAlert.swal('Warning', 'Lookup table should not be empty', 'warning');
+      SweetAlert.swal('Warning', 'Lookup table 不能为空', 'warning');
       return;
     }
 
@@ -1115,18 +1115,18 @@ var lookupRefreshCtrl = function($scope, scope, CubeList, $modalInstance, CubeSe
     var lookupTable = _.find(cube.detail.snapshot_table_desc_list, function(table){ return table.table_name == $scope.lookup.select.table_name});
     if (!!lookupTable) {
       if (!lookupTable.global && $scope.lookup.select.segments.length == 0) {
-        SweetAlert.swal('Warning', 'Segment should not be empty', 'warning');
+        SweetAlert.swal('Warning', 'Segment 不能为空', 'warning');
         return;
       }
     } else {
       // cube lookup table
       lookupTable = _.find($scope.cubeLookups, function(table){ return table == $scope.lookup.select.table_name});
       if (!lookupTable) {
-        SweetAlert.swal('Warning', 'Lookup table not existed in cube', 'warning');
+        SweetAlert.swal('Warning', 'Lookup table 不存在于 cube', 'warning');
         return;
       } else {
         if (!$scope.lookup.select.segments || $scope.lookup.select.segments.length == 0) {
-          SweetAlert.swal('Warning', 'Segment should not be empty', 'warning');
+          SweetAlert.swal('Warning', 'Segment 不能为空', 'warning');
           return;
         }
       }

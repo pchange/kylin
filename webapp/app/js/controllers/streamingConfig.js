@@ -49,7 +49,7 @@ KylinApp.controller('streamingConfigCtrl', function ($scope,StreamingService, $q
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to remove this cluster ?',
+      text: '确定要删除此群集 ?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -94,7 +94,7 @@ KylinApp.controller('streamingConfigCtrl', function ($scope,StreamingService, $q
       if (cluster.edit_index > -1) {
         cluster.brokers.splice(cluster.edit_index, 1, cluster.newBroker);
       }else{
-        SweetAlert.swal('', 'The new record ID already exists.', 'warning');
+        SweetAlert.swal('', '新记录ID已经存在.', 'warning');
         return;
       }
 	}else{

@@ -269,7 +269,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
   $scope.removeReplicaSet = function(replicaSet) {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to delete replica set ['+replicaSet.rs_id+']? ',
+      text: '确定删除副本集['+replicaSet.rs_id+']? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -279,14 +279,14 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
       if(isConfirm){
         AdminStreamingService.removeReplicaSet({replicaSetId: replicaSet.rs_id}, {}, function (result) {
           $scope.listReplicaSet();
-          SweetAlert.swal('成功!', 'Replica set remove success', 'success');
+          SweetAlert.swal('成功!', '副本集删除成功', 'success');
         }, function(e){
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to remove replica set';
+            var msg = !!(message) ? message : '副本集删除失败';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', 'Failed to remove replica set', 'error');
+            SweetAlert.swal('提示...', '副本集删除失败', 'error');
           }
           $scope.listReplicaSet();
         });
@@ -297,7 +297,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
   $scope.removeReceiver = function(receiverID) {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to remove receiver with id \'' + receiverID + '\'?',
+      text: '确定要删除receiver \'' + receiverID + '\'?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -306,7 +306,7 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
     }, function(isConfirm) {
       if(isConfirm){
         AdminStreamingService.removeReceiver({receiverID: receiverID}, {}, function (result) {
-          SweetAlert.swal({title: '成功!', text:'Receiver remove success'}, function (isConfirm) {
+          SweetAlert.swal({title: '成功!', text:'Receiver 删除成功'}, function (isConfirm) {
             if (isConfirm) {
               $timeout(function() {}, 2000);
               $scope.listReplicaSet();
@@ -315,10 +315,10 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
         }, function(e){
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to remove receiver';
+            var msg = !!(message) ? message : 'Receiver 删除失败';
             SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('提示...', 'Failed to remove receiver', 'error');
+            SweetAlert.swal('提示...', 'Receiver 删除失败', 'error');
           }
         });
       }
@@ -342,10 +342,10 @@ KylinApp.controller('StreamingReceiverCtrl', function($scope, $routeParams, $mod
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to get receiver stats';
+        var msg = !!(message) ? message : '获取 receiver 统计数据失败';
         SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('提示...', 'Failed to get receiver stats', 'error');
+        SweetAlert.swal('提示...', '获取 receiver 统计数据失败', 'error');
       }
     });
   }

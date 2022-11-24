@@ -248,7 +248,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
         $scope.state.cubeInstance =angular.toJson($scope.instance,true);
 
       } else {
-        SweetAlert.swal('提示...', "No cube detail info loaded.", 'error');
+        SweetAlert.swal('提示...', "未加载cube详细信息.", 'error');
       }
 
     },function(e){
@@ -312,13 +312,13 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
     try {
       angular.fromJson($scope.state.cubeSchema);
     } catch (e) {
-      SweetAlert.swal('提示...', 'Invalid cube json format..', 'error');
+      SweetAlert.swal('提示...', '无效的cube的json格式..', 'error');
       return;
     }
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to save the cube ?',
+      text: '确定保存 cube ?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -336,7 +336,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
           }, function (request) {
             if (request.successful) {
               $scope.state.cubeSchema = request.cubeDescData;
-              MessageBox.successNotify('Updated the cube successfully.');
+              MessageBox.successNotify('cube更新成功.');
               $location.path("/models");
             } else {
               $scope.saveCubeRollBack();

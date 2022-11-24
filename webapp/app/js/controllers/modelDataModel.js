@@ -195,7 +195,7 @@ KylinApp.controller('ModelDataModelCtrl', function ($location,$scope, $modal,cub
         if(dimExist) {
             SweetAlert.swal({
                  title: '',
-                 text: "Once it's removed, all relative dimensions will be removed. Are you sure to remove the lookup table?",
+                 text: "一旦删除，所有相关的尺寸将被删除。您确定要删除该 lookup table?",
                  type: '',
                  showCancelButton: true,
                  confirmButtonColor: '#DD6B55',

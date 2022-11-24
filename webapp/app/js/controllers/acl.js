@@ -55,7 +55,7 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
   $scope.delTableAcl = function (type, name) {
     SweetAlert.swal({
       title: '',
-      text: "Are you sure to drop this table acl?",
+      text: "确定删除该table acl?",
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -72,7 +72,7 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
         },function () {
           loadingRequest.hide();
           loadTableAclList(type);
-          MessageBox.successNotify('Table acl drop is done successfully');
+          MessageBox.successNotify('Table acl 删除成功');
         },function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
@@ -136,7 +136,7 @@ KylinApp.controller('AclCtrl', function ($scope, AclService, TableModel,loadingR
         username: $scope.newTableAcl.name
       },{},function () {
         loadingRequest.hide();
-        MessageBox.successNotify('Table acl add successfully');
+        MessageBox.successNotify('Table acl 添加成功');
         loadTableAclList()
         $scope.cancel()
       },function (e) {

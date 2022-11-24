@@ -340,8 +340,8 @@ KylinApp.controller('HybridInstanceSchema', function (
   function saveWarning(callback) {
     SweetAlert.swal({
       title: $scope.isEdit
-        ? 'Are you sure to update the Hybrid Cube?'
-        : 'Are you sure to save the Hybrid Cube?',
+        ? '确定更新 Hybrid Cube?'
+        : '确定保存 Hybrid Cube?',
       text: $scope.isEdit
         ? ''
         : '',

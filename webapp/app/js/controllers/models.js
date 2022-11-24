@@ -97,7 +97,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
 
     SweetAlert.swal({
       title: '',
-      text: "Are you sure to drop this model?",
+      text: "确定删除该模型 ?",
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -110,7 +110,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
         ModelService.drop({modelId: model.name}, {}, function (result) {
           loadingRequest.hide();
 //                    CubeList.removeCube(cube);
-          MessageBox.successNotify('Model drop is done successfully');
+          MessageBox.successNotify('模型删除成功');
           location.reload();
         }, function (e) {
           loadingRequest.hide();
@@ -171,7 +171,7 @@ KylinApp.controller('ModelsCtrl', function ($scope, $q, $routeParams, $location,
     var defer = $q.defer();
     var queryParam = {modelName: model.name};
     if (!$scope.projectModel.isSelectedProjectValid() || !$scope.projectModel.projects.length) {
-      SweetAlert.swal('提示...', "Please select target project.", 'info');
+      SweetAlert.swal('提示...', "请选择目标项目.", 'info');
       defer.resolve([]);
       return defer.promise;
     }
@@ -286,7 +286,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
   $scope.cloneModel = function(){
 
     if(!$scope.targetObj.targetProject){
-      SweetAlert.swal('提示...', "Please select target project.", 'info');
+      SweetAlert.swal('提示...', "请选择目标项目.", 'info');
       return;
     }
 
@@ -297,7 +297,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to clone the model? ',
+      text: '确定克隆该模型? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -309,7 +309,7 @@ var modelCloneCtrl = function ($scope, $modalInstance, CubeService, MessageServi
         loadingRequest.show();
         ModelService.clone({modelId: model.name}, $scope.modelRequest, function (result) {
           loadingRequest.hide();
-          MessageBox.successNotify('Clone model successfully');
+          MessageBox.successNotify('克隆模型成功');
           location.reload();
         }, function (e) {
           loadingRequest.hide();

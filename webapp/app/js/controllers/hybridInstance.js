@@ -98,7 +98,7 @@ KylinApp.controller('HybridInstanceCtrl', function (
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to drop this hybrid?',
+      text: '确定删除该 hybrid?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
@@ -115,7 +115,7 @@ KylinApp.controller('HybridInstanceCtrl', function (
         loadingRequest.show();
         HybridInstanceService.drop(schema, {}, function (result) {
           loadingRequest.hide();
-          MessageBox.successNotify('Hybrid drop is done successfully');
+          MessageBox.successNotify('Hybrid 删除成功');
           location.reload();
         }, function (e) {
           loadingRequest.hide();

@@ -447,7 +447,7 @@ KylinApp
                 event.preventDefault();
                 SweetAlert.swal({
                   title: '',
-                  text: "You've executing query in current page, are you sure to leave this page?",
+                  text: "已经在当前页面执行查询，确定要离开该页面吗?",
                   type: '',
                   showCancelButton: true,
                   confirmButtonColor: '#DD6B55',
