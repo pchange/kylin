@@ -73,7 +73,7 @@ public abstract class AbstractExecutable implements Executable, Idempotent {
     protected static final String PROJECT_INSTANCE_NAME = "projectName";
 
     protected static final Logger logger = LoggerFactory.getLogger(AbstractExecutable.class);
-    public static final String NO_NEED_TO_SEND_EMAIL_USER_LIST_IS_EMPTY = "no need to send email, user list 为空";
+    public static final String NO_NEED_TO_SEND_EMAIL_USER_LIST_IS_EMPTY = "no need to send email, user list is empty";
     protected int retry = 0;
 
     private KylinConfig config;
@@ -250,7 +250,7 @@ public abstract class AbstractExecutable implements Executable, Idempotent {
         dataMap.put(SUBMITTER, StringUtil.noBlank(getSubmitter(), "missing submitter"));
         dataMap.put("job_engine", MailNotificationUtil.getLocalHostName());
         dataMap.put("error_log",
-                Matcher.quoteReplacement(StringUtil.noBlank(exception.getMessage(), "无错误信息")));
+                Matcher.quoteReplacement(StringUtil.noBlank(exception.getMessage(), "no error message")));
 
         String content = MailNotificationUtil.getMailContent(MailNotificationUtil.METADATA_PERSIST_FAIL, dataMap);
         String title = MailNotificationUtil.getMailTitle("METADATA PERSIST", "FAIL",

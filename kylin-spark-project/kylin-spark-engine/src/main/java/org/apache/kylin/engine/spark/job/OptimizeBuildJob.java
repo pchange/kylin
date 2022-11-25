@@ -252,7 +252,7 @@ public class OptimizeBuildJob extends SparkApplication {
             infos.recordParent2Children(info.getLayout(),
                     toBuildCuboids.stream().map(LayoutEntity::getId).collect(Collectors.toList()));
             cuboidsNumInLayer += toBuildCuboids.size();
-            Preconditions.checkState(!toBuildCuboids.isEmpty(), "To be built cuboids 为空.");
+            Preconditions.checkState(!toBuildCuboids.isEmpty(), "To be built cuboids is empty.");
             Dataset<Row> parentDS = info.getParentDS();
             // record the source count of flat table
             if (info.getLayoutId() == ParentSourceChooser.FLAT_TABLE_FLAG()) {

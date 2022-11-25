@@ -50,7 +50,7 @@ public class InstrumentedEhCacheCache implements Cache {
         Assert.notNull(ehcache, "Ehcache must not be null");
         Status status = ehcache.getStatus();
         Assert.isTrue(Status.STATUS_ALIVE.equals(status),
-                "An 'alive' Ehcache 必填。- current cache is " + status.toString());
+                "An 'alive' Ehcache is required - current cache is " + status.toString());
         this.cache = ehcache;
 
         final String prefix = name(cache.getClass(), cache.getName());

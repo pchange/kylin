@@ -62,10 +62,10 @@ public class InstrumentedEhCacheCacheManager extends AbstractCacheManager {
 
     @Override
     protected Collection<Cache> loadCaches() {
-        Assert.notNull(this.cacheManager, "A backing EhCache CacheManager 必填。);
+        Assert.notNull(this.cacheManager, "A backing EhCache CacheManager is required");
         Status status = this.cacheManager.getStatus();
         Assert.isTrue(Status.STATUS_ALIVE.equals(status),
-                "An 'alive' EhCache CacheManager 必填。- current cache is " + status.toString());
+                "An 'alive' EhCache CacheManager is required - current cache is " + status.toString());
 
         String[] names = this.cacheManager.getCacheNames();
         Collection<Cache> caches = Sets.newLinkedHashSetWithExpectedSize(names.length);

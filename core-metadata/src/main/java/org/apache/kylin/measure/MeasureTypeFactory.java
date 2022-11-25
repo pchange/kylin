@@ -207,7 +207,7 @@ abstract public class MeasureTypeFactory<T> {
         if (factory == null)
             factory = defaultFactory;
 
-        // a special case where in early stage of sql parsing, the data type is unknown; only needRewrite() 必填。at that stage
+        // a special case where in early stage of sql parsing, the data type is unknown; only needRewrite() is required at that stage
         if (dataType == null) {
             return new NeedRewriteOnlyMeasureType(funcName, factory);
         }

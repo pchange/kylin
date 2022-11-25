@@ -27,10 +27,10 @@ public final class FlinkEntry {
     public static void main(String[] args) throws Exception {
         System.out.println("FlinkEntry args:" + StringUtils.join(args, " "));
         if (!(args.length >= 2)) {
-            throw new IllegalArgumentException(String.valueOf("-className 必填。));
+            throw new IllegalArgumentException(String.valueOf("-className is required"));
         }
         if (!(args[0].equals("-className"))) {
-            throw new IllegalArgumentException(String.valueOf("-className 必填。));
+            throw new IllegalArgumentException(String.valueOf("-className is required"));
         }
         final String className = args[1];
         final Object o = Class.forName(className).newInstance();

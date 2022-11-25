@@ -138,7 +138,7 @@ public class ZKUtil {
 
     private static CuratorFramework getZookeeperClient(final String zkString, final RetryPolicy retryPolicy) {
         if (StringUtils.isEmpty(zkString)) {
-            throw new IllegalArgumentException("ZOOKEEPER_QUORUM 为空!");
+            throw new IllegalArgumentException("ZOOKEEPER_QUORUM is empty!");
         }
         try {
             CuratorFramework instance = CACHE.get(zkString, new Callable<CuratorFramework>() {

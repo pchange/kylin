@@ -42,7 +42,7 @@ public class NSparkBatchOptimizeJobCheckpointBuilder {
         this.cube = cube;
         this.submitter = submitter;
 
-        Preconditions.checkNotNull(cube.getFirstSegment(), "Cube " + cube + " 为空!!!");
+        Preconditions.checkNotNull(cube.getFirstSegment(), "Cube " + cube + " is empty!!!");
     }
 
     public CheckpointExecutable build() {

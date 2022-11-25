@@ -30,7 +30,7 @@ public class TrimmedDimEnc extends DimensionEncoding {
 
     int fixedLen;
 
-    //no-arg constructor 必填。for Externalizable
+    //no-arg constructor is required for Externalizable
     public TrimmedDimEnc() {
     }
 

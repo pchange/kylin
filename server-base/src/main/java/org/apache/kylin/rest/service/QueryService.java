@@ -336,14 +336,14 @@ public class QueryService extends BasicService {
             }
         }
 
-        // if Realization Names 为空, get value from SQLResponse.
+        // if Realization Names is empty, get value from SQLResponse.
         if (realizationNames.isEmpty()) {
             if (!Strings.isNullOrEmpty(response.getCube())) {
                 realizationNames.addAll(Lists.newArrayList(StringUtil.splitByComma(response.getCube())));
             }
         }
 
-        // if Cuboid Ids 为空, get value from SQLResponse.
+        // if Cuboid Ids is empty, get value from SQLResponse.
         if (cuboidIds.isEmpty()) {
             List<QueryContext.CubeSegmentStatisticsResult> cubeSegmentStatisticsList =
                     response.getCubeSegmentStatisticsList();

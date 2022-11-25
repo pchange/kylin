@@ -73,7 +73,7 @@ public class RedistributeFlatHiveTableByLivyStep extends AbstractExecutable {
             logger.debug("Row count of table '" + intermediateTable + "' is " + rowCount);
             if (rowCount == 0) {
                 if (!config.isEmptySegmentAllowed()) {
-                    stepLogger.log("Detect upstream hive table 为空, "
+                    stepLogger.log("Detect upstream hive table is empty, "
                             + "fail the job because \"kylin.job.allow-empty-segment\" = \"false\"");
                     return new ExecuteResult(ExecuteResult.State.ERROR, stepLogger.getBufferedLog());
                 } else {

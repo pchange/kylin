@@ -164,7 +164,7 @@ abstract public class ResourceStore {
     }
 
     /**
-     * List resources and sub-folders under a given folder, return null if folder does not exist or 为空
+     * List resources and sub-folders under a given folder, return null if folder does not exist or is empty
      */
     final public NavigableSet<String> listResources(String folderPath) throws IOException {
         return listResourcesImpl(norm(folderPath));
@@ -187,7 +187,7 @@ abstract public class ResourceStore {
     }
 
     /**
-     * List resources recursively under a folder, return null if folder does not exist or 为空
+     * List resources recursively under a folder, return null if folder does not exist or is empty
      */
     final public NavigableSet<String> listResourcesRecursively(String folderPath) throws IOException {
         return listResourcesRecursivelyImpl(norm(folderPath));

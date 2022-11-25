@@ -55,7 +55,7 @@ public class MailService {
 
         if (enabled) {
             if (host.isEmpty()) {
-                throw new RuntimeException("mail service host 为空");
+                throw new RuntimeException("mail service host is empty");
             }
         }
     }
@@ -109,7 +109,7 @@ public class MailService {
             }
         }
 
-        // List of valid recipients 为空
+        // List of valid recipients is empty
         if (email.getToAddresses().isEmpty()) {
             logger.error("No valid send to mailbox, please check");
             return false;

@@ -141,7 +141,7 @@ public class UserController extends BasicController {
     private void checkProfileEditAllowed() {
         String securityProfile = KylinConfig.getInstanceFromEnv().getSecurityProfile();
         if (!"testing".equals(securityProfile) && !"custom".equals(securityProfile)) {
-            throw new BadRequestException("不允许操作!");
+            throw new BadRequestException("Action not allowed!");
         }
     }
 
@@ -153,7 +153,7 @@ public class UserController extends BasicController {
         checkProfileEditAllowed();
 
         if (StringUtils.equals(getPrincipal(), user.getUsername()) && user.isDisabled()) {
-            throw new ForbiddenException("不允许操作!");
+            throw new ForbiddenException("Action not allowed!");
         }
 
         checkUserName(userName);
@@ -176,7 +176,7 @@ public class UserController extends BasicController {
         checkProfileEditAllowed();
 
         if (StringUtils.equals(getPrincipal(), user.getUsername()) && user.isDisabled()) {
-            throw new ForbiddenException("不允许操作!");
+            throw new ForbiddenException("Action not allowed!");
         }
 
         checkUserName(userName);
@@ -216,7 +216,7 @@ public class UserController extends BasicController {
         checkProfileEditAllowed();
 
         if (!this.isAdmin() && !StringUtils.equals(getPrincipal(), user.getUsername())) {
-            throw new ForbiddenException("无权限");
+            throw new ForbiddenException("Permission Denied");
         }
         ManagedUser existing = get(user.getUsername());
         checkUserName(user.getUsername());

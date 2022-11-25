@@ -1564,7 +1564,7 @@ public class Bytes {
     /**
      * @param column operand
      * @return A byte array of a byte array where first and only entry is
-     * <code>列</code>
+     * <code>column</code>
      */
     public static byte[][] toByteArrays(final String column) {
         return toByteArrays(toBytes(column));
@@ -1573,7 +1573,7 @@ public class Bytes {
     /**
      * @param column operand
      * @return A byte array of a byte array where first and only entry is
-     * <code>列</code>
+     * <code>column</code>
      */
     public static byte[][] toByteArrays(final byte[] column) {
         byte[][] result = new byte[1][];

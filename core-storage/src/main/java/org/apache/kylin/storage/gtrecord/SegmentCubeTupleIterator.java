@@ -114,7 +114,7 @@ public class SegmentCubeTupleIterator implements ITupleIterator {
             try (GTStreamAggregateScanner aggregator = new GTStreamAggregateScanner(inputScanner, scanRequest)) {
                 result = aggregator.valuesIterator(gtDimsIdx, gtMetricsIdx);
             } catch (IOException ioe) {
-                // implementation of close method of anonymous IGTScanner 为空, no way throw exception
+                // implementation of close method of anonymous IGTScanner is empty, no way throw exception
                 throw new IllegalStateException("IOException is not expected here.", ioe);
             }
             return result;
