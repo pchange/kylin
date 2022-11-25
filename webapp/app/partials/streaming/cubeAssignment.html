@@ -36,7 +36,7 @@
       </div>
       <div class="col-sm-8">
         <ui-select multiple ng-model="replicaSet.partitions" theme="bootstrap" sortable="true" close-on-select="false" class="form-control">
-          <ui-select-match placeholder="Select Partition...">{{$item.partition_id}}</ui-select-match>
+          <ui-select-match placeholder="选择分区...">{{$item.partition_id}}</ui-select-match>
           <ui-select-choices repeat="partition as partition in cubePartitions | filter:$select.search">
             {{partition.partition_id}}
           </ui-select-choices>

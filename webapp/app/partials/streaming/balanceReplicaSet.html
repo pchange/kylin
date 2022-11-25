@@ -49,10 +49,10 @@
   <div class="modal-body">
     <div ng-repeat="cubeInfo in replicaSet.cubeInfos" class="row">
       <div class="col-sm-3" style="margin-top:5px;">
-        <input type="text" class="form-control" ng-model="cubeInfo.cubeName" placeholder="Enter cube name">
+        <input type="text" class="form-control" ng-model="cubeInfo.cubeName" placeholder="输入 cube 名称">
       </div>
       <div class="col-sm-8">
-        <tags-input class="bootstrap" ng-model="cubeInfo.partitions" display-property="partitionId" placeholder="Add PartitionId" min-length="1" max-length="10" allowed-tags-pattern="^[0-9]+$"></tags-input>
+        <tags-input class="bootstrap" ng-model="cubeInfo.partitions" display-property="partitionId" placeholder="新增分区id" min-length="1" max-length="10" allowed-tags-pattern="^[0-9]+$"></tags-input>
       </div>
       <div class="col-sm-1">
         <i class="fa fa-minus" style="margin-top:15px;cursor:pointer;" ng-click="removeCubeInfo($index)"></i>
