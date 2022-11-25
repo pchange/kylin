@@ -55,12 +55,12 @@ KylinApp.constant('cubeConfig', {
     {name: 'Precisely (More Memory And Storage Needed)', value: 'bitmap'}
   ],
   topNTypes: [
-    {name: 'Top 10', value: "topn(10)"},
-    {name: 'Top 100', value: "topn(100)"},
-    {name: 'Top 500', value: "topn(500)"},
-    {name: 'Top 1000', value: "topn(1000)"},
-    {name: 'Top 5000', value: "topn(5000)"},
-    {name: 'Top 10000', value: "topn(10000)"}
+    {name: '前 10', value: "topn(10)"},
+    {name: '前 100', value: "topn(100)"},
+    {name: '前 500', value: "topn(500)"},
+    {name: '前 1000', value: "topn(1000)"},
+    {name: '前 5000', value: "topn(5000)"},
+    {name: '前 10000', value: "topn(10000)"}
   ],
   dftSelections: {
     measureExpression: 'SUM',
@@ -69,7 +69,7 @@ KylinApp.constant('cubeConfig', {
     distinctDataType: {name: 'Error Rate < 4.88%', value: 'hllc12'},
     queryPriority: {name: 'NORMAL', value: 50},
     cubePartitionType: 'APPEND',
-    topN:{name: 'Top 100', value: "topn(100)"}
+    topN:{name: '前 100', value: "topn(100)"}
   },
     dictionaries: ["true", "false"],
     encodings:[
