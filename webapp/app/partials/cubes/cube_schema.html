@@ -42,17 +42,17 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='Cube Info'">
+                        <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='Cube信息'">
                             <i class="ace-icon fa fa-arrow-left"></i>
                             上一步
                         </button>
                         <button id="nextButton" class="btn btn-success btn-next"  ng-click="nextStep($index, nextView)" ng-disabled="forms[curStep.form].$invalid"
-                                ng-show="curStep.title!='Overview'">
+                                ng-show="curStep.title!='概况'">
                             下一步
                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                         </button>
                         <button class="btn btn-primary" ng-click="prepareCube();saveCube()" ng-disabled="design_form.$invalid"
-                                ng-if="curStep.title=='Overview' && state.mode=='edit'">
+                                ng-if="curStep.title=='概况' && state.mode=='edit'">
                             保存
                         </button>
                     </div>
