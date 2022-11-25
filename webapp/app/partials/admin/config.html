@@ -43,7 +43,7 @@
       <a  class="btn btn-primary btn-lg btn-block" tooltip="重新加载所有元数据并清除缓存" ng-click="reloadMeta()">重载元数据</a>
     </div>
     <div style="padding-top: 10px;width: 260px;">
-      <a ng-click="calCardinality();" tooltip="Calculate cardinality of tables" class="btn btn-primary btn-lg btn-block">计算基数</a>
+      <a ng-click="calCardinality();" tooltip="计算表的基数" class="btn btn-primary btn-lg btn-block">计算基数</a>
     </div>
     <div style="padding-top: 10px;width: 260px;" ng-if="false">
       <a class="btn btn-success btn-lg btn-block" tooltip="清理未使用的HDFS和HBASE空间" ng-click="cleanStorage()">清理存储</a>
@@ -83,7 +83,7 @@
     <h4>加载配置单元表元数据</h4>
   </div>
   <div class="modal-body load-hive-metawrapper">
-    <label for="table">表名称: (Separate with comma)</label>
+    <label for="table">表名称: (用逗号分隔)</label>
     <input ng-model="$parent.tableName" class="form-control" id="table" placeholder="table1，table2默认情况下，系统会选择“默认”作为数据库，您可以像“database.table”一样指定数据库"/>
   </div>
   <div class="modal-footer">
@@ -102,7 +102,7 @@
         <label><b>Key</b></label>
 
         <div class="clearfix">
-          <input name="key_input" type="text" class="form-control" placeholder="Config Key.."
+          <input name="key_input" type="text" class="form-control" placeholder="Key配置.."
                  ng-model="state.key"
                  required/>
 
@@ -114,7 +114,7 @@
         <label><b>值</b></label>
 
         <div class="clearfix">
-          <input name="value_input" type="text" class="form-control" placeholder="Config Value.."
+          <input name="value_input" type="text" class="form-control" placeholder="值配置.."
                  ng-model="state.value"
                  required/>
 

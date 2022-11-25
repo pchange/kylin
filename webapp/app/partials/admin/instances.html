@@ -20,7 +20,7 @@
 
   <!--No Instances-->
   <div ng-if="!loading && jobNodes.length==0 && queryNodes.length==0">
-    <div no-result text="No Kylin instance registered"></div>
+    <div no-result text="未注册任何麒麟实例"></div>
   </div>
   <!--Loading Instances-->
   <div ng-if="loading">
@@ -42,7 +42,7 @@
       </td>
       <td>查询节点</td>
       <td>
-        <i class="fa fa-check-circle" style="color:green"></i> Active
+        <i class="fa fa-check-circle" style="color:green"></i> 操作
       </td>
     </tr>
     <tr ng-repeat="node in jobNodes" style="cursor: pointer">
@@ -52,10 +52,10 @@
       <td>{{getJobNodeType(node)}}</td>
       <td>
         <div ng-if=isJobNodeActive(node)>
-          <i class="fa fa-check-circle" style="color:green"></i> Active
+          <i class="fa fa-check-circle" style="color:green"></i> 操作
         </div>
         <div ng-if=!isJobNodeActive(node)>
-          <i class="fa fa-check-circle" style="color:grey"></i> Available
+          <i class="fa fa-check-circle" style="color:grey"></i> 可用
         </div>
       </td>
     </tr>
