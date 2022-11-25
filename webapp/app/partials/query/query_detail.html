@@ -33,7 +33,7 @@
 </div>
 
 <div class="form-group">
-    <label>Query String</label>
+    <label>查询语句</label>
     <label ng-click="curQuery.result.show=!curQuery.result.show" style="padding:5px">
         <i ng-if="!curQuery.result.show" class="fa fa-angle-double-down"></i>
         <i ng-if="curQuery.result.show" class="fa fa-angle-double-right"></i>
@@ -54,8 +54,8 @@
     <ul class="row">
         <li class="col-md-2" style="display: inline">
             <label>Status: &nbsp;</label>
-            <span class="label label-lg label-danger arrowed" ng-if="curQuery.status=='failed'">Failed</span>
-            <span class="label label-lg label-success arrowed" ng-if="curQuery.status=='success'">Success</span>
+            <span class="label label-lg label-danger arrowed" ng-if="curQuery.status=='failed'">失败</span>
+            <span class="label label-lg label-success arrowed" ng-if="curQuery.status=='success'">成功</span>
             <span class="label label-lg label-info" ng-if="curQuery.status=='executing'">
                 <i class="fa fa-cog fa-spin"></i> 执行中...</span>
         </li>
@@ -128,7 +128,7 @@
     <div ng-if="curQuery.graph.show" class="row">
         <div class="col-xs-4">
             <div class="graph_content">
-                <label>Graph Type</label>
+                <label>Graph 类型</label>
                 <div>
                     <select chosen style="width: 100%;"
                         ng-model="curQuery.graph.type"
@@ -139,12 +139,12 @@
         </div>
         <div class="col-xs-4">
             <div class="graph_content">
-                <label>Dimensions</label>
+                <label>维度</label>
                 <div>
                     <select chosen style="width: 100%;"
                             ng-model="curQuery.graph.state.dimensions" ng-change="refreshGraphData(curQuery)"
                             ng-options="dimension as dimension.column.label for dimension in curQuery.graph.meta.dimensions | filter: mappingToChartype">
-                        <option value="">-- 选择 dimension --</option>
+                        <option value="">-- 选择维度 --</option>
                     </select>
                 </div>
             </div>
@@ -154,7 +154,7 @@
                 <label>Metrics</label>
                 <div>
                   <select chosen style="width: 100%;"
-                          data-placeholder="Select Metrics.."
+                          data-placeholder="选择 Metrics.."
                           ng-model="curQuery.graph.state.metrics"
                           ng-options="metrics as metrics.column.label for metrics in curQuery.graph.meta.metrics"
                           ng-change="refreshGraphData(curQuery)">
@@ -170,7 +170,7 @@
                 <nvd3 options="chart.options" data="chart.data"></nvd3>
             </div>
              <div ng-if="!chart" style="padding-top: 10%">
-                <div no-result text="No Graph Generated."></div>
+                <div no-result text="没有生成图形."></div>
             </div>
         </div>
     </div>

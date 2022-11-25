@@ -111,7 +111,7 @@
                     <button class="btn btn-xs btn-danger" ng-disabled="lookupState.editing||selectedAliasCubeMap[lookup.alias]"
                             ng-click="removeLookup(lookup)" ><i class="fa fa-trash-o"></i>
                     </button>
-                  <i class="fa fa-info-circle" ng-if="selectedAliasCubeMap[lookup.alias]" kylinpopover placement="left" title="Tip" template="tableInUse.html"></i>
+                  <i class="fa fa-info-circle" ng-if="selectedAliasCubeMap[lookup.alias]" kylinpopover placement="left" title="建议" template="tableInUse.html"></i>
                 </td>
             </tr>
             </tbody>
@@ -183,18 +183,18 @@
                             <div class="col-xs-12">
                                 <div ng-repeat="joinIndex in [] | range: newLookup.join.primary_key.length">
                                     <div>
-                                        <select style="width: 45%" chosen data-placeholder="JoinTable Column"
+                                        <select style="width: 45%" chosen data-placeholder="可附加列"
                                                 ng-model="newLookup.join.foreign_key[$index]"  ng-change="changeKey($index)"
                                                 ng-options="newLookup.joinTable+'.'+columns.name as columns.name for columns in getColumnsByAlias(newLookup.joinTable)" >
                                             <option value=""></option>
                                         </select>
                                         <b>=</b>
-                                        <select style="width: 45%" chosen data-placeholder=" JoinTable Column"
+                                        <select style="width: 45%" chosen data-placeholder="可附加列"
                                                 ng-model="newLookup.join.primary_key[$index]"  ng-change="changeKey($index)"
                                                 ng-options="newLookup.alias+'.'+columns.name as columns.name for columns in getColumnsByTable(newLookup.table)" >
                                             <option value=""></option>
                                         </select>
-                                        <button class="pull-right btn btn-xs btn-danger" style="cursor: pointer" tooltip="Delete"
+                                        <button class="pull-right btn btn-xs btn-danger" style="cursor: pointer" tooltip="删除"
                                                 ng-click="removeJoin($index);">
                                             <i class="fa fa-trash-o pointer"></i>
                                         </button>

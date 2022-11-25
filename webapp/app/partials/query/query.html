@@ -221,7 +221,7 @@
                     </li>
 
                     <div class="pull-right" style="font-size: 13px">
-                        Status:
+                        状态:
                         <select ng-init="statusFilter=statusList[0].value" ng-model="statusFilter"
                                 ng-options="status.value as status.name for status in statusList"></select>
                     </div>
@@ -240,5 +240,5 @@
 <div ng-include="'partials/projects/project_create.html'"></div>
 
 <script type="text/ng-template" id="specifyCubeTip.html">
-  <p style="font-size: 8px;">Specify the cube to query, other cubes in current project won't be queried.</p>
+  <p style="font-size: 8px;">指定要查询的cube，不会查询当前项目中的其他cube.</p>
 </script>

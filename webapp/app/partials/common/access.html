@@ -34,12 +34,12 @@
                 <td style="width: 20%">
                     <label><b>类型&nbsp;</b> </label>
                     <input type="radio" ng-model="newAccess.principal" ng-value=true />  <span tooltip="用户名">用户</span>
-                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="User Role">组</span>
+                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="用户组">组</span>
                 </td>
                 <td style="width: 40%" >
                     <label><b>名称&nbsp;</b> </label>
-                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==true" placeholder=" User NT Account..." style="width: 80%" />
-                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==false" placeholder=" User NT Account..." style="width: 80%" />
+                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==true" placeholder=" 用户 NT 账号..." style="width: 80%" />
+                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==false" placeholder=" 用户 NT 账号..." style="width: 80%" />
 
                     <!-- <select chosen ng-model="newAccess.sid" ng-if="newAccess.principal==false" style="width: 80%"
                             ng-options="authority as authority for authority in authorities">
@@ -62,7 +62,7 @@
     </div>
 
     <div ng-if="!entity.accessLoading && (!entity.accessEntities || entity.accessEntities.length == 0)" no-result></div>
-    <loading ng-if="entity.accessLoading" text="Loading Access..."></loading>
+    <loading ng-if="entity.accessLoading" text="权限加载中..."></loading>
 
     <table ng-show="entity.accessEntities" class="table table-hover table-striped">
         <thead>

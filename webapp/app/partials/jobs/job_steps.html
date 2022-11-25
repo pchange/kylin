@@ -159,7 +159,7 @@
 
 <script type="text/ng-template" id="jobStepDetail.html">
     <div class="modal-header">
-        <h4>{{stepAttrToShow == 'cmd' ? 'Parameters' : 'Output'}}
+        <h4>{{stepAttrToShow == 'cmd' ? '参数' : '输出'}}
             <i ng-if="stepAttrToShow == 'output' && step.loadingOp" class="fa fa-spinner fa-spin"></i></h4>
             默认情况下，输出日志显示第一行和最后100行。要查看所有输出，请点击 <a ng-click="downloadAllLogs()">下载日志文件</a >.
     </div>
