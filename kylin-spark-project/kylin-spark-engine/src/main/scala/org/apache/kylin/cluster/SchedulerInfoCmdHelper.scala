@@ -55,7 +55,7 @@ object SchedulerInfoCmdHelper extends Logging {
     val conf = BuildUtils.getCurrentYarnConfiguration
     val addresses = if (HAUtil.isHAEnabled(conf)) {
       val haIds = HAUtil.getRMHAIds(conf).toArray
-      require(haIds.nonEmpty, "Ha ids is empty, please check your yarn-site.xml.")
+      require(haIds.nonEmpty, "Ha ids 为空, please check your yarn-site.xml.")
       if (useHttps) {
         haIds.map(id => conf.getSocketAddr(s"${YarnConfiguration.RM_WEBAPP_HTTPS_ADDRESS}.$id",
           YarnConfiguration.DEFAULT_RM_WEBAPP_HTTPS_ADDRESS, YarnConfiguration.DEFAULT_NM_WEBAPP_HTTPS_PORT))

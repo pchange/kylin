@@ -182,7 +182,7 @@ class FilePruner(cubeInstance: CubeInstance,
       // the shard num of all layout in segments must be the same
       if (layoutEntity.getShardByColumns.isEmpty || segments.exists(
         _.getCuboidShardNum(layoutEntity.getId).toInt != shardNum)) {
-        logInfo("Shard by column is empty or segments have the different number of shard, " +
+        logInfo("Shard by column 为空 or segments have the different number of shard, " +
           "skip shard join.")
         None
       } else {

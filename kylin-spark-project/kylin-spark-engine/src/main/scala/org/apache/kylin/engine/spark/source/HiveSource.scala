@@ -32,7 +32,7 @@ import org.apache.spark.sql.utils.SparkTypeUtil
 class HiveSource extends ISource with Logging {
   /**
    * Return an adaptor that implements specified interface as requested by the build engine.
-   * The IMRInput in particular, is required by the MR build engine.
+   * The IMRInput in particular, 必填。by the MR build engine.
    */
   override def adaptToBuildEngine[I](engineInterface: Class[I]): I = {
     new NSparkCubingSource() {
