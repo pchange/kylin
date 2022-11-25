@@ -204,7 +204,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
             confirmButtonText: "确定",
-            cancelButtonText: "确定",
+            cancelButtonText: "取消",
             closeOnConfirm: true
         }, function(isConfirm) {
               if(isConfirm) {
