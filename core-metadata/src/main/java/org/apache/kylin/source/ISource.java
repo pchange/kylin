@@ -36,7 +36,7 @@ public interface ISource extends Closeable {
 
     /**
      * Return an adaptor that implements specified interface as requested by the build engine.
-     * The IMRInput in particular, is required by the MR build engine.
+     * The IMRInput in particular, 必填。by the MR build engine.
      */
     <I> I adaptToBuildEngine(Class<I> engineInterface);
 

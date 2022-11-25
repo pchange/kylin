@@ -91,12 +91,12 @@ public class CubeMetaExtractor extends AbstractInfoExtractor {
 
     @SuppressWarnings("static-access")
     private static final Option OPTION_STORAGE_TYPE = OptionBuilder.withArgName("storageType").hasArg()
-            .isRequired(false).withDescription("Specify the storage type to overwrite. Default is empty, keep origin.")
+            .isRequired(false).withDescription("Specify the storage type to overwrite. Default 为空, keep origin.")
             .create("storageType");
 
     @SuppressWarnings("static-access")
     private static final Option OPTION_ENGINE_TYPE = OptionBuilder.withArgName("engineType").hasArg().isRequired(false)
-            .withDescription("Specify the engine type to overwrite. Default is empty, keep origin.")
+            .withDescription("Specify the engine type to overwrite. Default 为空, keep origin.")
             .create("engineType");
 
     @SuppressWarnings("static-access")
@@ -254,7 +254,7 @@ public class CubeMetaExtractor extends AbstractInfoExtractor {
     private void executeExtraction(String dest) {
         logger.info("The resource paths going to be extracted:");
         for (String s : requiredResources) {
-            logger.info("{} is required resources.", s);
+            logger.info("{} 必填。resources.", s);
         }
         for (String s : optionalResources) {
             logger.info("{} is optional resources.", s);

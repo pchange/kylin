@@ -73,7 +73,7 @@ public abstract class AbstractExecutable implements Executable, Idempotent {
     protected static final String PROJECT_INSTANCE_NAME = "projectName";
 
     protected static final Logger logger = LoggerFactory.getLogger(AbstractExecutable.class);
-    public static final String NO_NEED_TO_SEND_EMAIL_USER_LIST_IS_EMPTY = "no need to send email, user list is empty";
+    public static final String NO_NEED_TO_SEND_EMAIL_USER_LIST_IS_EMPTY = "no need to send email, user list 为空";
     protected int retry = 0;
 
     private KylinConfig config;

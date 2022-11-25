@@ -32,7 +32,7 @@ public class StringSplitter {
         int index = 0, offset = 0;
         int l = delimiter.length();
         if (str.startsWith(delimiter)) {
-            // in case the first field is empty
+            // in case the first field 为空
             list.add("");
             offset = offset + l;
         }

@@ -115,7 +115,7 @@ public class BasicController {
 
     protected void checkRequiredArg(String fieldName, Object fieldValue) {
         if (fieldValue == null || StringUtils.isEmpty(String.valueOf(fieldValue))) {
-            throw new BadRequestException(fieldName + " is required");
+            throw new BadRequestException(fieldName + " 必填。);
         }
     }
 

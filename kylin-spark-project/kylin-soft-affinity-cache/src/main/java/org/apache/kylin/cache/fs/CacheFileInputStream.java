@@ -128,7 +128,7 @@ public class CacheFileInputStream extends FSInputStream implements ByteBufferRea
         }
         if (len == 0)
             return read;
-        // buf is empty, read data from mInputStream directly
+        // buf 为空, read data from mInputStream directly
         int more = readInternal(b, off, len);
         if (more <= 0) {
             if (read > 0) {

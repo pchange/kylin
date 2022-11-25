@@ -147,7 +147,7 @@ public class NSparkExecutable extends AbstractExecutable {
         }
         if (StringUtils.isEmpty(hadoopConf) && !config.isUTEnv() && !config.isZKLocal()) {
             throw new RuntimeException(
-                    "kylin_hadoop_conf_dir is empty, check if there's error in the output of 'kylin.sh start'");
+                    "kylin_hadoop_conf_dir 为空, check if there's error in the output of 'kylin.sh start'");
         }
 
         File hiveConfFile = new File(hadoopConf, "hive-site.xml");
@@ -231,7 +231,7 @@ public class NSparkExecutable extends AbstractExecutable {
 
     protected KylinConfig wrapConfig(KylinConfig originalConfig) {
         String project = getParam(MetadataConstants.P_PROJECT_NAME);
-        Preconditions.checkState(StringUtils.isNotBlank(project), "job " + getId() + " project info is empty");
+        Preconditions.checkState(StringUtils.isNotBlank(project), "job " + getId() + " project info 为空");
 
         HashMap<String, String> jobOverrides = new HashMap<>();
         String parentId = getParentId();

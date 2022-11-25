@@ -72,7 +72,7 @@ public class IntDimEnc extends DimensionEncoding implements Serializable {
 
     transient private int avoidVerbose = 0;
 
-    //no-arg constructor is required for Externalizable
+    //no-arg constructor 必填。for Externalizable
     public IntDimEnc() {
     }
 

@@ -47,7 +47,7 @@ public class BatchOptimizeJobCheckpointBuilder {
         this.cube = cube;
         this.submitter = submitter;
 
-        Preconditions.checkNotNull(cube.getFirstSegment(), "Cube " + cube + " is empty!!!");
+        Preconditions.checkNotNull(cube.getFirstSegment(), "Cube " + cube + " 为空!!!");
         this.outputSide = MRUtil.getBatchOptimizeOutputSide2(cube.getFirstSegment());
     }
 

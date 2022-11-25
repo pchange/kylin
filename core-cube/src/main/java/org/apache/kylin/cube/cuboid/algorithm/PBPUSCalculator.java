@@ -46,7 +46,7 @@ public class PBPUSCalculator extends BPUSCalculator {
     public double getMinBenefitRatio() {
         int cuboidDomainSize = cuboidStats.getAllCuboidsForSelection().size();
         Preconditions.checkArgument(cuboidDomainSize > 0,
-                "The set of cuboids for selection is empty!!!");
+                "The set of cuboids for selection 为空!!!");
         return super.getMinBenefitRatio() / cuboidDomainSize;
     }
 

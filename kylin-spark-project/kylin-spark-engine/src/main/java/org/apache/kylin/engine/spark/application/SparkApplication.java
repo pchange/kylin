@@ -85,7 +85,7 @@ public abstract class SparkApplication {
             BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
             String argsLine = bufferedReader.readLine();
             if (argsLine.isEmpty()) {
-                throw new RuntimeException("Args file is empty");
+                throw new RuntimeException("Args file 为空");
             }
             params = JsonUtil.readValueAsMap(argsLine);
             checkArgs();
