@@ -4566,7 +4566,7 @@ angular.module('ui.grid')
     var self = this;
 
     if (!colDef.field && !colDef.name) {
-      throw new Error('colDef.name or colDef.field property is required');
+      throw new Error('colDef.name or colDef.field property 必填。);
     }
 
     //maintain backwards compatibility with 2.x
@@ -6895,7 +6895,7 @@ angular.module('ui.grid')
     self.colDef = colDef;
 
     if (colDef.name === undefined) {
-      throw new Error('colDef.name is required for column at index ' + self.grid.options.columnDefs.indexOf(colDef));
+      throw new Error('colDef.name 必填。for column at index ' + self.grid.options.columnDefs.indexOf(colDef));
     }
 
     self.displayName = (colDef.displayName === undefined) ? gridUtil.readableColumnName(colDef.name) : colDef.displayName;
@@ -9056,7 +9056,7 @@ angular.module('ui.grid')
       function ScrollEvent(grid, sourceRowContainer, sourceColContainer, source) {
         var self = this;
         if (!grid) {
-          throw new Error("grid argument is required");
+          throw new Error("grid argument 必填。);
         }
 
         /**
@@ -14681,7 +14681,7 @@ module.filter('px', function() {
                  * @name getCurrentSelection
                  * @methodOf  ui.grid.cellNav.api:PublicApi
                  * @description returns an array containing the current selection
-                 * <br> array is empty if no selection has occurred
+                 * <br> array 为空 if no selection has occurred
                  */
                 getCurrentSelection: function () {
                   return grid.cellNav.focusedCells;
@@ -21862,7 +21862,7 @@ module.filter('px', function() {
            * @ngdoc property
            * @name paginationPageSize
            * @propertyOf ui.grid.pagination.api:GridOptions
-           * @description Page size, defaults to the first item in paginationPageSizes, or 0 if paginationPageSizes is empty
+           * @description Page size, defaults to the first item in paginationPageSizes, or 0 if paginationPageSizes 为空
            */
           if (gridUtil.isNullOrUndefined(gridOptions.paginationPageSize)) {
             if (gridOptions.paginationPageSizes.length > 0) {
@@ -27621,7 +27621,7 @@ module.filter('px', function() {
         }
 
         if (typeof(colDef.name) === 'undefined' || !colDef.name) {
-          throw new Error('colDef.name is required to perform validation');
+          throw new Error('colDef.name 必填。to perform validation');
         }
 
         service.setValid(rowEntity, colDef);
