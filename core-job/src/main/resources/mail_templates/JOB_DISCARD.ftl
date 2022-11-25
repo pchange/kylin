@@ -169,7 +169,8 @@
                                             border: 1px solid #ddd;
                                             text-align: left;
                                             font-size: medium;
-                                            font-style: normal;">多维数据名称</th>
+                                            font-style: normal;">Cube Name
+                        </th>
                         <td style="padding: 8px;
                                 line-height: 1.42857143;
                                 vertical-align: top;

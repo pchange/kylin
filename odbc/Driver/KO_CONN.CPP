@@ -944,7 +944,7 @@ RETCODE SQL_API SQLDriverConnect ( SQLHDBC pConn,
 
     if ( !pInConnStr )
     {
-        __ODBCPOPMSG ( _ODBCPopMsg ( "SQLDriverConnect: pInConnStr 必填。 ) );
+        __ODBCPOPMSG ( _ODBCPopMsg ( "SQLDriverConnect: pInConnStr is required" ) );
         return SQL_ERROR;
     }
 
