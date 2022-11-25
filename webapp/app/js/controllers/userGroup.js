@@ -144,7 +144,8 @@ KylinApp
         text: "确定删除用户 " + userName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "确定",cancelButtonText: "取消",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
@@ -181,7 +182,8 @@ KylinApp
         text: "确定删除用户组 " + groupName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "确定",cancelButtonText: "取消",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
