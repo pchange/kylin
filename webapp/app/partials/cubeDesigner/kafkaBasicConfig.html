@@ -25,7 +25,7 @@
         </label>
         <div class="col-xs-12 col-sm-6"   ng-class="{'has-error':forms.kafka_config_form.topic.$invalid && (forms.kafka_config_form.topic.$dirty||forms.kafka_config_form.topic.$submitted)}">
           <input  ng-if="state.mode=='edit'"  name="name" required ng-model="kafkaMeta.topic" type="text"
-                  placeholder="Input kafkaConfig topic"
+                  placeholder="输入 kafkaConfig 话题"
                   class="form-control"/>
           <small class="help-block" ng-show="forms.kafka_config_form.topic.$error.required && (forms.kafka_config_form.topic.$dirty||forms.kafka_config_form.$submitted)">Kafka 话题必填。</small>
           <span ng-if="state.mode=='view'">{{kafkaMeta.topic}}</span>

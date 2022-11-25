@@ -65,7 +65,7 @@
                         on-select="refreshAggregationGroup(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group)"
                         on-remove="refreshAggregationGroup(cubeMetaFrame.aggregation_groups, rowIndex, aggregation_group)"
                         ng-if="state.mode=='edit'" style="width: 100%" multiple ng-model="aggregation_group.includes">
-                        <ui-select-match placeholder="Select Column...">{{$item.column}}</ui-select-match>
+                        <ui-select-match placeholder="选择 Column...">{{$item.column}}</ui-select-match>
                         <ui-select-choices
                           repeat="rowkey_column.column as rowkey_column in cubeMetaFrame.rowkey.rowkey_columns | filter:$select.search">
                           {{rowkey_column.column}}
@@ -134,7 +134,7 @@
                         <tr class="row">
                           <td class="col-xs-12">
                             <button class="btn btn-sm btn-info"     ng-disabled="instance.status=='READY'"
-                                    ng-click="addNewHierarchy(aggregation_group)" ng-show="state.mode=='edit'">New Hierarchy<i class="fa fa-plus"></i>
+                                    ng-click="addNewHierarchy(aggregation_group)" ng-show="state.mode=='edit'">新建 Hierarchy<i class="fa fa-plus"></i>
                             </button>
                           </td>
                         </tr>
@@ -175,7 +175,7 @@
                         <tr class="row">
                           <td class="col-xs-12">
                             <button class="btn btn-sm btn-info"      ng-disabled="instance.status=='READY'"
-                                    ng-click="addNewJoint(aggregation_group)" ng-show="state.mode=='edit'">New Joint<i class="fa fa-plus"></i>
+                                    ng-click="addNewJoint(aggregation_group)" ng-show="state.mode=='edit'">新建 Joint<i class="fa fa-plus"></i>
                             </button>
                           </td>
                         </tr>
@@ -255,15 +255,15 @@
                       <!--Column Name -->
                       <input type="text" class="form-control" placeholder="Column Name.."
                              ng-change="refreshRowKey(convertedRowkeys,$index,rowkey_column)"  ng-disabled="true"
-                             tooltip="rowkey column name.." tooltip-trigger="focus"
+                             tooltip="行键列名.." tooltip-trigger="focus"
                              ng-model="rowkey_column.column" class="form-control">
                     </td>
 
                     <td>
                       <select  style="width:180px;"
                               chosen ng-model="rowkey_column.isShardBy"
-                              tooltip="false by default"     ng-disabled="instance.status=='READY'"
-                              data-placeholder="false by default"
+                              tooltip="默认为false"     ng-disabled="instance.status=='READY'"
+                              data-placeholder="默认为false"
                               ng-change="refreshRowKey(convertedRowkeys,$index,rowkey_column,true)"
                               ng-options="dt as dt for dt in cubeConfig.rowKeyShardOptions">
                         <option value=""></option>
@@ -312,7 +312,7 @@
                   <tr ng-repeat="dimensionSet in cubeMetaFrame.mandatory_dimension_set_list">
                     <td>
                       <ui-select multiple ng-model="dimensionSet" theme="bootstrap" sortable="true" close-on-select="false" class="form-control">
-                        <ui-select-match placeholder="Select Dimension...">{{$item.column}}</ui-select-match>
+                        <ui-select-match placeholder="选择维度...">{{$item.column}}</ui-select-match>
                         <ui-select-choices repeat="dimension.column as dimension in cubeMetaFrame.rowkey.rowkey_columns | filter:$select.search">
                           <div ng-bind-html="dimension.column | highlight: $select.search"></div>
                         </ui-select-choices>
@@ -326,7 +326,7 @@
                   <tr>
                     <td>
                       <ui-select multiple ng-model="mandatoryDimensionSet.select" theme="bootstrap" sortable="true" close-on-select="false" class="form-control">
-                        <ui-select-match placeholder="Select Dimension...">{{$item.column}}</ui-select-match>
+                        <ui-select-match placeholder="选择维度...">{{$item.column}}</ui-select-match>
                         <ui-select-choices repeat="dimension.column as dimension in cubeMetaFrame.rowkey.rowkey_columns | filter:$select.search">
                           <div ng-bind-html="dimension.column | highlight: $select.search"></div>
                         </ui-select-choices>
@@ -698,21 +698,21 @@
 <script type="text/ng-template" id="dimCapTip.html">
   <div>
     <ol style="font-size:12px;">
-      <li>Dimension limitations mean max dimensions may be contained within a group of SQL queries.</li>
-      <li>In a set of queries, if each query required the number of dimensions is not more than five, you can set 5 here.</li>
+      <li>维度限制意味着一组SQL查询中可以包含最大维度.</li>
+      <li>在一组查询中，如果每个查询所需的维度数量不超过5，可以在这里设置5.</li>
     </ol>
   </div>
 </script>
 <script type="text/ng-template" id="rowkeyTip.html">
   <div>
-    <h4>Shard By this column?</h4>
+    <h4>按此列分片?</h4>
     <p>
-      If specified as "true", cube data will be sharded according to its value.
+      如果指定为“true ”,多维数据集数据将根据其值进行分片.
     </p>
 
-    <h4>Encoding</h4>
+    <h4>编码</h4>
     <p>
-        Dimension encoding will be delegated to Parquet.
+        维度编码将委托给Parquet.
     </p>
   </div>
 </script>

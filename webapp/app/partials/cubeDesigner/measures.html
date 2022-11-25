@@ -79,7 +79,7 @@
   <!--Add Measures Button-->
   <div class="form-group">
       <button class="btn btn-sm btn-info" ng-click="addNewMeasure()" ng-show="state.mode=='edit' && !newMeasure" ng-disabled="instance.status=='READY'">
-          <i class="fa fa-plus"></i> Measure
+          <i class="fa fa-plus"></i> 度量
       </button>
   </div>
 
@@ -87,7 +87,7 @@
   <ng-form name="edit_mes_form">
   <div class="box box-solid" ng-if="newMeasure">
       <div class="box-header">
-          <h4 class="box-title text-info">编辑Measure</h4>
+          <h4 class="box-title text-info">编辑度量</h4>
       </div>
       <div class="box-body">
           <div class="row">
@@ -98,7 +98,7 @@
                               <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default"><b>名称</b></label>
                               <div class="col-xs-12 col-sm-6">
                                   <input type="text" placeholder="名称.." class="form-control"
-                                      tooltip="Measure名称.." tooltip-trigger="focus"
+                                      tooltip="度量称.." tooltip-trigger="focus"
                                       ng-model="newMeasure.name" required />
                               </div>
                           </div>
@@ -141,7 +141,7 @@
                       <div class="form-group middle-popover">
                           <div class="row">
                               <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
-                                <b ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'">Host column On Fact Table</b>  <i ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'" title="Host Column" class="fa fa-info-circle" kylinpopover placement="right" template="hostTableTip.html"></i>
+                                <b ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'">事实表上的主机列</b>  <i ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'" title="Host Column" class="fa fa-info-circle" kylinpopover placement="right" template="hostTableTip.html"></i>
                                 <b ng-if="newMeasure.function.expression == 'TOP_N'">ORDER|SUM by Column</b>  <i ng-if="newMeasure.function.expression == 'TOP_N'" class="fa fa-info-circle" title="ORDER|SUM by Column" kylinpopover placement="right" template="topnTip.html"></i>
                                 <b ng-if="newMeasure.function.expression !== 'EXTENDED_COLUMN' && newMeasure.function.expression !== 'TOP_N' ">Param Value</b>  <i ng-if="newMeasure.function.expression !== 'EXTENDED_COLUMN' && newMeasure.function.expression !== 'TOP_N' " class="fa fa-info-circle" kylinpopover placement="right" title="Param Value" template="paramvalueTip.html"></i>
                                 <!--tip for top_n-->
@@ -165,7 +165,7 @@
                                   ng-model="newMeasure.function.parameter.value"
                                   required
                                   >
-                                  <ui-select-match placeholder="Select Measure" style="overflow: auto;">{{$select.selected}}</ui-select-match>
+                                  <ui-select-match placeholder="选择度量" style="overflow: auto;">{{$select.selected}}</ui-select-match>
                                   <ui-select-choices repeat="column in measureParamValueColumn | filter:$select.search" style="word-break:break-all;">
                                     <span ng-bind-html="column | highlight: $select.search"></span>
                                   </ui-select-choices>
@@ -181,7 +181,7 @@
                       <div class="form-group middle-popover" ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'">
                         <div class="row">
                           <label class="col-xs-12 col-sm-3 control-label no-padding-right font-color-default">
-                            <b>Extended column on fact table</b>    <i ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'" title="Extended Column" class="fa fa-info-circle" kylinpopover placement="right" template="extendedColumnTip.html"></i>
+                            <b>事实数据表上的扩展列</b>    <i ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'" title="Extended Column" class="fa fa-info-circle" kylinpopover placement="right" template="extendedColumnTip.html"></i>
                           </label>
                           <div class="col-xs-12 col-sm-6">
                             <select class="form-control" chosen ng-if="nextPara.type !== 'constant'" required
@@ -218,7 +218,7 @@
 
                             <input extended-column-return
                                    ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'"
-                                   type="text" placeholder="Kylin won’t save more than this number of bytes" class="form-control"
+                                   type="text" placeholder="麒麟不会保存超过这个数量的字节" class="form-control"
                                    tooltip-trigger="focus"
                                    ng-init="newMeasure.function.returntype=newMeasure.function.returntype?newMeasure.function.returntype:'extendedcolumn(100)'"
                                    ng-model="newMeasure.function.returntype" required

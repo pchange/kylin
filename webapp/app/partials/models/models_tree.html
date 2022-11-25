@@ -56,10 +56,10 @@
                 操作 <span class="ace-icon fa fa-caret-down icon-on-right"></span>
               </button>
               <ul class="dropdown-menu" role="menu" style="right:0;left:auto;" ng-if="(userService.hasRole('ROLE_ADMIN') || hasPermission('model',model, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask))">
-                <li><a ng-click="listCubes(model)"  title="Using Cubes" style="cursor:pointer;margin-right: 8px;" >多维数据</a></li>
-                <li><a ng-click="editModel(model, false)"  title="Edit Model" style="cursor:pointer;margin-right: 8px;" >编辑</a></li>
-                <li><a ng-click="cloneModel(model)" title="Clone Model"  style="cursor:pointer;margin-right: 8px;" >复制 </a></li>
-                <li><a ng-click="dropModel(model)" title="Drop Model"  style="cursor:pointer;margin-right: 8px;">删除</a></li>
+                <li><a ng-click="listCubes(model)"  title="使用Cubes" style="cursor:pointer;margin-right: 8px;" >多维数据</a></li>
+                <li><a ng-click="editModel(model, false)"  title="编辑模型" style="cursor:pointer;margin-right: 8px;" >编辑</a></li>
+                <li><a ng-click="cloneModel(model)" title="克隆模型"  style="cursor:pointer;margin-right: 8px;" >复制 </a></li>
+                <li><a ng-click="dropModel(model)" title="删除模型"  style="cursor:pointer;margin-right: 8px;">删除</a></li>
                 <li ng-if="userService.hasRole('ROLE_ADMIN')">
                   <a ng-click="editModel(model, true)">编辑(JSON)</a></li>
               </ul>
@@ -86,8 +86,8 @@
                 操作 <span class="ace-icon fa fa-caret-down icon-on-right"></span>
               </button>
               <ul class="dropdown-menu" role="menu" style="right:0;left:auto;" ng-if="(userService.hasRole('ROLE_ADMIN') || hasPermission('model', hybridInstance, permissions.ADMINISTRATION.mask, permissions.MANAGEMENT.mask))">
-                <li><a ng-click="editHybridInstance(hybridInstance)" title="Edit Hybrid" style="cursor:pointer;margin-right: 8px;" >编辑</a></li>
-                <li><a ng-click="dropHybridInstance(hybridInstance)" title="Drop Hybrid"  style="cursor:pointer;margin-right: 8px;">删除</a></li>
+                <li><a ng-click="editHybridInstance(hybridInstance)" title="编辑 Hybrid" style="cursor:pointer;margin-right: 8px;" >编辑</a></li>
+                <li><a ng-click="dropHybridInstance(hybridInstance)" title="删除 Hybrid"  style="cursor:pointer;margin-right: 8px;">删除</a></li>
               </ul>
             </div>
           </div>

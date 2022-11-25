@@ -24,7 +24,7 @@
 <div  class="modal-body nav-tabs-custom" height ng-controller="CubeModelCtrl" style="margin-top:40px;">
     <ul ng-show="modelsManager.selectedModel.name" class="nav nav-tabs">
         <li class="{{(!modelsManager.selectedModel.visiblePage || modelsManager.selectedModel.visiblePage=='metadata')? 'active':''}}">
-            <a href="" ng-click="modelsManager.selectedModel.visiblePage='metadata'">Grid</a>
+            <a href="" ng-click="modelsManager.selectedModel.visiblePage='metadata'">列表</a>
         </li>
         <li class="{{modelsManager.selectedModel.visiblePage=='graph'? 'active':''}}">
             <a href="" ng-click="modelsManager.selectedModel.visiblePage='graph';buildGraph(modelsManager.selectedModel);$event.stopPropagation();">形象化</a>
