@@ -218,7 +218,7 @@
 
                             <input extended-column-return
                                    ng-if="newMeasure.function.expression == 'EXTENDED_COLUMN'"
-                                   type="text" placeholder="麒麟不会保存超过这个数量的字节" class="form-control"
+                                   type="text" placeholder="数据分析不会保存超过这个数量的字节" class="form-control"
                                    tooltip-trigger="focus"
                                    ng-init="newMeasure.function.returntype=newMeasure.function.returntype?newMeasure.function.returntype:'extendedcolumn(100)'"
                                    ng-model="newMeasure.function.returntype" required
@@ -406,7 +406,7 @@
 
 <script type="text/ng-template" id="extendedTypeTip.html">
   <p>
-    麒麟不会为每个Extended Column保存超过这个数量的字节。如果超过，它将被截断。
+    数据分析不会为每个Extended Column保存超过这个数量的字节。如果超过，它将被截断。
   </p>
 </script>
 
