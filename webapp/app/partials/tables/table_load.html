@@ -143,7 +143,7 @@
         </form>
         <input type="checkbox" ng-model="tableData.has_header">
         标题是第一行
-        <select id="table_separator" chosen ng-model="tableData.separator" ng-options="separator as separator for separator in separator_list" data-placeholder="select a separator" style="width: 150px !important;" class="chosen-select"></select>
+        <select id="table_separator" chosen ng-model="tableData.separator" ng-options="separator as separator for separator in separator_list" data-placeholder="选择separator" style="width: 150px !important;" class="chosen-select"></select>
       </div>
       <div class="clearfix">
         <label for="tableName" class="col-sm-1 control-label font-color-default">表名</label>
@@ -168,7 +168,7 @@
           <td>
             <select chosen ng-model="column.type"
                     ng-options="type as type for type in tableConfig.dataTypes"
-                    data-placeholder="select a column type"
+                    data-placeholder="选择列类型"
                     style="width: 120px !important;"
                     class="chosen-select">
             </select>

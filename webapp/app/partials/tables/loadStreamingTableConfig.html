@@ -52,7 +52,7 @@
         <div class="form-group required">
           <label for="tableName" class="col-sm-3 control-label font-color-default">表名</label>
           <div class="col-sm-6">
-            <input type="text" class="form-control" id="tableName" ng-model="tableData.name" name="tableName" placeholder="Input Table Name eg. database.table" required>
+            <input type="text" class="form-control" id="tableName" ng-model="tableData.name" name="tableName" placeholder="输入表名称， 比如： database.table" required>
             <small class="help-block" ng-show="table_data_from.tableName.$error.required && table_data_from.tableName.$dirty">
               表名为空.
             </small>
@@ -70,19 +70,19 @@
         <div class="form-group required">
           <label for="TSColumn" class="col-sm-3 control-label font-color-default">TS列</label>
           <div class="col-sm-6">
-            <select id="TSColumn" chosen ng-model="streaming.TSColumnSelected" ng-options="TSColumn as TSColumn for TSColumn in streaming.TSColumnArr" data-placeholder="select a column name" style="width: 120px !important;" class="chosen-select" ng-change="updateTSColumnOption(streaming.TSColumnSelected)"></select>
+            <select id="TSColumn" chosen ng-model="streaming.TSColumnSelected" ng-options="TSColumn as TSColumn for TSColumn in streaming.TSColumnArr" data-placeholder="选择一个列名" style="width: 120px !important;" class="chosen-select" ng-change="updateTSColumnOption(streaming.TSColumnSelected)"></select>
           </div>
         </div>
         <div class="form-group">
           <label for="TSParser" class="col-sm-3 control-label font-color-default">TS解析器</label>
           <div class="col-sm-9">
-            <select id="TSParser" chosen ng-model="streaming.TSParser" ng-options="TSParser as TSParser for TSParser in streaming.TSParserArr" data-placeholder="select a time parser" style="width: 360px !important;" class="chosen-select" ng-change="updateDateTimeParserOption(streaming.TSParser)"></select>
+            <select id="TSParser" chosen ng-model="streaming.TSParser" ng-options="TSParser as TSParser for TSParser in streaming.TSParserArr" data-placeholder="选择一个时间分析器" style="width: 360px !important;" class="chosen-select" ng-change="updateDateTimeParserOption(streaming.TSParser)"></select>
           </div>
         </div>
         <div class="form-group">
           <label for="TSPattern" class="col-sm-3 control-label font-color-default">TS模式</label>
           <div class="col-sm-9">
-            <select id="TSPattern" chosen ng-model="selectedTsPattern" ng-options="TSPattern as TSPattern for TSPattern in streaming.TSPatternArr" data-placeholder="select a time pattern" style="width: 360px !important;" class="chosen-select" ng-change="updateTsPatternOption(selectedTsPattern)"></select>
+            <select id="TSPattern" chosen ng-model="selectedTsPattern" ng-options="TSPattern as TSPattern for TSPattern in streaming.TSPatternArr" data-placeholder="选择时间模式" style="width: 360px !important;" class="chosen-select" ng-change="updateTsPatternOption(selectedTsPattern)"></select>
           </div>
           <input ng-if="selfDefinedTsPattern" type="text" id="RealTSPattern" ng-model="streaming.TSPattern" name="realTSPattern" style="margin-top:10px;margin-left:200px;width:360px" placeholder="Input Your TSPattern" required autofocus>
         </div>
@@ -101,10 +101,10 @@
                 <i class="fa fa-minus" style="margin-top:10px;cursor:pointer;" ng-click="removeColumn($index)"></i>
               </td>
               <td>
-                <input type="text" class="form-control" ng-readonly="isDerived(column)" ng-model="column.name" placeholder="Input Column Name" />
+                <input type="text" class="form-control" ng-readonly="isDerived(column)" ng-model="column.name" placeholder="输入列名" />
               </td>
               <td>
-                <select chosen ng-model="column.datatype" ng-options="datatype as datatype for datatype in streaming.dataTypeArr" data-placeholder="select a column type" style="width: 120px !important;" class="chosen-select" ng-change="updateTSColumnOption(column)">
+                <select chosen ng-model="column.datatype" ng-options="datatype as datatype for datatype in streaming.dataTypeArr" data-placeholder="选择列类型" style="width: 120px !important;" class="chosen-select" ng-change="updateTSColumnOption(column)">
                 </select>
               </td>
               <td>{{column.field_mapping}}</td>
@@ -118,17 +118,17 @@
                 <i class="fa fa-plus" style="margin-top:10px;cursor:pointer;" ng-click="addColumn()"></i>
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="additionalColumn.name" name="additionalColumnName" placeholder="Input Column Name" ng-change="initFieldMapping()" />
+                <input type="text" class="form-control" ng-model="additionalColumn.name" name="additionalColumnName" placeholder="输入列名" ng-change="initFieldMapping()" />
               </td>
               <td>
-                <select chosen ng-model="additionalColumn.datatype" ng-options="datatype as datatype for datatype in streaming.dataTypeArr" data-placeholder="select a column type" style="width: 120px !important;" class="chosen-select">
+                <select chosen ng-model="additionalColumn.datatype" ng-options="datatype as datatype for datatype in streaming.dataTypeArr" data-placeholder="选择列类型" style="width: 120px !important;" class="chosen-select">
                 </select>
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="additionalColumn.field_mapping" name="additionalColumnFieldMapping" placeholder="Input Column Mapping Info" />
+                <input type="text" class="form-control" ng-model="additionalColumn.field_mapping" name="additionalColumnFieldMapping" placeholder="输入列映射信息" />
               </td>
               <td>
-                <input type="text" class="form-control" ng-model="additionalColumn.comment" name="additionalColumnComment" placeholder="Input Column Comments" />
+                <input type="text" class="form-control" ng-model="additionalColumn.comment" name="additionalColumnComment" placeholder="输入列注释" />
               </td>
             </tr>
             <tr ng-if="additionalColumn.error">
