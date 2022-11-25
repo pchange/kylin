@@ -19,12 +19,12 @@
 KylinApp.constant('tableConfig', {
   theaditems: [
     {attr: 'id', name: 'ID'},
-    {attr: 'name', name: 'Name'},
-    {attr: 'datatype', name: 'Data Type'},
-    {attr: 'cardinality', name: 'Cardinality'},
-    {attr: 'min', name: 'Min Value'},
-    {attr: 'max', name: 'Max Value'},
-    {attr: 'comment', name: 'Comment'}
+    {attr: 'name', name: '名称'},
+    {attr: 'datatype', name: '数据类型'},
+    {attr: 'cardinality', name: '基数'},
+    {attr: 'min', name: '最小值'},
+    {attr: 'max', name: '最大值'},
+    {attr: 'comment', name: '评论'}
   ],
   dataTypes:["tinyint","smallint","int","bigint","float","double","decimal","timestamp","date","string","varchar(256)","char","boolean","binary"],
   columnTypeEncodingMap:{
@@ -126,11 +126,11 @@ KylinApp.constant('tableConfig', {
   },
   snapshotTheaditems: [
     {attr: 'snapshotID', name: 'ID'},
-    {attr: 'storageType', name: 'Storage Type'},
-    {attr: 'lastBuildTime', name: 'Last Build Time'},
-    {attr: 'sourceTableLastModifyTime', name: 'Source Table Last Modify Time'},
-    {attr: 'sourceTableSize', name: 'Size'},
-    {attr: 'usageInfo', name: 'Useage Info'}
+    {attr: 'storageType', name: '存储类型'},
+    {attr: 'lastBuildTime', name: '上一次构建时间'},
+    {attr: 'sourceTableLastModifyTime', name: '源表上次修改时间'},
+    {attr: 'sourceTableSize', name: '大小'},
+    {attr: 'usageInfo', name: 'Useage 信息'}
   ],
  streamingSourceType: {
    kafka: 20,
