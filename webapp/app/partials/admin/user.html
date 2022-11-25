@@ -16,15 +16,15 @@
 * limitations under the License.
 -->
 <div class="container">
-    <div class="row" style="margin-top:15px;" ng-if="!allowUseUserAndGroupModule">User management does not apply to the current security configuration, go to the correct permissions management page for editing.</div>
+    <div class="row" style="margin-top:15px;" ng-if="!allowUseUserAndGroupModule">用户管理不适用于当前安全配置，请转到正确的权限管理页面进行编辑.</div>
     <div class="row" style="margin-top:15px;" ng-if="allowUseUserAndGroupModule">
     <!--No Instances-->
     <div ng-if="!userloading && usersTotal == 0">
-      <div no-result text="No user"></div>
+      <div no-result text="无用户"></div>
     </div>
     <!--Loading Instances-->
     <div ng-if="userloading">
-      <loading text="Loading user list ..."></loading>
+      <loading text="用户列表加载中 ..."></loading>
     </div>
     <div class="row">
       <div class="col-xs-9">
