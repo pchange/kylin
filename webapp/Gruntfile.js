@@ -312,6 +312,7 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-manifest');
   grunt.loadNpmTasks('grunt-regex-replace');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-uglify-es');
 
   grunt.registerTask('test', ['jshint', 'lesslint']);
 
