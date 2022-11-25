@@ -4566,7 +4566,7 @@ angular.module('ui.grid')
     var self = this;
 
     if (!colDef.field && !colDef.name) {
-      throw new Error('colDef.name or colDef.field property 必填。);
+      throw new Error('colDef.name or colDef.field property 必填。');
     }
 
     //maintain backwards compatibility with 2.x
@@ -9056,7 +9056,7 @@ angular.module('ui.grid')
       function ScrollEvent(grid, sourceRowContainer, sourceColContainer, source) {
         var self = this;
         if (!grid) {
-          throw new Error("grid argument 必填。);
+          throw new Error("grid argument 必填。");
         }
 
         /**

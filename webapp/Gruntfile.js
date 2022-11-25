@@ -318,7 +318,7 @@ module.exports = function (grunt) {
 
   grunt.registerTask('prod', [
 //    'test',
-    'clean:build',
+    // 'clean:build',
     'copy:tmp',
     'html2js',
     'concat:app',
@@ -333,7 +333,7 @@ module.exports = function (grunt) {
     'copy:build',
     'clean:tmp',
     'manifest',
-    'changelog'
+    // 'changelog'
   ]);
 
   grunt.registerTask('dev', [

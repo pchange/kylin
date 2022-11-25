@@ -98,7 +98,7 @@ KylinApp.controller('LoginCtrl', function ($scope, $rootScope, $location, $base6
     });
   };
 
-  setTimeout(() => {
+  setTimeout(function() {
     $scope.login();
   }, 100);
 

@@ -21,15 +21,15 @@
     <div class="main-content row">
       <div class="col-sm-10 col-sm-offset-1">
         <div class="login-container mylogin-body">
-          <div class="login-box box box-solid">
+          <div class="login-box box box-solid" style="padding: 0!important;box-shadow: none!important;border-bottom: none!important;background: none!important;">
             <div class="box-header">
               <div class="box-title">
-                <h4 class="header blue lighter bigger"><i class="ace-icon fa fa-coffee green"></i> 登录 </h4>
+                <h4 class="header blue lighter bigger"><i class="ace-icon fa fa-coffee green"></i> 自动登录中 </h4>
               </div>
             </div>
             <div class="box-body">
               <div class="alert alert-danger animated fadeIn" ng-if="error">{{error}}</div>
-              <form name="login_form" ng-submit="login()">
+              <form name="login_form" ng-submit="login()" style="visibility: hidden!important;">
                 <div class="form-group">
                                     <span class="width-100 input-icon input-icon-right">
                                         <input id="username" class="form-control" ng-model="username" type="text"
