@@ -28,7 +28,7 @@ KylinApp.service('cubesManager', function (CubeDescService,SweetAlert) {
         if (detail.length > 0&&detail[0].hasOwnProperty("name")) {
           return detail[0];
         }else{
-          SweetAlert.swal('提示...', "No cube detail info loaded.", 'error');
+          SweetAlert.swal('提示...', "未加载cube详细信息.", 'error');
         }
       }, function (e) {
         if(e.data&& e.data.exception){
