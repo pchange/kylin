@@ -69,7 +69,10 @@
             <td>
                 <span class="label"
                       ng-class="{'label-success': cube.status=='READY', 'label-default': cube.status=='DISABLED', 'label-warning': cube.status=='DESCBROKEN'}">
-                    {{ cube.status}}
+                    <!-- {{ cube.status}} -->
+                    {{cube.status=='READY'? "准备好": ''}}
+                    {{cube.status=='DISABLED'? "不可用": ''}}
+                    {{cube.status=='DESCBROKEN'? "破损": ''}}
                 </span>
             </td>
             <td>{{ cube.project}}</td>

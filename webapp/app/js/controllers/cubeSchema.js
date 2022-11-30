@@ -26,7 +26,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
     $scope.newMeasure = null;
     $scope.forms={};
     $scope.wizardSteps = [
-        {title: 'Cube信息', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
+        {title: '多维数据信息', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
         {title: '规模', src: 'partials/cubeDesigner/dimensions.html', isComplete: false,form:'cube_dimension_form'},
         {title: '度量', src: 'partials/cubeDesigner/measures.html', isComplete: false,form:'cube_measure_form'},
         {title: '刷新设置', src: 'partials/cubeDesigner/refresh_settings.html', isComplete: false,form:'refresh_setting_form'},
