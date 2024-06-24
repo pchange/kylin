@@ -27,13 +27,13 @@ KylinApp.service('StreamingList', function (CubeService, $q, AccessService, Stre
     kafkaPromises.push(StreamingService.getKfkConfig({}, function (kfkConfigs) {
       _this.kafkaConfigs = kfkConfigs;
     },function(){
-      defer.reject("Failed to load models");
+      defer.reject("加载模型失败");
     }).$promise);
 
     streamingPromises.push(StreamingService.getConfig({}, function (streamings) {
       _this.streamingConfigs = streamings;
     },function(){
-      defer.reject("Failed to load models");
+      defer.reject("加载模型失败");
     }).$promise);
 
     $q.all(streamingPromises,kafkaPromises).then(function(result,rs){

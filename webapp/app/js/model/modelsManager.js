@@ -42,7 +42,7 @@ KylinApp.service('modelsManager',function(ModelService,CubeService,$q,AccessServ
             _this.loading = false;
 
         },function(){
-            defer.reject("Failed to load models");
+            defer.reject("加载模型失败");
         });
         return defer.promise;
 

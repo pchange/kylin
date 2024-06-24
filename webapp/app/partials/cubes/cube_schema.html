@@ -18,7 +18,7 @@
 
 <div class="box box-primary box-2px">
     <div class="box-header widget-header-blue widget-header-flat">
-        <h4 class="box-title text-info">Cube Designer</h4>
+        <h4 class="box-title text-info">多维数据设计</h4>
     </div>
     <div class="box-body">
             <div>
@@ -42,18 +42,18 @@
                         </div>
                     </div>
                     <div class="col-xs-4">
-                        <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='Cube Info'">
+                        <button class="btn btn-prev" ng-click="preView()" ng-show="curStep.title!='多维数据信息'">
                             <i class="ace-icon fa fa-arrow-left"></i>
-                            Prev
+                            上一步
                         </button>
                         <button id="nextButton" class="btn btn-success btn-next"  ng-click="nextStep($index, nextView)" ng-disabled="forms[curStep.form].$invalid"
-                                ng-show="curStep.title!='Overview'">
-                            Next
+                                ng-show="curStep.title!='概况'">
+                            下一步
                             <i class="ace-icon fa fa-arrow-right icon-on-right"></i>
                         </button>
                         <button class="btn btn-primary" ng-click="prepareCube();saveCube()" ng-disabled="design_form.$invalid"
-                                ng-if="curStep.title=='Overview' && state.mode=='edit'">
-                            Save
+                                ng-if="curStep.title=='概况' && state.mode=='edit'">
+                            保存
                         </button>
                     </div>
                 </div>

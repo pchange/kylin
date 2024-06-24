@@ -73,25 +73,25 @@
         var validViews = ['minute', 'hour', 'day', 'month', 'year'];
 
         if (validViews.indexOf(configuration.startView) < 0) {
-          throw ('invalid startView value: ' + configuration.startView);
+          throw ('无效的starview值: ' + configuration.startView);
         }
 
         if (validViews.indexOf(configuration.minView) < 0) {
-          throw ('invalid minView value: ' + configuration.minView);
+          throw ('无效的minView值: ' + configuration.minView);
         }
 
         if (validViews.indexOf(configuration.minView) > validViews.indexOf(configuration.startView)) {
-          throw ('startView must be greater than minView');
+          throw ('starview必须大于manview');
         }
 
         if (!angular.isNumber(configuration.minuteStep)) {
-          throw ('minuteStep must be numeric');
+          throw ('minuteStep必须是数字');
         }
         if (configuration.minuteStep <= 0 || configuration.minuteStep >= 60) {
-          throw ('minuteStep must be greater than zero and less than 60');
+          throw ('minuteStep必须大于零且小于60');
         }
         if (configuration.dropdownSelector !== null && !angular.isString(configuration.dropdownSelector)) {
-          throw ('dropdownSelector must be a string');
+          throw ('dropdownSelector 必须是字符串');
         }
 
         /* istanbul ignore next */

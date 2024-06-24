@@ -84,10 +84,10 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed get replica set';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '获取副本集失败';
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed get replica set', 'error');
+        SweetAlert.swal('提示...', '获取副本集失败', 'error');
       }
       callback && callback();
     });
@@ -144,13 +144,13 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
                   $scope.availableNodes = scope.availableReceiver;
                   loadingRequest.hide();
                 });
-                errorMessage(e, 'Failed get replica set');
+                errorMessage(e, '获取副本集失败');
               });
             }, function(e) {
               scope.listReplicaSet(function() {
                 loadingRequest.hide();
               });
-              errorMessage(e, 'Failed remove receiver');
+              errorMessage(e, 'receiver 删除失败');
             });
           }
         };
@@ -174,16 +174,16 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
                   $scope.availableNodes = scope.availableReceiver;
                   loadingRequest.hide();
                 });
-                errorMessage(e, 'Failed get replica set');
+                errorMessage(e, '获取副本集失败');
               });
             }, function(e) {
               scope.listReplicaSet(function() {
                 loadingRequest.hide();
               });
-              errorMessage(e, 'Failed to add node');
+              errorMessage(e, '添加节点失败');
             });
           } else {
-             errorMessage(e, 'Failed to add node');
+             errorMessage(e, '添加节点失败');
           }
         };
 
@@ -192,9 +192,9 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
           if (e.data && e.data.exception) {
             var message = e.data.exception;
             var msg = !!(message) ? message : errMsg;
-            SweetAlert.swal('Oops...', msg, 'error');
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', errMsg, 'error');
+            SweetAlert.swal('提示...', errMsg, 'error');
           }
         };
       },
@@ -229,19 +229,19 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
             }, function(data) {
               scope.listReplicaSet();
               $modalInstance.close();
-              SweetAlert.swal('Success!', 'Node add success', 'success');
+              SweetAlert.swal('成功!', '添加节点成功', 'success');
             }, function(e) {
               if (e.data && e.data.exception) {
                 var message = e.data.exception;
-                var msg = !!(message) ? message : 'Failed to add node';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '添加节点失败';
+                SweetAlert.swal('提示...', msg, 'error');
               } else {
-                SweetAlert.swal('Oops...', 'Failed to add node', 'error');
+                SweetAlert.swal('提示...', '添加节点失败', 'error');
               }
               scope.listReplicaSet();
             });
           } else {
-            SweetAlert.swal('Oops...', "Please select node", 'info');
+            SweetAlert.swal('提示...', "请选择节点", 'info');
           }
         };
 
@@ -269,24 +269,25 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
   $scope.removeReplicaSet = function(replicaSet) {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to delete replica set ['+replicaSet.rs_id+']? ',
+      text: '确定删除副本集['+replicaSet.rs_id+']? ',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
       closeOnConfirm: true
     }, function(isConfirm) {
       if(isConfirm){
         AdminStreamingService.removeReplicaSet({replicaSetId: replicaSet.rs_id}, {}, function (result) {
           $scope.listReplicaSet();
-          SweetAlert.swal('Success!', 'Replica set remove success', 'success');
+          SweetAlert.swal('成功!', '副本集删除成功', 'success');
         }, function(e){
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to remove replica set';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '副本集删除失败';
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', 'Failed to remove replica set', 'error');
+            SweetAlert.swal('提示...', '副本集删除失败', 'error');
           }
           $scope.listReplicaSet();
         });
@@ -297,16 +298,17 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
   $scope.removeReceiver = function(receiverID) {
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to remove receiver with id \'' + receiverID + '\'?',
+      text: '确定要删除receiver \'' + receiverID + '\'?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
       closeOnConfirm: true
     }, function(isConfirm) {
       if(isConfirm){
         AdminStreamingService.removeReceiver({receiverID: receiverID}, {}, function (result) {
-          SweetAlert.swal({title: 'Success!', text:'Receiver remove success'}, function (isConfirm) {
+          SweetAlert.swal({title: '成功!', text:'Receiver 删除成功'}, function (isConfirm) {
             if (isConfirm) {
               $timeout(function() {}, 2000);
               $scope.listReplicaSet();
@@ -315,10 +317,10 @@ KylinApp.controller('AdminStreamingCtrl', function ($scope, $timeout, $modal, Ad
         }, function(e){
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to remove receiver';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : 'Receiver 删除失败';
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', 'Failed to remove receiver', 'error');
+            SweetAlert.swal('提示...', 'Receiver 删除失败', 'error');
           }
         });
       }
@@ -342,10 +344,10 @@ KylinApp.controller('StreamingReceiverCtrl', function($scope, $routeParams, $mod
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to get receiver stats';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '获取 receiver 统计数据失败';
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed to get receiver stats', 'error');
+        SweetAlert.swal('提示...', '获取 receiver 统计数据失败', 'error');
       }
     });
   }

@@ -29,7 +29,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
   $scope.cubeMode = absUrl.indexOf("/cubes/add") != -1 ? 'addNewCube' : absUrl.indexOf("/cubes/edit") != -1 ? 'editExistCube' : 'default';
 
   if ($scope.cubeMode == "addNewCube" &&ProjectModel.selectedProject==null) {
-    SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+    SweetAlert.swal('提示', '请先选择项目.', 'warning');
     $location.path("/models");
     return;
   }
@@ -248,16 +248,16 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
         $scope.state.cubeInstance =angular.toJson($scope.instance,true);
 
       } else {
-        SweetAlert.swal('Oops...', "No cube detail info loaded.", 'error');
+        SweetAlert.swal('提示...', "未加载cube详细信息.", 'error');
       }
 
     },function(e){
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to take action.';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '操作失败.';
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+        SweetAlert.swal('提示...', "操作失败.", 'error');
       }
     });
 
@@ -312,17 +312,18 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
     try {
       angular.fromJson($scope.state.cubeSchema);
     } catch (e) {
-      SweetAlert.swal('Oops...', 'Invalid cube json format..', 'error');
+      SweetAlert.swal('提示...', '无效的cube的json格式..', 'error');
       return;
     }
 
     SweetAlert.swal({
       title: '',
-      text: 'Are you sure to save the cube ?',
+      text: '确定保存 cube ?',
       type: '',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
       closeOnConfirm: true
     }, function (isConfirm) {
       if (isConfirm) {
@@ -336,13 +337,13 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
           }, function (request) {
             if (request.successful) {
               $scope.state.cubeSchema = request.cubeDescData;
-              MessageBox.successNotify('Updated the cube successfully.');
+              MessageBox.successNotify('cube更新成功.');
               $location.path("/models");
             } else {
               $scope.saveCubeRollBack();
               $scope.cubeMetaFrame.project = $scope.state.project;
               var message = request.message;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               MessageService.sendMsg($scope.cubeResultTmpl({
                 'text': msg,
                 'schema': $scope.state.cubeSchema
@@ -355,14 +356,14 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
 
             if (e.data && e.data.exception) {
               var message = e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               MessageService.sendMsg($scope.cubeResultTmpl({
                 'text': msg,
                 'schema': $scope.state.cubeSchema
               }), 'error', {}, true, 'top_center');
             } else {
               MessageService.sendMsg($scope.cubeResultTmpl({
-                'text': 'Failed to take action.',
+                'text': '操作失败.',
                 'schema': $scope.state.cubeSchema
               }), 'error', {}, true, 'top_center');
             }
@@ -383,7 +384,7 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
               $scope.saveCubeRollBack();
               $scope.cubeMetaFrame.project = $scope.state.project;
               var message = request.message;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               MessageService.sendMsg($scope.cubeResultTmpl({
                 'text': msg,
                 'schema': $scope.state.cubeSchema
@@ -397,14 +398,14 @@ KylinApp.controller('CubeEditCtrl', function ($scope, $q, $routeParams, $locatio
 
             if (e.data && e.data.exception) {
               var message = e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
+              var msg = !!(message) ? message : '操作失败.';
               MessageService.sendMsg($scope.cubeResultTmpl({
                 'text': msg,
                 'schema': $scope.state.cubeSchema
               }), 'error', {}, true, 'top_center');
             } else {
               MessageService.sendMsg($scope.cubeResultTmpl({
-                'text': "Failed to take action.",
+                'text': "操作失败.",
                 'schema': $scope.state.cubeSchema
               }), 'error', {}, true, 'top_center');
             }

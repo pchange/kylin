@@ -25,7 +25,7 @@ KylinApp.controller('HybridInstanceSchema', function (
 
   // check for empty project of header, break the operation.
   if (!$scope.isEdit && ProjectModel.selectedProject === null) {
-    SweetAlert.swal('Oops...', 'Please select your project first.', 'warning');
+    SweetAlert.swal('提示...', '请先选择项目.', 'warning');
     $location.path("/models");
     return;
   }
@@ -201,7 +201,7 @@ KylinApp.controller('HybridInstanceSchema', function (
     function successHandler(request) {
       if(request.successful === false) {
         var message = request.message;
-        var msg = !!message ? message : 'Failed to take action.';
+        var msg = !!message ? message : '操作失败.';
         var template = hybridInstanceResultTmpl({ text: msg, schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       } else {
@@ -219,11 +219,11 @@ KylinApp.controller('HybridInstanceSchema', function (
     function failedHandler(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to take action.';
+        var msg = !!(message) ? message : '操作失败.';
         var template = hybridInstanceResultTmpl({ text: msg, schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       } else {
-        var template = hybridInstanceResultTmpl({ text: 'Failed to take action.', schema: schema });
+        var template = hybridInstanceResultTmpl({ text: '操作失败.', schema: schema });
         MessageService.sendMsg(template, 'error', {}, true, 'top_center');
       }
       // hide global loading
@@ -340,15 +340,16 @@ KylinApp.controller('HybridInstanceSchema', function (
   function saveWarning(callback) {
     SweetAlert.swal({
       title: $scope.isEdit
-        ? 'Are you sure to update the Hybrid Cube?'
-        : 'Are you sure to save the Hybrid Cube?',
+        ? '确定更新 Hybrid Cube?'
+        : '确定保存 Hybrid Cube?',
       text: $scope.isEdit
         ? ''
         : '',
       type: 'warning',
       showCancelButton: true,
       confirmButtonColor: '#DD6B55',
-      confirmButtonText: "Yes",
+      confirmButtonText: "确定",
+      cancelButtonText: "取消",
       closeOnConfirm: true
   }, function(isConfirm) {
     if(isConfirm) {

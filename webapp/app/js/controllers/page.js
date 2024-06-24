@@ -283,10 +283,10 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '操作失败.';
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
       });
     }
@@ -294,7 +294,7 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       ProjectService.save({}, {projectDescData: angular.toJson($scope.proj)}, function (newProj) {
         $modalInstance.dismiss('cancel');
         $cookieStore.put("project", newProj.name);
-        MessageBox.successAlert("New project created successfully!", function(){
+        MessageBox.successAlert("项目创建成功!", function(){
           location.reload();
         });
 
@@ -304,10 +304,10 @@ var projCtrl = function ($scope, $location, $modalInstance, ProjectService, Mess
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '操作失败.';
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
       });
     }

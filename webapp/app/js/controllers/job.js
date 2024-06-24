@@ -55,11 +55,11 @@ KylinApp
 
         $scope.tabs=[
           {
-            "title":"Jobs",
+            "title":"任务",
             "active":true
           },
           {
-            "title": "Slow Queries",
+            "title": "慢查询",
             "active": false
           }
         ]
@@ -107,7 +107,7 @@ KylinApp
             },function(resp){
               $scope.state.loading = false;
               defer.resolve([]);
-              SweetAlert.swal('Oops...', resp, 'error');
+              SweetAlert.swal('提示...', resp, 'error');
               return defer.promise;
             });
         };
@@ -130,7 +130,7 @@ KylinApp
             return defer.promise;
           },function(resp){
             defer.resolve([]);
-            SweetAlert.swal('Oops...', resp, 'error');
+            SweetAlert.swal('提示...', resp, 'error');
             return defer.promise;
           });
         };
@@ -152,11 +152,12 @@ KylinApp
         $scope.resume = function (job) {
             SweetAlert.swal({
                 title: '',
-                text: 'Are you sure to resume the job?',
+                text: '确定要恢复任务吗?',
                 type: '',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: "Yes",
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
                 closeOnConfirm: true
             }, function(isConfirm) {
               if(isConfirm) {
@@ -178,15 +179,15 @@ KylinApp
                       key.count = "(" + (JobList.jobsOverview[key.name]) + ")";
                     }
                   });
-                  MessageBox.successNotify('Job has been resumed successfully!');
+                  MessageBox.successNotify('任务恢复成功!');
                 }, function (e) {
                   loadingRequest.hide();
                   if (e.data && e.data.exception) {
                     var message = e.data.exception;
-                    var msg = !!(message) ? message : 'Failed to take action.';
-                    SweetAlert.swal('Oops...', msg, 'error');
+                    var msg = !!(message) ? message : '操作失败.';
+                    SweetAlert.swal('提示...', msg, 'error');
                   } else {
-                    SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "操作失败.", 'error');
                   }
                 });
               }
@@ -197,11 +198,12 @@ KylinApp
         $scope.cancel = function (job) {
             SweetAlert.swal({
                 title: '',
-                text: 'Are you sure to discard the job?',
+                text: '确定取消该任务吗?',
                 type: '',
                 showCancelButton: true,
                 confirmButtonColor: '#DD6B55',
-                confirmButtonText: "Yes",
+                confirmButtonText: "确定",
+                cancelButtonText: "取消",
                 closeOnConfirm: true
             }, function(isConfirm) {
               if(isConfirm) {
@@ -225,15 +227,15 @@ KylinApp
                         }
                       });
                     });
-                    MessageBox.successNotify('Job has been discarded successfully!');
+                    MessageBox.successNotify('任务已成功取消!');
                 },function(e){
                     loadingRequest.hide();
                     if(e.data&& e.data.exception){
                         var message =e.data.exception;
-                        var msg = !!(message) ? message : 'Failed to take action.';
-                        SweetAlert.swal('Oops...', msg, 'error');
+                        var msg = !!(message) ? message : '操作失败.';
+                        SweetAlert.swal('提示...', msg, 'error');
                     }else{
-                        SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                        SweetAlert.swal('提示...', "操作失败.", 'error');
                     }
                 });
               }
@@ -243,11 +245,12 @@ KylinApp
       $scope.pause = function (job) {
         SweetAlert.swal({
           title: '',
-          text: 'Are you sure to pause the job?',
+          text: '确定暂停该任务吗?',
           type: '',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function(isConfirm) {
           if(isConfirm) {
@@ -271,15 +274,15 @@ KylinApp
                   }
                 });
               });
-              MessageBox.successNotify('Job has been paused successfully!');
+              MessageBox.successNotify('任务暂停成功!');
             },function(e){
               loadingRequest.hide();
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
-                var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '操作失败.';
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "操作失败.", 'error');
               }
             });
           }
@@ -289,18 +292,19 @@ KylinApp
      $scope.drop = function (job) {
         SweetAlert.swal({
           title: '',
-          text: 'Are you sure to drop the job?',
+          text: '确定放弃该任务吗？',
           type: '',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function(isConfirm) {
           if(isConfirm) {
             loadingRequest.show();
             JobService.drop({jobId: job.uuid}, {}, function (job) {
               loadingRequest.hide();
-              MessageBox.successNotify('Job has been dropped successfully!');
+              MessageBox.successNotify('任务已成功删除!');
               $scope.jobList.jobs[job.uuid].dropped = true;
               var oldState = job.job_status;
               angular.forEach(jobConfig.allStatus, function (key) {
@@ -313,10 +317,10 @@ KylinApp
               loadingRequest.hide();
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
-                var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '操作失败.';
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "操作失败.", 'error');
               }
             });
           }
@@ -326,26 +330,27 @@ KylinApp
       $scope.resubmit = function (job) {
         SweetAlert.swal({
           title: '',
-          text: 'Are you sure to re-submit the job?',
+          text: '确定重新提交该任务吗?',
           type: '',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function(isConfirm) {
           if(isConfirm) {
             loadingRequest.show();
             JobService.resubmit({jobId: job.uuid}, {}, function (result) {
               loadingRequest.hide();
-              MessageBox.successNotify('Job has been re-submitted successfully!');
+              MessageBox.successNotify('任务已重新提交!');
             },function(e){
               loadingRequest.hide();
               if(e.data&& e.data.exception){
                 var message =e.data.exception;
-                var msg = !!(message) ? message : 'Failed to re-submit the job.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '操作失败.';
+                SweetAlert.swal('提示...', msg, 'error');
               }else{
-                SweetAlert.swal('Oops...', "Failed to re-submit the job.", 'error');
+                SweetAlert.swal('提示...', "操作失败.", 'error');
               }
             });
           }
@@ -354,7 +359,7 @@ KylinApp
 
       $scope.diagnosisJob =function(job) {
         if (!job){
-          SweetAlert.swal('', "No job selected.", 'info');
+          SweetAlert.swal('', "没有选择任务.", 'info');
           return;
         }
         var downloadUrl = Config.service.url + 'diag/job/'+job.uuid+'/download';
@@ -374,7 +379,7 @@ KylinApp
                             tjob.steps[stepId].loadingOp = false;
                         }
                     },function(e){
-                      SweetAlert.swal('Oops...',"Failed to load job info, please check system log for details.", 'error');
+                      SweetAlert.swal('提示...',"无法加载任务信息，请查看系统日志了解详细信息.", 'error');
                     });
                 } else {
                     internalOpenModal();

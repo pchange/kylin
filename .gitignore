@@ -103,3 +103,6 @@ examples/sparkappid
 src/spark-project/examples/test_metadata/*
 # stream_index
 stream-receiver/stream_index
+
+
+node_modules

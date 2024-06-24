@@ -412,7 +412,7 @@ KylinApp
 
             $scope.saveQuery = function (query) {
                 QueryService.save({}, {name: query.name, project: query.project, sql: query.sql, description: query.description}, function () {
-                    SweetAlert.swal('Success!', 'New query saved..', 'success');
+                    SweetAlert.swal('成功!', '新的查询已经保存..', 'success');
                     $modalInstance.dismiss('cancel');
                 });
             }
@@ -447,11 +447,12 @@ KylinApp
                 event.preventDefault();
                 SweetAlert.swal({
                   title: '',
-                  text: "You've executing query in current page, are you sure to leave this page?",
+                  text: "已经在当前页面执行查询，确定要离开该页面吗?",
                   type: '',
                   showCancelButton: true,
                   confirmButtonColor: '#DD6B55',
-                  confirmButtonText: "Yes",
+                  confirmButtonText: "确定",
+                  cancelButtonText: "取消",
                   closeOnConfirm: true
                 }, function(isConfirm) {
                     if(isConfirm){

@@ -141,17 +141,18 @@ KylinApp
     $scope.delUser = function (userName) {
       SweetAlert.swal({
         title: '',
-        text: "Are you sure to delete the user " + userName + "?",
+        text: "确定删除用户 " + userName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
           UserService.delUser({
             userName: userName
           }, function () {
-            SweetAlert.swal('Delete successfuly', null, 'success');
+            SweetAlert.swal('删除成功', null, 'success');
             $scope.listUsers($scope.page.curpage);
           }, function (e) {
             ResponseUtil.handleError(e);
@@ -164,7 +165,7 @@ KylinApp
       updateUser.disabled = isDisable
       UserService.updateUser({userName: updateUser.username}, updateUser, function () {
         $scope.listUsers($scope.page.curpage);
-        SweetAlert.swal('User status update successfuly', null, 'success');
+        SweetAlert.swal('用户状态更新成功', null, 'success');
       }, function (e) {
         ResponseUtil.handleError(e);
       })
@@ -178,17 +179,18 @@ KylinApp
     $scope.delGroup = function (groupName) {
       SweetAlert.swal({
         title: '',
-        text: "Are you sure to delete the goup " + groupName + "?",
+        text: "确定删除用户组 " + groupName + "?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function(isConfirm) {
         if(isConfirm){
           UserGroupService.delGroup({
             group: groupName
           }, function () {
-            SweetAlert.swal('Delete successfuly', null, 'success');
+            SweetAlert.swal('删除成功', null, 'success');
             $scope.listGroups($scope.page.curpage);
           }, function (res) {
             ResponseUtil.handleError(res);
@@ -251,7 +253,7 @@ KylinApp
         }, $scope.user, function () {
           $scope.dialogActionLoading = false;
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('Assign successfuly', null, 'success');
+          SweetAlert.swal('分配成功', null, 'success');
           $scope.listUsers($scope.page.curpage);
         }, function (res){
           $scope.dialogActionLoading = false;
@@ -272,7 +274,7 @@ KylinApp
         }, users, function () {
           $scope.dialogActionLoading = false;
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('Assign successfuly', null, 'success');
+          SweetAlert.swal('添加成功', null, 'success');
           $scope.listGroups($scope.page.curpage);
         }, function (res){
           $scope.dialogActionLoading = false;
@@ -293,7 +295,7 @@ KylinApp
         }, $scope.user, function() {
           $scope.dialogActionLoading = false;
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('Add user successfuly', null, 'success');
+          SweetAlert.swal('用户新建成功', null, 'success');
           $scope.listUsers();
         }, function (res){
           $scope.dialogActionLoading = false;
@@ -306,7 +308,7 @@ KylinApp
           group: $scope.group.name
         }, null, function () {
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('Add group successfuly', null, 'success');
+          SweetAlert.swal('用户组新建成功', null, 'success');
           $scope.listGroups();
           $scope.dialogActionLoading = false;
         }, function (res){
@@ -318,7 +320,7 @@ KylinApp
         $scope.dialogActionLoading = true;
         UserService.changePwd($scope.changePwdUser, function () {
           $modalInstance.dismiss('cancel');
-          SweetAlert.swal('Change password successfuly', null, 'success');
+          SweetAlert.swal('密码更改成功', null, 'success');
           $scope.listUsers();
           $scope.dialogActionLoading = false;
         }, function (e) {

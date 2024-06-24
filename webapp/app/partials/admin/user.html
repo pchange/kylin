@@ -16,31 +16,31 @@
 * limitations under the License.
 -->
 <div class="container">
-    <div class="row" style="margin-top:15px;" ng-if="!allowUseUserAndGroupModule">User management does not apply to the current security configuration, go to the correct permissions management page for editing.</div>
+    <div class="row" style="margin-top:15px;" ng-if="!allowUseUserAndGroupModule">用户管理不适用于当前安全配置，请转到正确的权限管理页面进行编辑.</div>
     <div class="row" style="margin-top:15px;" ng-if="allowUseUserAndGroupModule">
     <!--No Instances-->
     <div ng-if="!userloading && usersTotal == 0">
-      <div no-result text="No user"></div>
+      <div no-result text="无用户"></div>
     </div>
     <!--Loading Instances-->
     <div ng-if="userloading">
-      <loading text="Loading user list ..."></loading>
+      <loading text="用户列表加载中 ..."></loading>
     </div>
     <div class="row">
       <div class="col-xs-9">
-        <label class="table-header-text">User List</label>
+        <label class="table-header-text">用户列表</label>
       </div>
       <div class="col-xs-3">
       <form style="float:right;" >
           <span class="input-icon input-icon-right nav-search">
-            <input type="text" placeholder="Search by user name" class="nav-search-input" ng-model="filter.name" />
+            <input type="text" placeholder="用户名搜索" class="nav-search-input" ng-model="filter.name" />
             <i class="ace-icon fa fa-search blue" ng-click="listUsers();"></i>
           </span>
       </form>
       </div>
     </div>
-    <button class="btn btn-primary btn-sm" ng-click="createUser()"><i class="fa fa-plus"></i> User</button>
-    <span class="label label-success" style="float:right;margin-top:10px;" ng-if="tabData.groupName">Group Name: {{tabData.groupName}} <i class="fa fa-close" style="cursor: pointer;" ng-click="removeGroupFilter()"></i></span>
+    <button class="btn btn-primary btn-sm" ng-click="createUser()"><i class="fa fa-plus"></i> 新建用户</button>
+    <span class="label label-success" style="float:right;margin-top:10px;" ng-if="tabData.groupName">用户组名称: {{tabData.groupName}} <i class="fa fa-close" style="cursor: pointer;" ng-click="removeGroupFilter()"></i></span>
     <!--Queries Table Content-->
     <table ng-if="usersTotal > 0" style="margin-top:20px;table-layout: fixed;" class="table table-striped table-bordered table-hover  table-condensed dataTable no-footer">
       <thead>
@@ -49,16 +49,16 @@
           ID
         </th>
         <th width="15%">
-          User Name
+          用户名
         </th>
         <th>
-          Group
+          用户组
         </th>
         <th width="8%">
-          Status
+          状态
         </th>
         <th width="15%">
-          Actions
+          操作
         </th>
       </tr>
       </thead>
@@ -74,22 +74,22 @@
           <span class="label label-primary" style="margin-left:4px;display:inline-block" ng-repeat="auth in user.authorities">{{auth.authority}}</span>
         </th>
         <th >
-          <span ng-if="!user.disabled" class="label label-success">Enabled</span>
-          <span ng-if="user.disabled" class="label label-warning">Disabled</span>
+          <span ng-if="!user.disabled" class="label label-success">启用</span>
+          <span ng-if="user.disabled" class="label label-warning">禁用</span>
         </th>
         <td>
           <div class="btn-group">
-            <button type="button" tooltip="Assign group" class="btn btn-default btn-xs" ng-if="user.username!='ADMIN'" ng-click="assignToGroup(user.username, user.authorities)">
+            <button type="button" tooltip="分配用户组" class="btn btn-default btn-xs" ng-if="user.username!='ADMIN'" ng-click="assignToGroup(user.username, user.authorities)">
               <i class="fa fa-group fa-fw"></i>
             </button>
-            <button type="button" tooltip="Delete user" class="btn btn-default btn-xs" ng-if="user.username!='ADMIN'" ng-click="delUser(user.username)">
+            <button type="button" tooltip="删除用户" class="btn btn-default btn-xs" ng-if="user.username!='ADMIN'" ng-click="delUser(user.username)">
               <i class="fa fa-trash-o fa-fw"></i>
             </button>
-            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">Actions<span class="ace-icon fa fa-caret-down icon-on-right"></span></button>
+            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">操作<span class="ace-icon fa fa-caret-down icon-on-right"></span></button>
             <ul class="dropdown-menu" role="menu" style="right:0;left:auto;">
-              <li ng-if="user.disabled"><a ng-click="enableUser(user)">Enable</a></li>
-              <li ng-if="!user.disabled"><a ng-click="disableUser(user)">Disable</a></li>
-              <li><a ng-click="changePwd(user)">Change Password</a></li>
+              <li ng-if="user.disabled"><a ng-click="enableUser(user)">启用</a></li>
+              <li ng-if="!user.disabled"><a ng-click="disableUser(user)">禁用</a></li>
+              <li><a ng-click="changePwd(user)">修改密码</a></li>
             </ul>
           </div>
         </td>
@@ -98,7 +98,7 @@
     </table>
     <div class="row" ng-if="users.length>0">
         <div class="col-xs-12">
-            <pagination total-items="usersTotal" boundary-link-numbers="true" rotate="false" boundary-links="true" force-ellipses="true" page="page.curpage" max-size="10" items-per-page="page.limit" on-select-page="listUsers(page)"  class="pagination-sm"></pagination>
+            <pagination total-items="usersTotal" boundary-link-numbers="true" rotate="false" boundary-links="true" force-ellipses="true" page="page.curpage" max-size="10" items-per-page="page.limit" on-select-page="listUsers(page)"  class="pagination-sm" first-text="第一页" last-text="最后一页" previous-text="上一页" next-text="下一页"></pagination>
         </div>
     </div>
   </div>

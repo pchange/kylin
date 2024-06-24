@@ -1,0 +1,1 @@
+rsync -avzP --delete qt10:/docker_info/kylin_92/kylin_v4.0.2-release_zh/ /Users/shenqihui/github_clone/kylin_v4.0.2-release_zh/

@@ -24,7 +24,7 @@
       <accordion>
         <accordion-group is-open="state.isKfkSettingOpen" ng-init="state.isKfkSettingOpen=true">
           <accordion-heading>
-            Kafka Setting
+            Kafka 设置
             <i class="pull-right glyphicon"
                ng-class="{'glyphicon-chevron-down': state.isKfkSettingOpen, 'glyphicon-chevron-right': !state.isKfkSettingOpen}"></i>
           </accordion-heading>
@@ -32,7 +32,7 @@
           <div class="form-group middle-popover" ng-class="{'required':state.mode=='edit'}">
         <div class="row">
           <label class="col-xs-12 col-sm-3 control-label no-padding-right">
-            <b>Topic</b>
+            <b>话题</b>
             <i class="fa fa-info-circle" kylinpopover placement="right" title="Topic"  template="KafkaTopicTip.html"></i>
           </label>
           <div class="col-xs-12 col-sm-6"   ng-class="{'has-error':form.cube_streaming_form.topic.$invalid && (form.cube_streaming_form.topic.$dirty||form.cube_streaming_form.$submitted)}">
@@ -41,9 +41,9 @@
                     class="form-control"/>
             <small class="help-block"
                    ng-show="!form.cube_streaming_form.topic.$error.required && form.cube_streaming_form.topic.$invalid && (form.cube_streaming_form.topic.$dirty||form.cube_streaming_form.$submitted)">
-              Kafka topic is invalid.
+              Kafka 话题不可用.
             </small>
-            <small class="help-block" ng-show="form.cube_streaming_form.topic.$error.required && (form.cube_streaming_form.topic.$dirty||form.cube_streaming_form.$submitted)">Kafka topic is required.</small>
+            <small class="help-block" ng-show="form.cube_streaming_form.topic.$error.required && (form.cube_streaming_form.topic.$dirty||form.cube_streaming_form.$submitted)">Kafka 话题必填</small>
             <span ng-if="state.mode=='view'">{{kafkaMeta.topic}}</span>
           </div>
         </div>
@@ -51,7 +51,7 @@
 
       <div ng-repeat="cluster in kafkaMeta.clusters | filter: state.measureFilter track by $index" class="box">
         <div class="box-header">
-          <h3 class="box-title">Cluster-{{$index+1}}</h3>
+          <h3 class="box-title">集群-{{$index+1}}</h3>
           <button ng-if="state.mode=='edit'" type="button" ng-click="removeCluster(cluster)" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
         </div>
         <div class="box-body no-padding">
@@ -59,9 +59,9 @@
             <thead>
             <tr>
               <th>ID</th>
-              <th>Host</th>
-              <th>Port</th>
-              <th ng-if="state.mode=='edit'">Actions</th>
+              <th>主机</th>
+              <th>端口</th>
+              <th ng-if="state.mode=='edit'">操作</th>
             </tr>
             </thead>
             <tbody>
@@ -119,16 +119,15 @@
               <i class="fa fa-plus"></i> Broker
             </button>
             <button class="btn btn-sm btn-info" ng-click="saveNewBroker(cluster)" ng-show="state.mode=='edit'&&cluster.newBroker">
-              <i class="fa fa-saved"></i> Save
-            </button>
-            <button class="btn btn-link" ng-click="clearNewBroker(cluster)"  ng-show="state.mode=='edit'&&cluster.newBroker">Cancel</button>
+              <i class="fa fa-saved"></i>保存</button>
+            <button class="btn btn-link" ng-click="clearNewBroker(cluster)"  ng-show="state.mode=='edit'&&cluster.newBroker">取消</button>
           </div>
         </div>
       </div>
       <!--Add Measures Button-->
       <div class="form-group">
         <button class="btn btn-sm btn-info" ng-click="addCluster()" ng-show="state.mode=='edit'">
-          <i class="fa fa-plus"></i> Cluster
+          <i class="fa fa-plus"></i> 集群
         </button>
       </div>
 
@@ -139,7 +138,7 @@
 
         <accordion-group is-open="state.isParserHeaderOpen=true">
           <accordion-heading>
-            Parser Setting
+            解析器设置
             <i class="pull-right glyphicon"
                ng-class="{'glyphicon-chevron-down': state.isParserHeaderOpen, 'glyphicon-chevron-right': !state.isParserHeaderOpen}"></i>
           </accordion-heading>
@@ -147,7 +146,7 @@
           <div class="form-group middle-popover" ng-class="{'required':state.mode=='edit'}">
             <div class="row">
               <label class="col-xs-12 col-sm-3 control-label no-padding-right">
-                <b>Parser Name</b>
+                <b>解析器 名称</b>
                 <i class="fa fa-info-circle" kylinpopover placement="right" title="Parser Name" template="ParserName.html"></i>
               </label>
 
@@ -158,11 +157,11 @@
                        class="form-control"/>
                 <small class="help-block"
                        ng-show="!form.cube_streaming_form.parserName.$error.required && form.cube_streaming_form.parserName.$invalid && (form.cube_streaming_form.parserName.$dirty||form.cube_streaming_form.$submitted)">
-                  Kafka parser name is invalid.
+                  Kafka 解析器名称不可用
                 </small>
                 <small class="help-block"
                        ng-show="form.cube_streaming_form.parserName.$error.required && (form.cube_streaming_form.parserName.$dirty||form.cube_streaming_form.$submitted)">
-                  Kafka parser name is required.
+                  Kafka 解析器名称必填
                 </small>
                 <span ng-if="state.mode=='view'">{{kafkaMeta.parserName}}</span>
               </div>
@@ -171,7 +170,7 @@
           <div class="form-group middle-popover" ng-if="state.mode=='edit'&&state.target!=='kfkConfig'" ng-class="{'required':state.mode=='edit'}">
             <div class="row">
               <label class="col-xs-12 col-sm-3 control-label no-padding-right">
-                <b>Parser Timestamp Field</b>
+                <b>解析器时间戳字段</b>
                 <i class="fa fa-info-circle" kylinpopover placement="right" title="Parser Timestamp Field" template="ParserTimestampFieldsTip.html"></i>
               </label>
 
@@ -189,7 +188,7 @@
           <div class="form-group middle-popover" ng-class="{'required':state.mode=='edit'}">
             <div class="row">
               <label class="col-xs-12 col-sm-3 control-label no-padding-right">
-                <b>Parser Properties</b>
+                <b>解析器特性</b>
                 <i class="fa fa-info-circle" kylinpopover placement="right" title="Parser Properties" template="ParserPropertiesTip.html"></i>
               </label>
 
@@ -200,11 +199,11 @@
                        class="form-control"/>
                 <small class="help-block"
                        ng-show="!form.cube_streaming_form.parserProperties.$error.required && form.cube_streaming_form.parserProperties.$invalid && (form.cube_streaming_form.parserProperties.$dirty||form.cube_streaming_form.$submitted)">
-                  Parser properties is invalid.
+                  解析器特性不可用
                 </small>
                 <small class="help-block"
                        ng-show="form.cube_streaming_form.parserProperties.$error.required && (form.cube_streaming_form.parserProperties.$dirty||form.cube_streaming_form.$submitted)">
-                  Parser properties is required.
+                  解析器特性必填。
                 </small>
                 <span ng-if="state.mode=='view'">{{kafkaMeta.parserProperties}}</span>
               </div>
@@ -217,7 +216,7 @@
       <accordion>
         <accordion-group is-open="state.isStreamingAdOpen" ng-init="state.isStreamingAdOpen">
           <accordion-heading>
-            Advanced Setting
+            高级设置
             <i class="pull-right glyphicon"
                ng-class="{'glyphicon-chevron-down': state.isStreamingAdOpen, 'glyphicon-chevron-right': !state.isStreamingAdOpen}"></i>
           </accordion-heading>
@@ -225,7 +224,7 @@
           <div class="form-group middle-popover" ng-class="{'required':state.mode=='edit'}">
             <div class="row">
               <label class="col-xs-12 col-sm-3 control-label no-padding-right">
-                <b>Timeout</b>
+                <b>超时</b>
                 <i class="fa fa-info-circle" kylinpopover placement="right" title="Timeout" template="TimeoutTip.html"></i>
               </label>
 
@@ -238,11 +237,11 @@
                        onInput="this.value=this.value.replace(/[^0-9]/g, '')"/>
                 <small class="help-block"
                        ng-show="!form.cube_streaming_form.timeout.$error.required && form.cube_streaming_form.timeout.$invalid && (form.cube_streaming_form.timeout.$dirty||form.cube_streaming_form.$submitted)">
-                  Kafka timeout is invalid.
+                  Kafka 超时不可用
                 </small>
                 <small class="help-block"
                        ng-show="form.cube_streaming_form.timeout.$error.required && (form.cube_streaming_form.timeout.$dirty||form.cube_streaming_form.$submitted)">
-                  Kafka timeout is required.
+                  Kafka 超时 必填。
                 </small>
                 <span ng-if="state.mode=='view'">{{kafkaMeta.timeout}}</span>
               </div>
@@ -257,20 +256,20 @@
 </div>
 
 <script type="text/ng-template" id="KafkaTopicTip.html">
-    <p>Input the kafka topic that contains source data.</p>
+    <p>输入包含源数据的 kafka 主题。</p>
   </script>
 <script type="text/ng-template" id="TimeoutTip.html">
-    <p>Set timeout for kafka client.</p>
+    <p>为 kafka 客户端设置超时。</p>
   </script>
 <script type="text/ng-template" id="MarginTip.html">
-    <p>Deprecated. When the messages in kafka is not strictly sorted on timestamp, read more data (expressed in ts) before and after the specified interval to avoid data loss.</p>
+    <p>已弃用。 当kafka中的消息没有严格按照timestamp排序时，在指定的时间间隔前后读取更多的数据（以ts表示），避免数据丢失。</p>
   </script>
 <script type="text/ng-template" id="ParserName.html">
-    <p>Set the parser to parse source data messages. The default parser works for json messages with a timestamp field.</p>
+    <p>设置解析器解析源数据消息。 默认解析器适用于带有时间戳字段的 json 消息。</p>
   </script>
 <script type="text/ng-template" id="ParserTimestampFieldsTip.html">
-    <p>Provide the name of the timestamp field to the default parser.</p>
+    <p>将时间戳字段的名称提供给默认解析器。</p>
   </script>
 <script type="text/ng-template" id="ParserPropertiesTip.html">
-    <p>Provide a list of KV properties to the parser, delimited by semicolon.</p>
+    <p>向解析器提供 KV 属性列表，以分号分隔。</p>
 </script>

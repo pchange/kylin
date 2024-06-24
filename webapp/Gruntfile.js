@@ -312,12 +312,13 @@ module.exports = function (grunt) {
   grunt.loadNpmTasks('grunt-manifest');
   grunt.loadNpmTasks('grunt-regex-replace');
   grunt.loadNpmTasks('grunt-karma');
+  grunt.loadNpmTasks('grunt-contrib-uglify-es');
 
   grunt.registerTask('test', ['jshint', 'lesslint']);
 
   grunt.registerTask('prod', [
 //    'test',
-    'clean:build',
+    // 'clean:build',
     'copy:tmp',
     'html2js',
     'concat:app',
@@ -332,7 +333,7 @@ module.exports = function (grunt) {
     'copy:build',
     'clean:tmp',
     'manifest',
-    'changelog'
+    // 'changelog'
   ]);
 
   grunt.registerTask('dev', [

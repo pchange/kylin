@@ -18,28 +18,28 @@
 
 KylinApp.constant('jobConfig', {
   allStatus: [
-    {name: 'NEW', value: 0, count: ''},
-    {name: 'PENDING', value: 1, count: ''},
-    {name: 'RUNNING', value: 2, count: ''},
-    {name: 'STOPPED', value: 32, count: ''},
-    {name: 'FINISHED', value: 4, count: ''},
-    {name: 'ERROR', value: 8, count: ''},
-    {name: 'DISCARDED', value: 16, count: ''}
+    {name: '新', value: 0, count: ''},
+    {name: '等待中', value: 1, count: ''},
+    {name: '运行中', value: 2, count: ''},
+    {name: '已停止', value: 32, count: ''},
+    {name: '已完成', value: 4, count: ''},
+    {name: '错误', value: 8, count: ''},
+    {name: '已取消', value: 16, count: ''}
   ],
   timeFilter: [
-    {name: 'CURRENT DAY', value: 0},
-    {name: 'LAST ONE DAY', value: 1},
-    {name: 'LAST ONE WEEK', value: 2},
-    {name: 'LAST ONE MONTH', value: 3},
-    {name: 'LAST ONE YEAR', value: 4},
-    {name: 'ALL', value: 5},
+    {name: '今天', value: 0},
+    {name: '昨天', value: 1},
+    {name: '上周', value: 2},
+    {name: '上个月', value: 3},
+    {name: '上一年', value: 4},
+    {name: '全部', value: 5},
   ],
   theaditems: [
-    {attr: 'name', name: 'Job Name'},
+    {attr: 'name', name: '任务名称'},
     {attr: 'related_object', name: 'Object'},
-    {attr: 'progress', name: 'Progress'},
-    {attr: 'last_modified', name: 'Last Modified Time'},
-    {attr: 'duration', name: 'Duration'}
+    {attr: 'progress', name: '进度'},
+    {attr: 'last_modified', name: '上一次修改时间'},
+    {attr: 'duration', name: '时长'}
   ],
   searchMode: [
     {name: 'CUBING', value: 'CUBING_ONLY'},
@@ -50,13 +50,13 @@ KylinApp.constant('jobConfig', {
   ],
   queryitems: [
   {attr: 'server', name: 'Server'},
-  {attr: 'user', name: 'User'},
+  {attr: 'user', name: '创建人'},
   {attr: 'cube', name: 'Hit Cube'},
   {attr: 'sql', name: 'Sql'},
-  {attr: 'adj', name: 'Description'},
-  {attr: 'running_seconds', name: 'Running Seconds'},
-  {attr: 'start_time', name: 'Start Time'},
-  {attr: 'last_modified', name: 'Last Modified'},
+  {attr: 'adj', name: '描述'},
+  {attr: 'running_seconds', name: '运行时长'},
+  {attr: 'start_time', name: '开始时间'},
+  {attr: 'last_modified', name: '最后修改'},
   {attr: 'thread', name: 'Thread'}
 ]
 

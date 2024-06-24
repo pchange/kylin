@@ -140,8 +140,8 @@ KylinApp.run(function ($rootScope, $http, $location, UserService, Authentication
    * On 'event:forbidden', resend all the 403 requests.
    */
   $rootScope.$on('event:forbidden', function (event, message) {
-    var msg = !!(message) ? message : 'You don\' have right to take the action.';
-    SweetAlert.swal('Oops...', 'Permission Denied: ' + msg, 'error');
+    var msg = !!(message) ? message : '没权利操作.';
+    SweetAlert.swal('提示...', '权限被拒绝: ' + msg, 'error');
 
   });
 

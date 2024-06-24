@@ -18,22 +18,22 @@
 
 KylinApp.constant('dashboardConfig', {
   granularityFilter: [
-    {name: 'Daily', value: 'day'},
-    {name: 'Weekly', value: 'week'},
-    {name: 'Monthly', value: 'month'}
+    {name: '每天', value: 'day'},
+    {name: '每周', value: 'week'},
+    {name: '每月', value: 'month'}
   ],
   metrics: [
-    {name: 'query count', value: 'QUERY_COUNT'},
-    {name: 'avg query latency', value: 'AVG_QUERY_LATENCY'},
-    {name: 'job count', value: 'JOB_COUNT'},
-    {name: 'avg build time', value: 'AVG_JOB_BUILD_TIME'}
+    {name: '查询次数', value: 'QUERY_COUNT'},
+    {name: '平均查询延迟', value: 'AVG_QUERY_LATENCY'},
+    {name: '任务数量', value: 'JOB_COUNT'},
+    {name: '平均构建时间', value: 'AVG_JOB_BUILD_TIME'}
   ],
   dimensions: [
-    {name: 'project', value: 'PROJECT'},
+    {name: '项目', value: 'PROJECT'},
     {name: 'cube', value: 'CUBE'},
-    {name: 'day', value: 'DAY'},
-    {name: 'week', value: 'WEEK'},
-    {name: 'month', value: 'MONTH'}
+    {name: '天', value: 'DAY'},
+    {name: '周', value: 'WEEK'},
+    {name: '月', value: 'MONTH'}
   ],
   categories: [
     'QUERY', 'JOB'

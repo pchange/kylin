@@ -26,13 +26,13 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
     $scope.newMeasure = null;
     $scope.forms={};
     $scope.wizardSteps = [
-        {title: 'Cube Info', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
-        {title: 'Dimensions', src: 'partials/cubeDesigner/dimensions.html', isComplete: false,form:'cube_dimension_form'},
-        {title: 'Measures', src: 'partials/cubeDesigner/measures.html', isComplete: false,form:'cube_measure_form'},
-        {title: 'Refresh Setting', src: 'partials/cubeDesigner/refresh_settings.html', isComplete: false,form:'refresh_setting_form'},
-        {title: 'Advanced Setting', src: 'partials/cubeDesigner/advanced_settings.html', isComplete: false,form:'cube_setting_form'},
-        {title: 'Configuration Overwrites ', src: 'partials/cubeDesigner/cubeOverwriteProp.html', isComplete: false,form:'cube_overwrite_prop_form'},
-        {title: 'Overview', src: 'partials/cubeDesigner/overview.html', isComplete: false,form:null}
+        {title: '多维数据信息', src: 'partials/cubeDesigner/info.html', isComplete: false,form:'cube_info_form'},
+        {title: '规模', src: 'partials/cubeDesigner/dimensions.html', isComplete: false,form:'cube_dimension_form'},
+        {title: '度量', src: 'partials/cubeDesigner/measures.html', isComplete: false,form:'cube_measure_form'},
+        {title: '刷新设置', src: 'partials/cubeDesigner/refresh_settings.html', isComplete: false,form:'refresh_setting_form'},
+        {title: '高级设置', src: 'partials/cubeDesigner/advanced_settings.html', isComplete: false,form:'cube_setting_form'},
+        {title: '配置覆盖', src: 'partials/cubeDesigner/cubeOverwriteProp.html', isComplete: false,form:'cube_overwrite_prop_form'},
+        {title: '概况', src: 'partials/cubeDesigner/overview.html', isComplete: false,form:null}
     ];
 
     $scope.curStep = $scope.wizardSteps[0];
@@ -319,7 +319,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
       var cubeName = $scope.cubeMetaFrame.name;
       CubeService.checkDuplicateCubeName({cubeId: cubeName}, {}, function (res) {
         if (!res.data) {
-          SweetAlert.swal('Oops...', "The cube named [" + cubeName.toUpperCase() + "] already exists", 'warning');
+          SweetAlert.swal('提示...', "cube 名称 [" + cubeName.toUpperCase() + "] 已存在", 'warning');
         }
         return defer.resolve(res.data);
       })
@@ -332,7 +332,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
     $scope.check_cube_dimension = function(){
         var errors = [];
         if(!$scope.cubeMetaFrame.dimensions.length){
-            errors.push("Dimension can't be null");
+            errors.push("维度不能为空");
         }
         var errorInfo = "";
         angular.forEach(errors,function(item){
@@ -350,7 +350,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
         var _measures = $scope.cubeMetaFrame.measures;
         var errors = [];
         if(!_measures||!_measures.length){
-            errors.push("Please define your metrics.");
+            errors.push("请定义指标.");
         }
 
         var existCountExpression = false;
@@ -361,7 +361,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
             }
         }
         if(!existCountExpression){
-            errors.push("[COUNT] metric is required.");
+            errors.push("[COUNT] 标准必填。");
         }
 
         var errorInfo = "";
@@ -381,7 +381,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
 
         angular.forEach($scope.cubeMetaFrame.aggregation_groups,function(group){
             if(!group&&!group.includes){
-                errors.push("Each aggregation group can't be empty.");
+                errors.push("每个聚合组不能为空.");
             }
         })
 
@@ -391,14 +391,14 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
             shardRowkeyList.push(rowkey.column);
           }
           if(rowkey.encoding.substr(0,3)=='int' && (rowkey.encoding.substr(4)<1 || rowkey.encoding.substr(4)>8)){
-            errors.push("int encoding column length should between 1 and 8.");
+            errors.push("int编码列长度应该在1到8之间.");
           }
           if(rowkey.encoding.substr(0, 5) == 'fixed' && (!/^[1-9]\d*$/.test(rowkey.encoding.split(':')[1]))) {
-            errors.push("fixed encoding need a valid length.")
+            errors.push("固定编码需要有效的长度.")
           }
         })
         if(shardRowkeyList.length >1){
-          errors.push("At most one 'shard by' column is allowed.");
+          errors.push("最多允许一个“分片依据”列.");
         }
 
         var cfMeasures = [];
@@ -410,7 +410,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
 
         var uniqCfMeasures = _.uniq(cfMeasures);
         if(uniqCfMeasures.length != $scope.cubeMetaFrame.measures.length) {
-          errors.push("All measures need to be assigned to column family");
+          errors.push("所有度量都需要分配给列族");
         }
 
         var isCFEmpty = _.some($scope.cubeMetaFrame.hbase_mapping.column_family, function(colFamily) {
@@ -418,7 +418,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
         });
 
         if (isCFEmpty == true) {
-          errors.push("Each column family can't not be empty");
+          errors.push("每个列族不能不为空");
         }
 
 
@@ -436,7 +436,7 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
                 });
 
                 if (!isColumnExit) {
-                    errors.push("The non-Int type precise count distinct measure must set advanced dictionary: " + measureColumn);
+                    errors.push("非整型精确计数的不同度量必须设置高级字典: " + measureColumn);
                 }
             }
         });
@@ -462,10 +462,10 @@ KylinApp.controller('CubeSchemaCtrl', function ($scope, QueryService, UserServic
 
       for(var key in $scope.cubeMetaFrame.override_kylin_properties){
         if(key==''){
-          errors.push("Property name is required.");
+          errors.push("属性名称必填.");
         }
         if($scope.cubeMetaFrame.override_kylin_properties[key] == ''){
-          errors.push("Property value is required.");
+          errors.push("属性值必填.");
         }
       }
 

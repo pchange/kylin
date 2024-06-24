@@ -63,7 +63,7 @@ KylinApp
 //         will load table when enter this page,null or not
       $scope.aceSrcTbLoaded();
     }, function (resp) {
-      SweetAlert.swal('Oops...', resp, 'error');
+      SweetAlert.swal('提示...', resp, 'error');
     });
 
 
@@ -84,7 +84,7 @@ KylinApp
 
     $scope.openModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
@@ -138,7 +138,7 @@ KylinApp
 
     $scope.openTreeModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
 
@@ -187,23 +187,23 @@ KylinApp
           unloadedTableInfo += "\n" + table;
         })
         if (result['result.unloaded'].length != 0 && result['result.loaded'].length == 0) {
-          SweetAlert.swal('Failed!', 'Failed to load following table(s): ' + unloadedTableInfo, 'error');
+          SweetAlert.swal('失败!', '以下表加载失败: ' + unloadedTableInfo, 'error');
         }
         if (result['result.loaded'].length != 0 && result['result.unloaded'].length == 0) {
-          MessageBox.successNotify('The following table(s) have been successfully loaded: ' + loadTableInfo);
+          MessageBox.successNotify('以下表加载成功: ' + loadTableInfo);
         }
         if (result['result.loaded'].length != 0 && result['result.unloaded'].length != 0) {
-          SweetAlert.swal('Partial loaded!', 'The following table(s) have been successfully loaded: ' + loadTableInfo + "\n\n Failed to load following table(s):" + unloadedTableInfo, 'warning');
+          SweetAlert.swal('部分加载!', '以下表加载成功: ' + loadTableInfo + "\n\n 以下表加载失败:" + unloadedTableInfo, 'warning');
         }
         loadingRequest.hide();
         delay.resolve("");
       }, function (e) {
         if (e.data && e.data.exception) {
           var message = e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '操作失败.';
+          SweetAlert.swal('提示...', msg, 'error');
         } else {
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
         loadingRequest.hide();
       })
@@ -214,16 +214,16 @@ KylinApp
     $scope.unloadTable = function (tableName) {
       SweetAlert.swal({
         title: "",
-        text: "Are you sure to unload this table?",
+        text: "确定unload该表?",
         showCancelButton: true,
         confirmButtonColor: '#DD6B55',
-        confirmButtonText: "Yes",
-        cancelButtonText: "No",
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
         closeOnConfirm: true
       }, function (isConfirm) {
         if (isConfirm) {
           if (!$scope.projectModel.selectedProject) {
-            SweetAlert.swal('', 'Please choose your project first!.', 'info');
+            SweetAlert.swal('', '请先选择项目!.', 'info');
             return;
           }
           loadingRequest.show();
@@ -240,23 +240,23 @@ KylinApp
               unRemovedTableInfo += "\n" + table;
             })
             if (result['result.unload.fail'].length != 0 && result['result.unload.success'].length == 0) {
-              SweetAlert.swal('Failed!', 'Failed to unload following table(s): ' + unRemovedTableInfo, 'error');
+              SweetAlert.swal('失败!', '以下表unload失败: ' + unRemovedTableInfo, 'error');
             }
             if (result['result.unload.success'].length != 0 && result['result.unload.fail'].length == 0) {
-              MessageBox.successNotify('The following table(s) have been successfully unloaded: ' + removedTableInfo);
+              MessageBox.successNotify('以下表unload成功: ' + removedTableInfo);
             }
             if (result['result.unload.success'].length != 0 && result['result.unload.fail'].length != 0) {
-              SweetAlert.swal('Partial unloaded!', 'The following table(s) have been successfully unloaded: ' + removedTableInfo + "\n\n Failed to unload following table(s):" + unRemovedTableInfo, 'warning');
+              SweetAlert.swal('部分 unloaded!', '以下表unload成功: ' + removedTableInfo + "\n\n 以下表unload失败:" + unRemovedTableInfo, 'warning');
             }
             loadingRequest.hide();
             $scope.aceSrcTbLoaded(true);
           }, function (e) {
             if (e.data && e.data.exception) {
               var message = e.data.exception;
-              var msg = !!(message) ? message : 'Failed to take action.';
-              SweetAlert.swal('Oops...', msg, 'error');
+              var msg = !!(message) ? message : '操作失败.';
+              SweetAlert.swal('提示...', msg, 'error');
             } else {
-              SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+              SweetAlert.swal('提示...', "操作失败.", 'error');
             }
             loadingRequest.hide();
           })
@@ -309,10 +309,10 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '操作失败.';
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+            SweetAlert.swal('提示...', "操作失败.", 'error');
           }
           $scope.hiveLoaded = true;
         });
@@ -470,12 +470,12 @@ KylinApp
         }
 
         if ($scope.tableNames.trim() === "") {
-          SweetAlert.swal('', 'Please input table(s) you want to load.', 'info');
+          SweetAlert.swal('', '请输入您要加载的表.', 'info');
           return;
         }
 
         if (!$scope.projectName) {
-          SweetAlert.swal('', 'Please choose your project first!.', 'info');
+          SweetAlert.swal('', '请先选择您的项目!.', 'info');
           return;
         }
 
@@ -546,7 +546,7 @@ KylinApp
     //streaming model
     $scope.openStreamingSourceModal = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择一个项目.", 'info');
         return;
       }
       $modal.open({
@@ -610,11 +610,11 @@ KylinApp
           kafkaConfig: angular.toJson($scope.kafkaMeta)
         }, function (request) {
           if (request.successful) {
-            MessageBox.successNotify('Updated the streaming successfully.');
+            MessageBox.successNotify('已成功更新流.');
             $scope.cancel();
           } else {
             var message = request.message;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -625,7 +625,7 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to take action.';
+            var msg = !!(message) ? message : '操作失败.';
             MessageService.sendMsg($scope.streamingResultTmpl({
               'text': msg,
               'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -686,7 +686,7 @@ KylinApp
         }
         StreamingServiceV2.update({}, updateConfig, function (request) {
           if (request.successful) {
-            MessageBox.successNotify('Updated the streaming successfully.');
+            MessageBox.successNotify('已成功更新流.');
             $scope.cancel();
           } else {
             ResponseUtil.handleError({
@@ -951,10 +951,11 @@ KylinApp
 
         SweetAlert.swal({
           title: "",
-          text: 'Are you sure to save the streaming table and cluster info ?',
+          text: '确定要保存流表和集群信息吗 ?',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function (isConfirm) {
           if (isConfirm) {
@@ -968,11 +969,11 @@ KylinApp
                 kafkaConfig: angular.toJson($scope.kafkaMeta)
               }, function (request) {
                 if (request.successful) {
-                  MessageBox.successNotify('Updated the streaming successfully.');
+                  MessageBox.successNotify('更新 streaming 成功.');
                   $location.path("/models");
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -983,7 +984,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -1008,12 +1009,12 @@ KylinApp
                 kafkaConfig: angular.toJson($scope.kafkaMeta)
               }, function (request) {
                 if (request.successful) {
-                  MessageBox.successNotify('Created the streaming successfully.');
+                  MessageBox.successNotify('新建streaming成功.');
                   $scope.cancel();
                   scope.aceSrcTbLoaded(true);
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
                     'streamingSchema': angular.toJson($scope.streamingMeta, true),
@@ -1024,7 +1025,7 @@ KylinApp
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to take action.';
+                  var msg = !!(message) ? message : '操作失败.';
 
                   MessageService.sendMsg($scope.streamingResultTmpl({
                     'text': msg,
@@ -1052,7 +1053,7 @@ KylinApp
     //streaming resource onboard v2
     $scope.openStreamingSourceModalV2 = function () {
       if (!$scope.projectModel.selectedProject) {
-        SweetAlert.swal('Oops...', "Please select a project.", 'info');
+        SweetAlert.swal('提示...', "请选择项目.", 'info');
         return;
       }
       $modal.open({
@@ -1160,10 +1161,10 @@ KylinApp
         }, function (e) {
           if (e.data && e.data.exception) {
             var message = e.data.exception;
-            var msg = !!(message) ? message : 'Failed to get template.';
-            SweetAlert.swal('Oops...', msg, 'error');
+            var msg = !!(message) ? message : '获取模板失败.';
+            SweetAlert.swal('提示...', msg, 'error');
           } else {
-            SweetAlert.swal('Oops...', "Failed to get template.", 'error');
+            SweetAlert.swal('提示...', "获取模板失败.", 'error');
           }
         });
       };
@@ -1182,7 +1183,7 @@ KylinApp
           $scope.tableData = {
             source_type: $scope.tableData.source_type
           };
-          $scope.streaming.errMsg = 'Please input Streaming source record to generate schema.';
+          $scope.streaming.errMsg = '请输入Streaming source以生成模式.';
           return;
         }
 
@@ -1193,7 +1194,7 @@ KylinApp
           $scope.tableData = {
             source_type: $scope.tableData.source_type
           };
-          $scope.streaming.errMsg = 'Source json invalid, Please correct your schema and generate again.';
+          $scope.streaming.errMsg = '源json无效，请修改方案并重新生成.';
           return;
         }
         // kafka parser
@@ -1307,7 +1308,7 @@ KylinApp
           }
           $scope.additionalColumn = {};
         } else {
-          $scope.additionalColumn.error = 'Additional column field can not be empty!';
+          $scope.additionalColumn.error = '附加列字段不能为空!';
         }
       };
 
@@ -1374,13 +1375,13 @@ KylinApp
         $scope.streaming.errMsg = '';
 
         if (!$scope.validateTableName()) {
-          $scope.streaming.errMsg = 'Table name is invalid, please typing correct table name.';
+          $scope.streaming.errMsg = '表名无效，请输入正确的表名.';
           return;
         }
 
         // table column validation
         if ($scope.tableData.columns.length === 0) {
-          $scope.streaming.errMsg = 'Table columns is empty, please add template to create it.';
+          $scope.streaming.errMsg = '表列为空，请添加模板进行创建.';
           return;
         }
 
@@ -1392,7 +1393,7 @@ KylinApp
         });
 
         if (allColumnsAreDerived) {
-          $scope.streaming.errMsg = 'All columns are derived, please add template to create it again.';
+          $scope.streaming.errMsg = '所有列都是派生的，请添加模板以重新创建.';
           return;
         }
 
@@ -1401,7 +1402,7 @@ KylinApp
 
         // kafka config validation
         if (!$scope.streaming.TSColumnSelected) {
-          $scope.streaming.errMsg = 'TSColumn is empty, please choose \'timestamp\' type column for TSColumn.';
+          $scope.streaming.errMsg = 'TSColumn 为空, 请选择 \'timestamp\' 类型的列作为 TSColumn.';
           return;
         }
         // Set ts column
@@ -1416,10 +1417,11 @@ KylinApp
         })
         SweetAlert.swal({
           title: '',
-          text: 'Are you sure to save the streaming table?',
+          text: '确定保存 streaming table?',
           showCancelButton: true,
           confirmButtonColor: '#DD6B55',
-          confirmButtonText: "Yes",
+          confirmButtonText: "确定",
+          cancelButtonText: "取消",
           closeOnConfirm: true
         }, function (isConfirm) {
           if (isConfirm) {
@@ -1441,22 +1443,22 @@ KylinApp
               transformStreamingConfig
               , function (request) {
                 if (request.successful) {
-                  SweetAlert.swal('', 'Created the streaming successfully.', 'success');
+                  SweetAlert.swal('', '新建 streaming 成功.', 'success');
                   $scope.cancel();
                   scope.aceSrcTbLoaded(true);
                 } else {
                   var message = request.message;
-                  var msg = !!(message) ? message : 'Failed to create streaming source.';
+                  var msg = !!(message) ? message : '新建 streaming source 失败.';
                   $scope.streaming.errMsg = msg;
                 }
                 loadingRequest.hide();
               }, function (e) {
                 if (e.data && e.data.exception) {
                   var message = e.data.exception;
-                  var msg = !!(message) ? message : 'Failed to create streaming source.';
+                  var msg = !!(message) ? message : '新建 streaming source 失败.';
                   $scope.streaming.errMsg = msg;
                 } else {
-                  $scope.streaming.errMsg = 'Failed to create streaming source.';
+                  $scope.streaming.errMsg = '新建 streaming source 失败.';
                 }
                 //end loading
                 loadingRequest.hide();
@@ -1556,7 +1558,7 @@ KylinApp
         CsvUploadService.save(file, $scope.tableData.name, projectName, JSON.stringify(columns), $scope.tableData.has_header, $scope.tableData.separator)
           .then(
             function (response) {
-              SweetAlert.swal('', 'Created table from csv file successfully.', 'success');
+              SweetAlert.swal('', '从csv文件创建表格成功.', 'success');
               $scope.cancel();
               scope.aceSrcTbLoaded(true);
             },
@@ -1586,7 +1588,7 @@ KylinApp
               snapshot.usageInfo += '</br>';
             });
           } else {
-            snapshot.usageInfo = 'No Usage Info';
+            snapshot.usageInfo = '没有使用信息';
           }
         });
         $scope.tableSnapshots = orgData;

@@ -20,11 +20,9 @@
     <div class="space-4"></div>
     <div class="pull-right">
         <button class="btn btn-primary btn-xs" ng-click="renewAccess(entity)" ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask) && !newAccess"><i
-                class="fa fa-plus"></i> Grant
-        </button>
+                class="fa fa-plus"></i>授予</button>
         <button class="btn btn-primary btn-xs" ng-click="resetNewAcess()" ng-if="newAccess"><i
-                class="fa fa-minus"></i> Cancel
-        </button>
+                class="fa fa-minus"></i>取消</button>
         <label tooltip-placement="left" tooltip-html-unsafe="{{accessTooltip}}"><i class="fa fa-question-circle" style="font-size: 16px"></i></label>
     </div>
     <div class="clearfix"></div>
@@ -34,14 +32,14 @@
         <table class="table table-striped">
             <tr>
                 <td style="width: 20%">
-                    <label><b>Type&nbsp;</b> </label>
-                    <input type="radio" ng-model="newAccess.principal" ng-value=true />  <span tooltip="Username">User</span>
-                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="User Role">Group</span>
+                    <label><b>类型&nbsp;</b> </label>
+                    <input type="radio" ng-model="newAccess.principal" ng-value=true />  <span tooltip="用户名">用户</span>
+                    <input type="radio" ng-model="newAccess.principal" ng-value=false /> <span tooltip="用户组">组</span>
                 </td>
                 <td style="width: 40%" >
-                    <label><b>Name&nbsp;</b> </label>
-                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==true" placeholder=" User NT Account..." style="width: 80%" />
-                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==false" placeholder=" User NT Account..." style="width: 80%" />
+                    <label><b>名称&nbsp;</b> </label>
+                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==true" placeholder=" 用户 NT 账号..." style="width: 80%" />
+                    <input ng-model="newAccess.sid" ng-if="newAccess.principal==false" placeholder=" 用户 NT 账号..." style="width: 80%" />
 
                     <!-- <select chosen ng-model="newAccess.sid" ng-if="newAccess.principal==false" style="width: 80%"
                             ng-options="authority as authority for authority in authorities">
@@ -49,7 +47,7 @@
                             </select> -->
                 </td>
                 <td >
-                    <label><b>Permission&nbsp;</b> </label>
+                    <label><b>权限&nbsp;</b> </label>
                     <select ng-model="newAccess.permission" ng-init="newAccess.permission=permissions.READ.value"
                             ng-options="permission.value as permission.name for (name, permission) in permissionsSorted">
                             <option value=""></option>
@@ -57,24 +55,23 @@
                 </td>
                 <td>
                     <button class="btn btn-default btn-xs" ng-click="grant(type, entity, newAccess)"
-                            ng-disabled="!newAccess.sid || !newAccess.permission">Grant
-                    </button>
+                            ng-disabled="!newAccess.sid || !newAccess.permission">授予</button>
                 </td>
             </tr>
         </table>
     </div>
 
     <div ng-if="!entity.accessLoading && (!entity.accessEntities || entity.accessEntities.length == 0)" no-result></div>
-    <loading ng-if="entity.accessLoading" text="Loading Access..."></loading>
+    <loading ng-if="entity.accessLoading" text="权限加载中..."></loading>
 
     <table ng-show="entity.accessEntities" class="table table-hover table-striped">
         <thead>
             <tr>
-                <th>Name</th>
-                <th>Type</th>
-                <th>Access</th>
-                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">Update</th>
-                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">Revoke</th>
+                <th>名称</th>
+                <th>类型</th>
+                <th>权限</th>
+                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">更新</th>
+                <th ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">撤销</th>
             </tr>
         </thead>
         <tbody>
@@ -84,26 +81,25 @@
                     {{accessEntity.sid.grantedAuthority}}
                 </td>
                 <td>
-                    <span ng-if="accessEntity.sid.principal" >User</span>
-                    <span ng-if="accessEntity.sid.grantedAuthority">Group</span>
+                    <span ng-if="accessEntity.sid.principal" >用户</span>
+                    <span ng-if="accessEntity.sid.grantedAuthority">组</span>
                 </td>
                 <td>
-                  <span ng-if="accessEntity.permission.mask == permissions.READ.mask">QUERY</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.OPERATION.mask">OPERATION</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.MANAGEMENT.mask">MANAGEMENT</span>
-                  <span ng-if="accessEntity.permission.mask == permissions.ADMINISTRATION.mask">ADMIN</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.READ.mask">查询</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.OPERATION.mask">操作</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.MANAGEMENT.mask">管理</span>
+                  <span ng-if="accessEntity.permission.mask == permissions.ADMINISTRATION.mask">管理员</span>
                 </td>
                 <td ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">
                     <select ng-model="accessEntity.newPermission"  ng-init="newAccess.permission=permissions.READ.value"
                             ng-options="permission.value as permission.name for (name, permission) in permissionsSorted">
-                        <option value="">-- select access --</option>
+                        <option value="">-- 选择权限 --</option>
                     </select>
                     <button class="btn btn-default btn-xs" ng-disabled="!accessEntity.newPermission"
-                            ng-click="update(type, entity, accessEntity, accessEntity.newPermission)">Update
-                    </button>
+                            ng-click="update(type, entity, accessEntity, accessEntity.newPermission)">更新</button>
                 </td>
                 <td ng-if="userService.hasRole('ROLE_ADMIN') || hasPermission('project',entity, permissions.ADMINISTRATION.mask)">
-                    <button class="btn btn-default btn-xs" ng-click="revoke(type, accessEntity, entity)">Revoke</button>
+                    <button class="btn btn-default btn-xs" ng-click="revoke(type, accessEntity, entity)">撤销</button>
                 </td>
             </tr>
         </tbody>

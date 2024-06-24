@@ -25,23 +25,23 @@ KylinApp.controller('BalanceReplicaSetCtrl', function ($scope, $modal, AdminStre
   }, function(e) {
     if (e.data && e.data.exception) {
       var message = e.data.exception;
-      var msg = !!(message) ? message : 'Failed get balance plan';
-      SweetAlert.swal('Oops...', msg, 'error');
+      var msg = !!(message) ? message : '获取余额计划失败';
+      SweetAlert.swal('提示...', msg, 'error');
     } else {
-      SweetAlert.swal('Oops...', 'Failed get balance plan', 'error');
+      SweetAlert.swal('提示...', '获取余额计划失败', 'error');
     }
   });
 
   $scope.rebalance = function() {
     AdminStreamingService.reBalance({}, {reBalancePlan: $scope.replicaSets}, function(data) {
-      SweetAlert.swal('Success!', 'Rebalance Success', 'success');
+      SweetAlert.swal('成功!', '重新平衡成功', 'success');
     }, function(e) {
       if (e.data && e.data.exception) {
         var message = e.data.exception;
-        var msg = !!(message) ? message : 'Failed to rebalance';
-        SweetAlert.swal('Oops...', msg, 'error');
+        var msg = !!(message) ? message : '重新平衡失败';
+        SweetAlert.swal('提示...', msg, 'error');
       } else {
-        SweetAlert.swal('Oops...', 'Failed to rebalance', 'error');
+        SweetAlert.swal('提示...', '重新平衡失败', 'error');
       }
     });
   };

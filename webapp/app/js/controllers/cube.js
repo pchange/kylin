@@ -36,10 +36,10 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
         },function(e){
             if(e.data&& e.data.exception){
                 var message =e.data.exception;
-                var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '操作失败.';
+                SweetAlert.swal('提示...', msg, 'error');
             }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "操作失败.", 'error');
             }
         });
     };
@@ -76,14 +76,14 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             cube.detail.notify_list = cube.notifyListString.split(",");
         }
         CubeService.updateNotifyList({cubeId: cube.name}, cube.detail.notify_list, function () {
-            MessageBox.successNotify('Notify List updated successfully!');
+            MessageBox.successNotify('通知列表更新成功!');
         },function(e){
             if(e.data&& e.data.exception){
                 var message =e.data.exception;
-                var msg = !!(message) ? message : 'Failed to take action.';
-                SweetAlert.swal('Oops...', msg, 'error');
+                var msg = !!(message) ? message : '操作失败.';
+                SweetAlert.swal('提示...', msg, 'error');
             }else{
-                SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                SweetAlert.swal('提示...', "操作失败.", 'error');
             }
         });
     };
@@ -95,14 +95,14 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
     $scope.updateOwner = function (cube) {
       CubeService.updateOwner({cubeId: cube.name}, cube.newOwner, function () {
         cube.owner = cube.newOwner;
-        MessageBox.successNotify('Owner updated successfully!');
+        MessageBox.successNotify('创建人更新成功!');
       },function(e){
         if(e.data&& e.data.exception){
           var message =e.data.exception;
-          var msg = !!(message) ? message : 'Failed to take action.';
-          SweetAlert.swal('Oops...', msg, 'error');
+          var msg = !!(message) ? message : '操作失败.';
+          SweetAlert.swal('提示...', msg, 'error');
         }else{
-          SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+          SweetAlert.swal('提示...', "操作失败.", 'error');
         }
       });
     };
@@ -125,10 +125,10 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
             },function(e){
                 if(e.data&& e.data.exception){
                     var message =e.data.exception;
-                    var msg = !!(message) ? message : 'Failed to take action.';
-                    SweetAlert.swal('Oops...', msg, 'error');
+                    var msg = !!(message) ? message : '操作失败.';
+                    SweetAlert.swal('提示...', msg, 'error');
                 }else{
-                    SweetAlert.swal('Oops...', "Failed to take action.", 'error');
+                    SweetAlert.swal('提示...', "操作失败.", 'error');
                 }
             });
         }
@@ -150,7 +150,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                     $scope.currentData = [];
                 }
             }, function(e) {
-                SweetAlert.swal('Oops...', 'Failed to get current cuboid.', 'error');
+                SweetAlert.swal('提示...', '无法获取当前Cuboid.', 'error');
                 console.error('current cuboid error', e.data);
             });
         } else {
@@ -167,7 +167,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 if (data && data.nodeInfos) {
                     // recommending
                     if (data.nodeInfos.length === 1 && !data.nodeInfos[0].cuboid_id) {
-                         SweetAlert.swal('Loading', 'Please wait a minute, servers are recommending for you', 'success');
+                         SweetAlert.swal('Loading', '请稍等，服务器正在为您推荐', 'success');
                     } else {
                         $scope.createChart(data, 'recommend');
                         cube.recommendCuboids = data;
@@ -187,7 +187,7 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 }
             }, function(e) {
                 loadingRequest.hide();
-                SweetAlert.swal('Oops...', 'Failed to get recommend Cuboid; Check whether you have enabled System Cube.', 'error');
+                SweetAlert.swal('提示...', '未能获得推荐的Cuboid；检查您是否启用了系统Cube.', 'error');
                 console.error('recommend cuboid error', e.data);
             });
         } else {
@@ -199,11 +199,12 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
     $scope.optimizeCuboids = function(cube){
         SweetAlert.swal({
             title: '',
-            text: 'Are you sure to optimize the cube?',
+            text: '您确定要优化该Cube吗?',
             type: '',
             showCancelButton: true,
             confirmButtonColor: '#DD6B55',
-            confirmButtonText: "Yes",
+            confirmButtonText: "确定",
+            cancelButtonText: "取消",
             closeOnConfirm: true
         }, function(isConfirm) {
               if(isConfirm) {
@@ -216,8 +217,8 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                     function(job){
                         loadingRequest.hide();
                         SweetAlert.swal({
-                            title: 'Success!',
-                            text: 'Optimize cube job has been started!',
+                            title: '成功!',
+                            text: '优化Cube任务已开始!',
                             type: 'success'},
                             function() {
                                 $location.path("/jobs");
@@ -226,9 +227,9 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                     }, function(e) {
                         loadingRequest.hide();
                         if (e.status === 400) {
-                            SweetAlert.swal('Oops...', e.data.exception, 'error');
+                            SweetAlert.swal('提示...', e.data.exception, 'error');
                         } else {
-                            SweetAlert.swal('Oops...', "Failed to create optimize cube job.", 'error');
+                            SweetAlert.swal('提示...', "无法创建优化Cube任务.", 'error');
                             console.error('optimize cube error', e.data);
                         }
                 });
@@ -256,8 +257,8 @@ KylinApp.controller('CubeCtrl', function ($scope, $rootScope, AccessService, Mes
                 }
             };
             $scope.currentOptions.chart.sunburst = getSunburstDispatch();
-            $scope.currentOptions.title.text = 'Current Cuboid Distribution';
-            $scope.currentOptions.subtitle.text = '[Cuboid Count: ' + data.nodeInfos.length + '] [The Row Count of The First Segment: ' + data.totalRowCount + ']';
+            $scope.currentOptions.title.text = '当前 Cuboid 分布';
+            $scope.currentOptions.subtitle.text = '[Cuboid 数量: ' + data.nodeInfos.length + '] [第一段的行数: ' + data.totalRowCount + ']';
         } else if ('recommend' === type) {
             $scope.recommendData = [chartData];
             $scope.recommendOptions = angular.copy(cubeConfig.baseChartOptions);
